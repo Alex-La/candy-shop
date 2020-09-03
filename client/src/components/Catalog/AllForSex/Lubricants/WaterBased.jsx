@@ -45,11 +45,9 @@ const WaterBased = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        subsection: "На водной основе",
-        orderBy,
-        priceRange: priceRange.length !== 0 ? priceRange : [],
-      },
+      subsection: "На водной основе",
+      orderBy,
+      priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
 

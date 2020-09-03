@@ -69,11 +69,9 @@ const MasksAntiseptics = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        subsection: "Маски, антисептики",
-        orderBy,
-        priceRange: priceRange.length !== 0 ? priceRange : [],
-      },
+      subsection: "Маски, антисептики",
+      orderBy,
+      priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
 

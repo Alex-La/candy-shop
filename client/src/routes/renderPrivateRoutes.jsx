@@ -55,7 +55,6 @@ import Prolongators from "../components/Catalog/AllForSex/Lubricants/Prolongator
 // import ForFemale from "../components/Catalog/ForFemale/ForFemale";
 
 import Manufacturers from "../components/Manufacturers/Manufacturers";
-import Sale from "../components/Catalog/Sale/Sale";
 
 const renderPrivateRoutes = () => {
   return (
@@ -196,7 +195,6 @@ const renderPrivateRoutes = () => {
         component={Prolongators}
       />
       <Route path="/catalog/manufacturer" component={Manufacturers} />
-      <Route path="/catalog/sale" component={Sale} />
       <Route render={() => <Redirect to="/" />} />
     </Switch>
   );

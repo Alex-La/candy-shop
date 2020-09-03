@@ -30,7 +30,7 @@ const Overview = ({ product }) => {
       <div className="col s12 m6">
         <h4>{product.name}</h4>
         <p>
-          <b>Артикул:</b> {product.vendor_code}, ID: {product.aID}
+          <b>Артикул:</b> {product.vendor_code}, ID: {product.aid}
         </p>
         <p>
           <b>Дата отгрузки:</b> {product.shipment_time}{" "}

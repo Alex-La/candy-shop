@@ -7,7 +7,7 @@ const PRODUCT_QUERY = gql`
       product {
         name
         vendor_code
-        aID
+        aid
         shipment_time
         in_stock
         description

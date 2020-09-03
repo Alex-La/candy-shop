@@ -10,7 +10,7 @@ class ScrollToTop extends Component {
     if (this.props.location !== prevProps.location) {
       const { instance } = this.context;
       instance.close();
-      window.location.reload();
+      window.scrollTo(0, 0);
     }
   }
 

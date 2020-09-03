@@ -11,10 +11,8 @@ const Clothes = () => {
   const { data, loading, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        pageSize: 7,
-        main: ["Эротическая одежда"],
-      },
+      pageSize: 7,
+      main: ["Эротическая одежда"],
     },
   });
 

@@ -37,16 +37,14 @@ const ForFemale = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        main: [
-          "Фаллоимитаторы",
-          "Анальные игрушки",
-          "Вибраторы",
-          "Секс-товары для женщин",
-        ],
-        orderBy,
-        priceRange: priceRange.length !== 0 ? priceRange : [],
-      },
+      main: [
+        "Фаллоимитаторы",
+        "Анальные игрушки",
+        "Вибраторы",
+        "Секс-товары для женщин",
+      ],
+      orderBy,
+      priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
 

@@ -69,11 +69,9 @@ const Condoms = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        subsection: "Презервативы",
-        orderBy,
-        priceRange: priceRange.length !== 0 ? priceRange : [],
-      },
+      subsection: "Презервативы",
+      orderBy,
+      priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
 

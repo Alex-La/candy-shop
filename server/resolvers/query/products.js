@@ -62,7 +62,15 @@ module.exports.products = async (queryData, dataSources) => {
     results: priceFiltData,
   });
 
-  console.log(paginatedData);
+  for (let i in paginatedData) {
+    const photo = [];
+    photo.push(paginatedData[i]["photo_one"]);
+    photo.push(paginatedData[i]["photo_two"]);
+    photo.push(paginatedData[i]["photo_three"]);
+    photo.push(paginatedData[i]["photo_four"]);
+    photo.push(paginatedData[i]["photo_five"]);
+    paginatedData[i].photos = photo;
+  }
 
   return {
     cursor: paginatedData.length

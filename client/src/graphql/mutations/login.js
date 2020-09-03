@@ -1,7 +1,7 @@
 import { gql } from "apollo-boost";
 
 const LOGIN_MUTATION = gql`
-  mutation login(data: UserData!) {
+  mutation login($data: UserData!) {
     login(data: $data) {
       token
       user {

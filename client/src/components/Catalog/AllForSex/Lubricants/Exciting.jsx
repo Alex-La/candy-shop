@@ -45,11 +45,9 @@ const Exciting = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        subsection: "Возбуждающие",
-        orderBy,
-        priceRange: priceRange.length !== 0 ? priceRange : [],
-      },
+      subsection: "Возбуждающие",
+      orderBy,
+      priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
 

@@ -69,11 +69,9 @@ const BatteriesAndAccessories = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        subsection: "Элементы питания и аксессуары",
-        orderBy,
-        priceRange: priceRange.length !== 0 ? priceRange : [],
-      },
+      subsection: "Элементы питания и аксессуары",
+      orderBy,
+      priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
 

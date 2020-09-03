@@ -69,11 +69,9 @@ const PleasantTrifles = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        main: ["Приятные мелочи"],
-        orderBy,
-        priceRange: priceRange.length !== 0 ? priceRange : [],
-      },
+      main: ["Приятные мелочи"],
+      orderBy,
+      priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
 

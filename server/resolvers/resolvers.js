@@ -41,7 +41,7 @@ module.exports = {
     product: async (_, { vendorCode }, { dataSources }) =>
       await product(vendorCode, dataSources),
 
-    products: async (_, { data }, { dataSources }) =>
+    products: async (_, data, { dataSources }) =>
       await products(data, dataSources),
   },
 

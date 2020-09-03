@@ -3,7 +3,7 @@ const config = require("config");
 
 module.exports.paginateResults = ({
   after: cursor,
-  pageSize = 20,
+  pageSize = 12,
   results,
   getCursor = () => null,
 }) => {
@@ -11,7 +11,7 @@ module.exports.paginateResults = ({
 
   if (!cursor) return results.slice(0, pageSize);
   const cursorIndex = results.findIndex((item) => {
-    let itemCursor = item.cursor ? item.cursor : getCursor(item);
+    let itemCursor = item.aid ? item.aid : getCursor(item);
     return itemCursor ? cursor === itemCursor : false;
   });
 

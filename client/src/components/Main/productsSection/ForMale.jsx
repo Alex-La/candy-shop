@@ -12,10 +12,8 @@ const ForMale = () => {
   const { data, loading, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        pageSize: 7,
-        main: ["Секс-товары для мужчин"],
-      },
+      pageSize: 7,
+      main: ["Секс-товары для мужчин"],
     },
   });
 

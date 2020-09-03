@@ -8,7 +8,6 @@ import Filter from "../../../assets/Filter/Filter";
 import ProductCont from "../../../assets/Product/ProductCont";
 import LoadMoreButton from "../../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../../assets/FloatActionBtn/FixedToCartButton";
-import { useEffect } from "react";
 
 const catalogData = [
   {
@@ -42,17 +41,11 @@ const PerfumesAndLubricantsForFemale = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        subsection: "Духи и смазки для женщин",
-        orderBy,
-        priceRange: priceRange.length !== 0 ? priceRange : [],
-      },
+      subsection: "Духи и смазки для женщин",
+      orderBy,
+      priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return (
     <Fragment>

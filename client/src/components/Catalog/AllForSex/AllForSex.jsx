@@ -37,16 +37,14 @@ const AllForSex = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        main: [
-          "Косметика с феромонами",
-          "Приятные мелочи",
-          "Секс-мебель и качели",
-          "Смазки, лубриканты",
-        ],
-        orderBy,
-        priceRange: priceRange.length !== 0 ? priceRange : [],
-      },
+      main: [
+        "Косметика с феромонами",
+        "Приятные мелочи",
+        "Секс-мебель и качели",
+        "Смазки, лубриканты",
+      ],
+      orderBy,
+      priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
 

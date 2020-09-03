@@ -18,6 +18,13 @@ module.exports.product = async (vendorCode, dataSources) => {
   prod = product[0];
   prod["color"] = color;
   prod["size"] = size;
+  const photo = [];
+  photo.push(product[0]["photo_one"]);
+  photo.push(product[0]["photo_two"]);
+  photo.push(product[0]["photo_three"]);
+  photo.push(product[0]["photo_four"]);
+  photo.push(product[0]["photo_five"]);
+  prod["photos"] = photo;
 
   return {
     refetch_require: refetchRequire,

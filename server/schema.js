@@ -7,7 +7,14 @@ const typeDefs = gql`
     productReviews(vendorCode: Int!): [ProductReview!]!
     sales: [Product!]!
     main: Main!
-    products(data: ProductsData!): ProductsConnection!
+    products(
+      pageSize: Int
+      after: String
+      main: [String]
+      subsection: String
+      orderBy: OrderBy
+      priceRange: [String]
+    ): ProductsConnection!
     product(vendorCode: Int!): ProductConnection!
   }
 
@@ -106,7 +113,7 @@ const typeDefs = gql`
     shipment_time: String
     size: [String]
     color: [String]
-    aID: String
+    aid: String
     material: String
     batteries: String
     package: String

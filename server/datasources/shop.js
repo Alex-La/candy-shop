@@ -29,7 +29,7 @@ class ShopAPI extends DataSource {
 
   async getProductReviews(vendorCode) {
     return await this.store.ProductReview.findAll({
-      where: { vendorCode: vendorCode.toString() },
+      where: { vendor_code: vendorCode.toString() },
     });
   }
 }

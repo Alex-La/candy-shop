@@ -41,11 +41,9 @@ const CosmeticsWithPheromones = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        main: ["Косметика с феромонами"],
-        orderBy,
-        priceRange: priceRange.length !== 0 ? priceRange : [],
-      },
+      main: ["Косметика с феромонами"],
+      orderBy,
+      priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
 

@@ -45,11 +45,9 @@ const Lubricants = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        main: ["Смазки, лубриканты"],
-        orderBy,
-        priceRange: priceRange.length !== 0 ? priceRange : [],
-      },
+      main: ["Смазки, лубриканты"],
+      orderBy,
+      priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
 

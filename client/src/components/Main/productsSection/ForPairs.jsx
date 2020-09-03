@@ -12,10 +12,8 @@ const ForPairs = () => {
   const { data, loading, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        pageSize: 7,
-        main: ["BDSM, садо-мазо товары", "Страпоны, фаллопротезы"],
-      },
+      pageSize: 7,
+      main: ["BDSM, садо-мазо товары", "Страпоны, фаллопротезы"],
     },
   });
 

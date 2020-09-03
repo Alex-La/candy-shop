@@ -12,15 +12,13 @@ const AllForSex = () => {
   const { data, loading, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      data: {
-        pageSize: 7,
-        main: [
-          "Косметика с феромонами",
-          "Приятные мелочи",
-          "Секс-мебель и качели",
-          "Смазки, лубриканты",
-        ],
-      },
+      pageSize: 7,
+      main: [
+        "Косметика с феромонами",
+        "Приятные мелочи",
+        "Секс-мебель и качели",
+        "Смазки, лубриканты",
+      ],
     },
   });
 

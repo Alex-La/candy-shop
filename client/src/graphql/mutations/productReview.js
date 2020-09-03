@@ -1,7 +1,7 @@
 import { gql } from "apollo-boost";
 
 const PRODUCT_REVIEW_MUTATION = gql`
-  mutation productReview(data: ReviewData!) {
+  mutation productReview($data: ReviewData!) {
     productReview(data: $data) {
       successMessage
     }
