@@ -1,0 +1,5 @@
+{
+  "port": 4000,
+  "jwtSecret": "alex very proud of candy-shop.su",
+  "pgString": "postgres://postgres:qwe123ewq321@localhost:5432/candy-shop"
+}

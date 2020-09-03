@@ -1,0 +1,111 @@
+.opacity {
+  opacity: 0.5;
+}
+
+.under-line:hover {
+  text-decoration: underline;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.scrolling-item {
+  width: 300px;
+  flex: 0 0 auto;
+}
+
+.dropdown-scroll::-webkit-scrollbar-track {
+  box-shadow: black;
+  -webkit-box-shadow: inset 0 0 2px black;
+  background-color: #f5f5f5;
+}
+
+.dropdown-scroll::-webkit-scrollbar {
+  width: 4px;
+  background-color: #f5f5f5;
+}
+
+.dropdown-scroll::-webkit-scrollbar-thumb {
+  background-color: #ffb74d;
+}
+
+.scrolling-wrapper::-webkit-scrollbar-track {
+  box-shadow: black;
+  -webkit-box-shadow: inset 0 0 2px black;
+  background-color: #f5f5f5;
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+  width: 4px;
+  background-color: #f5f5f5;
+}
+
+.scrolling-wrapper::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+.preloader-js {
+  position: fixed;
+  z-index: 999;
+  height: 5em;
+  width: 5em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.preloader-js:before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
