@@ -53,8 +53,9 @@ const typeDefs = gql`
   }
 
   type Login {
-    token: String!
-    user: User!
+    message: String
+    token: String
+    user: User
   }
 
   type User {

@@ -1,3 +1,7 @@
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const config = require("config");
+
 const { products } = require("./query/products");
 const { product } = require("./query/product");
 const { updateMe } = require("./mutation/updateMe");
@@ -6,7 +10,7 @@ module.exports = {
   Query: {
     me: async (_, __, { user }) => {
       if (!user) return null;
-      return null;
+      return user;
     },
 
     reviews: async (_, __, { dataSources }) => {
@@ -53,10 +57,10 @@ module.exports = {
       const { email, password } = data;
 
       const user = await dataSources.userAPI.findUser({ email });
-      if (!user) return "Такого пользователя не существует!";
+      if (!user) return { message: "Такого пользователя не существует!" };
 
       const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) return "Неверный пароль";
+      if (!isMatch) return { message: "Неверный пароль" };
 
       const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
         expiresIn: "1h",

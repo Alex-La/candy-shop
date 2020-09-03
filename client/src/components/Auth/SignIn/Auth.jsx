@@ -27,11 +27,8 @@ const Auth = () => {
 
   useEffect(() => {
     if (data) {
-      if (
-        data.login === "Такого пользователя не существует!" ||
-        data.login === "Неверный пароль"
-      ) {
-        M.toast({ html: data.login });
+      if (data.login.message) {
+        M.toast({ html: data.login.message });
       } else document.location.reload();
     }
   }, [data]);
