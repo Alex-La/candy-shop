@@ -1,4 +1,8 @@
-const { paginateResults, resultsFilter } = require("../../utils");
+const {
+  paginateResults,
+  resultsFilter,
+  toUniqueArray,
+} = require("../../utils");
 
 module.exports.products = async (queryData, dataSources) => {
   const {
@@ -8,14 +12,38 @@ module.exports.products = async (queryData, dataSources) => {
     subsection,
     orderBy = "",
     priceRange = [],
+    manufacturer,
   } = queryData;
 
   let data = [];
-  if (main) data = await dataSources.productsAPI.getProductsByMain({ main });
-  if (subsection)
+
+  if (main && !subsection && !manufacturer)
+    data = await dataSources.productsAPI.getProductsByMain({ main });
+
+  if (main && subsection && !manufacturer)
+    data = await dataSources.productsAPI.getProductsByMainAndSubsection({
+      main,
+      subsection,
+    });
+
+  if (!main && subsection && !manufacturer)
     data = await dataSources.productsAPI.getProductsBySubsection({
       subsection,
     });
+
+  if (!main && !subsection && manufacturer)
+    data = await dataSources.productsAPI.getProductsByManufacturer({
+      manufacturer,
+    });
+
+  if (main && !subsection && manufacturer)
+    data = await dataSources.productsAPI.getProductsByManufacturerAndMain({
+      manufacturer,
+      main,
+    });
+
+  if (!main && !subsection && !manufacturer)
+    data = await dataSources.productsAPI.getProducts();
 
   if (!data) {
     return {
@@ -28,6 +56,7 @@ module.exports.products = async (queryData, dataSources) => {
   }
 
   data.reverse();
+  data = toUniqueArray(data);
 
   const priceArray = [];
   for (let i in data) {

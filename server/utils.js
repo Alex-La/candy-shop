@@ -1,6 +1,16 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 const config = require("config");
 
+module.exports.toUniqueArray = (data) => {
+  const seen = new Set();
+
+  return data.filter((el) => {
+    const duplicate = seen.has(el.vendor_code);
+    seen.add(el.vendor_code);
+    return !duplicate;
+  });
+};
+
 module.exports.paginateResults = ({
   after: cursor,
   pageSize = 12,

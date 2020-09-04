@@ -1,13 +1,22 @@
-import React, { Fragment, useState, useEffect, createRef } from "react";
+import React, {
+  Fragment,
+  useState,
+  useEffect,
+  createRef,
+  useContext,
+} from "react";
 
 import { useHistory } from "react-router-dom";
 
 import M from "materialize-css";
 
+import Context from "../../../context/Context";
+
 const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
   const [selectRefs, setSelectRefs] = useState([]);
 
   const history = useHistory();
+  const { setManufacturer } = useContext(Context);
 
   useEffect(() => {
     setSelectRefs((selectRef) =>
@@ -27,6 +36,7 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
 
   const onCategoryChange = (event) => {
     history.push(event.target.value);
+    setManufacturer(catalogData[event.target.selectedIndex - 1].name);
   };
 
   const onOrderByChange = (event) => {

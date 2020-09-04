@@ -45,11 +45,13 @@ const Filter = ({
     <div className="section">
       <div className="container">
         <div className="row">
-          <Dropdowns
-            catalogData={catalogData}
-            setOrderBy={setOrderBy}
-            setLoadingOnButton={setLoadingOnButton}
-          />
+          {catalogData.length !== 0 && (
+            <Dropdowns
+              catalogData={catalogData}
+              setOrderBy={setOrderBy}
+              setLoadingOnButton={setLoadingOnButton}
+            />
+          )}
 
           <div className="col s12 m4 center">
             <div className="col s6">

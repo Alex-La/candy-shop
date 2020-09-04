@@ -47,6 +47,16 @@ module.exports = {
 
     products: async (_, data, { dataSources }) =>
       await products(data, dataSources),
+
+    manufacturers: async (_, __, { dataSources }) => {
+      const data = await dataSources.productsAPI.getProducts();
+      const manufacturers = [];
+      for (let i in data) {
+        if (manufacturers.indexOf(data[i].manufacturer) === -1)
+          manufacturers.push(data[i].manufacturer);
+      }
+      return manufacturers.sort();
+    },
   },
 
   Mutation: {
