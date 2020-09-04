@@ -69,7 +69,10 @@ const Tabs = ({ data, loading, refetch, instance, vendorCode }) => {
               </div>
             </div>
           ) : (
-            <FullDescription product={data.product.product} />
+            <FullDescription
+              product={data.product.product}
+              instance={instance}
+            />
           )
         ) : (
           <FullDescriptionSkeleton />

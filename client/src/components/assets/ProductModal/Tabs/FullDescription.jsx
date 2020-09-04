@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 
-const FullDescription = ({ product }) => {
+import Context from "../../../../context/Context";
+
+import { Link } from "react-router-dom";
+
+const date = new Date();
+
+const FullDescription = ({ product, instance }) => {
+  const { setManufacturer } = useContext(Context);
+
+  const onManufacturer = () => {
+    instance.close();
+    setManufacturer(product.manufacturer);
+  };
   return (
     <div className="row">
       <div className="col s12">
@@ -21,7 +33,10 @@ const FullDescription = ({ product }) => {
             <b>Материал:</b> {product.material}
           </li>
           <li className="collection-item grey lighten-5">
-            <b>Производитель:</b> {product.manufacturer}
+            <b>Производитель:</b>{" "}
+            <Link to="/catalog/manufacturer" onClick={onManufacturer}>
+              {product.manufacturer}
+            </Link>
           </li>
           <li className="collection-item grey lighten-5">
             <b>Вес:</b> {product.gross_weight}г.
@@ -30,7 +45,17 @@ const FullDescription = ({ product }) => {
             <b>Батарейки:</b> {product.batteries}
           </li>
           <li className="collection-item grey lighten-5">
-            <b>Отгрузка со склада:</b> {product.shipment_time}
+            <b>Отгрузка со склада:</b>{" "}
+            {date.getFullYear() +
+              "." +
+              (date.getMonth() + 1) +
+              "." +
+              (date.getHours() > parseInt(product.shipment_time) + 12
+                ? date.getDate() + 1
+                : date.getDate()) +
+              " " +
+              (parseInt(product.shipment_time) + 12) +
+              ":00:00"}
           </li>
         </ul>
       </div>

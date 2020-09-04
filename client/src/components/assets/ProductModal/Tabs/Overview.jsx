@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from "react";
 
 import M from "materialize-css";
 
+const date = new Date();
+
 const Overview = ({ product }) => {
   const sliderRef = useRef(null);
 
@@ -33,7 +35,17 @@ const Overview = ({ product }) => {
           <b>Артикул:</b> {product.vendor_code}, ID: {product.aid}
         </p>
         <p>
-          <b>Дата отгрузки:</b> {product.shipment_time}{" "}
+          <b>Дата отгрузки: </b>
+          {date.getFullYear() +
+            "." +
+            (date.getMonth() + 1) +
+            "." +
+            (date.getHours() > parseInt(product.shipment_time) + 12
+              ? date.getDate() + 1
+              : date.getDate()) +
+            " " +
+            (parseInt(product.shipment_time) + 12) +
+            ":00:00"}{" "}
           <span className="green white-text" style={{ padding: 5 }}>
             <b style={{ whiteSpace: "nowrap" }}>
               НА СКЛАДЕ: {product.in_stock}
