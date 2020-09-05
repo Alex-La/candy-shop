@@ -132,20 +132,6 @@ module.exports.createStore = () => {
     { sequelize, modelName: "full_mode", timestamps: false }
   );
 
-  class Supersale extends Model {}
-  Supersale.init(
-    {
-      prod_id: DataTypes.STRING,
-      a_id: { type: DataTypes.STRING, primaryKey: true },
-      base_retail_price: DataTypes.STRING,
-      base_whole_price: DataTypes.STRING,
-      whole_supersale_price: DataTypes.STRING,
-      stock: DataTypes.STRING,
-      time: DataTypes.STRING,
-    },
-    { sequelize, modelName: "supersale", timestamps: false }
-  );
-
   sequelize.sync();
 
   return { Review, ProductReview, User, FullMode, Supersale };
