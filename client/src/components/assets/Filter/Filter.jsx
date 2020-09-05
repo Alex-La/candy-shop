@@ -94,12 +94,22 @@ const Filter = ({
                 : price[0] + " р. - " + price[1] + " р."}
             </p>
             <Nouislider
-              disabled={firstLoad || price.length === 0}
+              disabled={
+                firstLoad || price.length === 0 || minMax[0] === minMax[1]
+              }
               onSlide={onSliderSlide}
               onChange={onSliderChange}
               range={{
-                min: firstLoad ? 0 : minMax[0] ? parseInt(minMax[0]) : 0,
-                max: firstLoad ? 300 : minMax[1] ? parseInt(minMax[1]) : 300,
+                min: firstLoad
+                  ? 0
+                  : minMax[0] && minMax[0] !== minMax[1]
+                  ? parseInt(minMax[0])
+                  : 0,
+                max: firstLoad
+                  ? 300
+                  : minMax[1] && minMax[0] !== minMax[1]
+                  ? parseInt(minMax[1])
+                  : 300,
               }}
               start={firstLoad ? [0, 300] : price}
               format={wNumb({

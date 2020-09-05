@@ -4,7 +4,6 @@ html,
 body {
   height: 100%;
 }
-
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
@@ -14,8 +13,8 @@ body {
   flex-direction: column;
 }
 
-.footer {
-  flex-shrink: 0;
+.cont {
+  min-height: calc(100vh - 80px);
 }
 
 code {

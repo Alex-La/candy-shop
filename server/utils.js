@@ -134,5 +134,5 @@ module.exports.createStore = () => {
 
   sequelize.sync();
 
-  return { Review, ProductReview, User, FullMode, Supersale };
+  return { Review, ProductReview, User, FullMode };
 };

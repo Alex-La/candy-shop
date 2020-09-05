@@ -45,10 +45,11 @@ const App = () => {
         >
           <ApolloProvider client={client}>
             <CartModal />
-
-            <Header />
-            <ScrollToTop />
-            <Routes />
+            <div className="cont">
+              <Header />
+              <ScrollToTop />
+              <Routes />
+            </div>
             <Footer />
           </ApolloProvider>
         </Context.Provider>
