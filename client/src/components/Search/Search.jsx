@@ -37,7 +37,7 @@ const Search = () => {
   const mainsObject = useMemo(() => {
     if (mains.data) {
       return Object.fromEntries(
-        mains.data.mainNames.map((name) => [name, null])
+        mains.data.mainNames.map((name) => [name + " -> Категория", null])
       );
     }
   }, [mains.data]);
@@ -45,7 +45,10 @@ const Search = () => {
   const subsectionsObject = useMemo(() => {
     if (subsections.data) {
       return Object.fromEntries(
-        subsections.data.subsectionNames.map((name) => [name, null])
+        subsections.data.subsectionNames.map((name) => [
+          name + " -> Подкатегория",
+          null,
+        ])
       );
     }
   }, [subsections.data]);
@@ -59,7 +62,10 @@ const Search = () => {
   const manufacturersObject = useMemo(() => {
     if (manufacturers.data) {
       return Object.fromEntries(
-        manufacturers.data.manufacturers.map((name) => [name, null])
+        manufacturers.data.manufacturers.map((name) => [
+          name + " -> Производитель",
+          null,
+        ])
       );
     }
   }, [manufacturers.data]);
@@ -77,7 +83,7 @@ const Search = () => {
         namesObject,
         manufacturersObject
       );
-      instance.updateData(data);
+      if (instance) instance.updateData(data);
     }
   }, [
     mainsObject,
@@ -136,9 +142,7 @@ const Search = () => {
       </div>
 
       <div className="section">
-        <div className="container">
-          <SearchProducts />
-        </div>
+        <SearchProducts />
       </div>
     </Fragment>
   );

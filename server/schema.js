@@ -21,6 +21,13 @@ const typeDefs = gql`
     mainNames: [String]!
     subsectionNames: [String]!
     names: [String]!
+    searchProducts(
+      pageSize: Int
+      after: String
+      name: String
+      orderBy: OrderBy
+      priceRange: [String]
+    ): ProductsConnection!
   }
 
   type Mutation {

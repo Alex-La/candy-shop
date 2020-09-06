@@ -5,6 +5,7 @@ const config = require("config");
 const { products } = require("./query/products");
 const { product } = require("./query/product");
 const { updateMe } = require("./mutation/updateMe");
+const { searchProducts } = require("./query/searchProducts");
 
 module.exports = {
   Query: {
@@ -86,6 +87,9 @@ module.exports = {
       }
       return results.sort();
     },
+
+    searchProducts: async (_, data, { dataSources }) =>
+      await searchProducts(data, dataSources),
   },
 
   Mutation: {
