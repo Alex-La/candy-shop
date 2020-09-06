@@ -18,6 +18,9 @@ const typeDefs = gql`
     ): ProductsConnection!
     product(vendorCode: Int!): ProductConnection!
     manufacturers: [String]!
+    mainNames: [String]!
+    subsectionNames: [String]!
+    names: [String]!
   }
 
   type Mutation {

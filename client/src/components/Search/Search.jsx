@@ -1,5 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Fragment, useEffect, useRef, useContext } from "react";
+import React, {
+  Fragment,
+  useEffect,
+  useRef,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 
 import { Link } from "react-router-dom";
 
@@ -7,21 +14,91 @@ import M from "materialize-css";
 
 import Context from "../../context/Context";
 
+import { useQuery } from "@apollo/react-hooks";
+import MAIN_NAMES_QUERY from "../../graphql/queries/mainNames";
+import SUBSECTION_NAMES_QUERY from "../../graphql/queries/subsectionNames";
+import NAMES_QUERY from "../../graphql/queries/names";
+import MANUFACTURERS_QUERY from "../../graphql/queries/manufacturers";
+
+import SearchProducts from "./SearchProducts";
+
 const Search = () => {
   const autocompleteRef = useRef(null);
 
-  const { searchInputValue } = useContext(Context);
+  const [instance, setInstance] = useState(null);
+
+  const { searchInputValue, setSearchInputValue } = useContext(Context);
+
+  const mains = useQuery(MAIN_NAMES_QUERY);
+  const subsections = useQuery(SUBSECTION_NAMES_QUERY);
+  const names = useQuery(NAMES_QUERY);
+  const manufacturers = useQuery(MANUFACTURERS_QUERY);
+
+  const mainsObject = useMemo(() => {
+    if (mains.data) {
+      return Object.fromEntries(
+        mains.data.mainNames.map((name) => [name, null])
+      );
+    }
+  }, [mains.data]);
+
+  const subsectionsObject = useMemo(() => {
+    if (subsections.data) {
+      return Object.fromEntries(
+        subsections.data.subsectionNames.map((name) => [name, null])
+      );
+    }
+  }, [subsections.data]);
+
+  const namesObject = useMemo(() => {
+    if (names.data) {
+      return Object.fromEntries(names.data.names.map((name) => [name, null]));
+    }
+  }, [names.data]);
+
+  const manufacturersObject = useMemo(() => {
+    if (manufacturers.data) {
+      return Object.fromEntries(
+        manufacturers.data.manufacturers.map((name) => [name, null])
+      );
+    }
+  }, [manufacturers.data]);
+
+  useEffect(() => {
+    if (
+      mainsObject &&
+      subsectionsObject &&
+      namesObject &&
+      manufacturersObject
+    ) {
+      const data = Object.assign(
+        mainsObject,
+        subsectionsObject,
+        namesObject,
+        manufacturersObject
+      );
+      instance.updateData(data);
+    }
+  }, [
+    mainsObject,
+    subsectionsObject,
+    namesObject,
+    manufacturersObject,
+    instance,
+  ]);
 
   useEffect(() => {
     if (autocompleteRef.current) {
-      M.Autocomplete.init(autocompleteRef.current, {
-        data: {
-          Apple: null,
-          Data: null,
+      const instance = M.Autocomplete.init(autocompleteRef.current, {
+        minLength: 3,
+        limit: 500,
+        onAutocomplete: (data) => {
+          setSearchInputValue(data);
         },
       });
+      setInstance(instance);
     }
-  }, []);
+  }, [setSearchInputValue]);
 
   return (
     <Fragment>
@@ -43,8 +120,9 @@ const Search = () => {
       <div className="section">
         <div className="container">
           <div className="row">
-            <div className="input-field col s10">
+            <div className="input-field col s12">
               <input
+                placeholder="Поиск..."
                 type="text"
                 id="autocomplete-input"
                 className="autocomplete"
@@ -53,15 +131,13 @@ const Search = () => {
               />
               <label for="autocomplete-input">{searchInputValue}</label>
             </div>
-            <div className="col s2">
-              <a
-                className="waves-effect waves-light btn orange"
-                style={{ marginTop: 20 }}
-              >
-                <i className="material-icons">search</i>
-              </a>
-            </div>
           </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <SearchProducts />
         </div>
       </div>
     </Fragment>

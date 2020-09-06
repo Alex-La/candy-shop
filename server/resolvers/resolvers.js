@@ -57,6 +57,35 @@ module.exports = {
       }
       return manufacturers.sort();
     },
+
+    mainNames: async (_, __, { dataSources }) => {
+      const data = await dataSources.productsAPI.getProducts();
+      const results = [];
+      for (let i in data) {
+        if (results.indexOf(data[i].main_product_category) === -1)
+          results.push(data[i].main_product_category);
+      }
+      return results.filter((item) => !item.includes("�")).sort();
+    },
+
+    subsectionNames: async (_, __, { dataSources }) => {
+      const data = await dataSources.productsAPI.getProducts();
+      const results = [];
+      for (let i in data) {
+        if (results.indexOf(data[i].subsection_product_category) === -1)
+          results.push(data[i].subsection_product_category);
+      }
+      return results.filter((item) => !item.includes("�")).sort();
+    },
+
+    names: async (_, __, { dataSources }) => {
+      const data = await dataSources.productsAPI.getProducts();
+      const results = [];
+      for (let i in data) {
+        if (results.indexOf(data[i].name) === -1) results.push(data[i].name);
+      }
+      return results.sort();
+    },
   },
 
   Mutation: {
