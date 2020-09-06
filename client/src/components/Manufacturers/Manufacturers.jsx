@@ -77,6 +77,7 @@ const Manufacturers = () => {
         setRadio={setRadio}
         setOrderBy={setOrderBy}
         price_range={data && data.products && data.products.price_range}
+        manufacturers={true}
       />
 
       <ProductCont

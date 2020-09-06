@@ -13,13 +13,18 @@ const CartModal = () => {
 
   const { removeFromCart } = useRemoveFromCart();
 
-  const { productsInCart, setCurrentVendorCode } = useContext(Context);
+  const {
+    productsInCart,
+    setCurrentVendorCode,
+    setCartModalInstance,
+  } = useContext(Context);
 
   useEffect(() => {
     if (modalRef.current) {
-      M.Modal.init(modalRef.current);
+      const instance = M.Modal.init(modalRef.current);
+      setCartModalInstance(instance);
     }
-  }, []);
+  }, [setCartModalInstance]);
 
   const onOpenModal = (e, vendor_code) => {
     e.preventDefault();

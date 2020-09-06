@@ -15,6 +15,7 @@ const Filter = ({
   setRadio,
   setOrderBy,
   price_range,
+  manufacturers = false,
 }) => {
   const [price, setPrice] = useState([0, 0]);
   const [firstLoad, setFirstLoad] = useState(true);
@@ -86,39 +87,41 @@ const Filter = ({
             </div>
           </div>
 
-          <div className="col s12">
-            <p className="grey-text">
-              Цена:{" "}
-              {price.length === 0
-                ? 0 + " р. - " + 0 + " р."
-                : price[0] + " р. - " + price[1] + " р."}
-            </p>
-            <Nouislider
-              disabled={
-                firstLoad || price.length === 0 || minMax[0] === minMax[1]
-              }
-              onSlide={onSliderSlide}
-              onChange={onSliderChange}
-              range={{
-                min: firstLoad
-                  ? 0
-                  : minMax[0] && minMax[0] !== minMax[1]
-                  ? parseInt(minMax[0])
-                  : 0,
-                max: firstLoad
-                  ? 300
-                  : minMax[1] && minMax[0] !== minMax[1]
-                  ? parseInt(minMax[1])
-                  : 300,
-              }}
-              start={firstLoad ? [0, 300] : price}
-              format={wNumb({
-                decimals: 0,
-              })}
-              step={100}
-              connect
-            />
-          </div>
+          {!manufacturers && (
+            <div className="col s12">
+              <p className="grey-text">
+                Цена:{" "}
+                {price.length === 0
+                  ? 0 + " р. - " + 0 + " р."
+                  : price[0] + " р. - " + price[1] + " р."}
+              </p>
+              <Nouislider
+                disabled={
+                  firstLoad || price.length === 0 || minMax[0] === minMax[1]
+                }
+                onSlide={onSliderSlide}
+                onChange={onSliderChange}
+                range={{
+                  min: firstLoad
+                    ? 0
+                    : minMax[0] && minMax[0] !== minMax[1]
+                    ? parseInt(minMax[0])
+                    : 0,
+                  max: firstLoad
+                    ? 300
+                    : minMax[1] && minMax[0] !== minMax[1]
+                    ? parseInt(minMax[1])
+                    : 300,
+                }}
+                start={firstLoad ? [0, 300] : price}
+                format={wNumb({
+                  decimals: 0,
+                })}
+                step={100}
+                connect
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -24,6 +24,7 @@ const App = () => {
     JSON.parse(sessionStorage.getItem("products_in_cart"))
   );
   const [manufacturer, setManufacturer] = useState(null);
+  const [cartModalInstance, setCartModalInstance] = useState(null);
 
   return (
     <Fragment>
@@ -41,6 +42,8 @@ const App = () => {
             setProductsInCart,
             manufacturer,
             setManufacturer,
+            cartModalInstance,
+            setCartModalInstance,
           }}
         >
           <ApolloProvider client={client}>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import M from "materialize-css";
 
 import UserContext from "../../../../context/UserContext";
+import Context from "../../../../context/Context";
 
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import PRODUCT_REVIEWS_QUERY from "../../../../graphql/queries/productReviews";
@@ -15,6 +16,7 @@ const Reviews = ({ instance, vendorCode }) => {
   const [review, setReview] = useState("");
 
   const user = useContext(UserContext);
+  const { cartModalInstance } = useContext(Context);
 
   const { data, loading, refetch } = useQuery(PRODUCT_REVIEWS_QUERY, {
     notifyOnNetworkStatusChange: true,
@@ -46,6 +48,11 @@ const Reviews = ({ instance, vendorCode }) => {
       variables: { data: { vendorCode, name: user.name, review } },
     });
     refetch();
+  };
+
+  const onAuth = () => {
+    instance.close();
+    cartModalInstance.close();
   };
 
   return (
@@ -135,7 +142,7 @@ const Reviews = ({ instance, vendorCode }) => {
             <div className="col s12 m4">
               <Link
                 to="/auth"
-                onClick={() => instance.close()}
+                onClick={onAuth}
                 className="waves-effect waves-light black btn-small right"
               >
                 Авторизоваться
