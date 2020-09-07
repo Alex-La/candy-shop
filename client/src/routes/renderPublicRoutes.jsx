@@ -53,7 +53,16 @@ import WaterBased from "../components/Catalog/AllForSex/Lubricants/WaterBased";
 import SilconeBased from "../components/Catalog/AllForSex/Lubricants/SilconeBased";
 import Prolongators from "../components/Catalog/AllForSex/Lubricants/Prolongators";
 
-// import ForFemale from "../components/Catalog/ForFemale/ForFemale";
+import ForFemale from "../components/Catalog/ForFemale/ForFemale";
+import AnalToys from "../components/Catalog/ForFemale/AnalToys/AnalToys";
+import AnalVibrators from "../components/Catalog/ForFemale/AnalToys/AnalVibrators";
+import AnalPlugs from "../components/Catalog/ForFemale/AnalToys/AnalPlugs";
+import AnalStimulatorsWithoutVibration from "../components/Catalog/ForFemale/AnalToys/AnalStimulatorsWithoutVibration";
+import AnalDildos from "../components/Catalog/ForFemale/AnalToys/AnalDildos";
+import AnalBeadsAndChains from "../components/Catalog/ForFemale/AnalToys/AnalBeadsAndChains";
+import InflatableExpanders from "../components/Catalog/ForFemale/AnalToys/InflatableExpanders";
+import GlassAndMetal from "../components/Catalog/ForFemale/AnalToys/GlassAndMetal";
+import Fisting from "../components/Catalog/ForFemale/AnalToys/Fisting";
 
 import Manufacturers from "../components/Manufacturers/Manufacturers";
 
@@ -195,6 +204,38 @@ const renderPublicRoutes = () => {
         path="/catalog/all-for-sex/lubricants/prolongators"
         component={Prolongators}
       />
+      <Route exact path="/catalog/for-female" component={ForFemale} />
+      <Route exact path="/catalog/for-female/anal-toys" component={AnalToys} />
+      <Route
+        path="/catalog/for-female/anal-toys/anal-vibrators"
+        component={AnalVibrators}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/anal-plugs"
+        component={AnalPlugs}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/anal-stimulators-without-vibration"
+        component={AnalStimulatorsWithoutVibration}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/anal-dildos"
+        component={AnalDildos}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/anal-beads-and-chains"
+        component={AnalBeadsAndChains}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/inflatable-expanders"
+        component={InflatableExpanders}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/glass-and-metal"
+        component={GlassAndMetal}
+      />
+      <Route path="/catalog/for-female/anal-toys/fisting" component={Fisting} />
+
       <Route path="/catalog/manufacturer" component={Manufacturers} />
       <Route render={() => <Redirect to="/" />} />
     </Switch>

@@ -52,7 +52,7 @@ import WaterBased from "../components/Catalog/AllForSex/Lubricants/WaterBased";
 import SilconeBased from "../components/Catalog/AllForSex/Lubricants/SilconeBased";
 import Prolongators from "../components/Catalog/AllForSex/Lubricants/Prolongators";
 
-// import ForFemale from "../components/Catalog/ForFemale/ForFemale";
+import ForFemale from "../components/Catalog/ForFemale/ForFemale";
 
 import Manufacturers from "../components/Manufacturers/Manufacturers";
 
@@ -194,6 +194,7 @@ const renderPrivateRoutes = () => {
         path="/catalog/all-for-sex/lubricants/prolongators"
         component={Prolongators}
       />
+      <Route path="/catalog/for-female" component={ForFemale} />
       <Route path="/catalog/manufacturer" component={Manufacturers} />
       <Route render={() => <Redirect to="/" />} />
     </Switch>

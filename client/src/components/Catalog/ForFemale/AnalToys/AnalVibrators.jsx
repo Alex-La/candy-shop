@@ -2,33 +2,49 @@ import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useQuery } from "@apollo/react-hooks";
-import PRODUCTS_QUERY from "../../../graphql/queries/products";
+import PRODUCTS_QUERY from "../../../../graphql/queries/products";
 
-import Filter from "../../assets/Filter/Filter";
-import ProductCont from "../../assets/Product/ProductCont";
-import LoadMoreButton from "../../assets/Filter/LoadMoreButton";
-import FixedToCartButton from "../../assets/FloatActionBtn/FixedToCartButton";
+import Filter from "../../../assets/Filter/Filter";
+import ProductCont from "../../../assets/Product/ProductCont";
+import LoadMoreButton from "../../../assets/Filter/LoadMoreButton";
+import FixedToCartButton from "../../../assets/FloatActionBtn/FixedToCartButton";
 
 const catalogData = [
   {
-    path: "/catalog/for-female/falloimetators",
-    name: "Фаллоимитаторы",
+    path: "/catalog/for-female/anal-toys/anal-vibrators",
+    name: "Анальные вибраторы",
   },
   {
-    path: "/catalog/for-female/anal-toys",
-    name: "Анальные игрушки",
+    path: "/catalog/for-female/anal-toys/anal-plugs",
+    name: "Анальные пробки",
   },
   {
-    path: "/catalog/for-female/vibrators",
-    name: "Вибраторы",
+    path: "/catalog/for-female/anal-toys/anal-stimulators-without-vibration",
+    name: "Анальные стимуляторы без вибрации",
   },
   {
-    path: "/catalog/for-female/sex-products-for-female",
-    name: "Секс-товары для женщин",
+    path: "/catalog/for-female/anal-toys/anal-dildos",
+    name: "Анальные фаллоимитаторы",
+  },
+  {
+    path: "/catalog/for-female/anal-toys/anal-beads-and-chains",
+    name: "Анальные шарики, цепочки",
+  },
+  {
+    path: "/catalog/for-female/anal-toys/inflatable-expanders",
+    name: "Надувные расширители",
+  },
+  {
+    path: "/catalog/for-female/anal-toys/glass-and-metal",
+    name: "Стеклянные и металлические",
+  },
+  {
+    path: "/catalog/for-female/anal-toys/fisting",
+    name: "Фистинг",
   },
 ];
 
-const ForFemale = () => {
+const AnalVibrators = () => {
   const [loadingOnButton, setLoadingOnButton] = useState(false);
   const [priceRange, setPriceRange] = useState([]);
   const [radio, setRadio] = useState("block");
@@ -37,12 +53,7 @@ const ForFemale = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      main: [
-        "Фаллоимитаторы",
-        "Анальные игрушки",
-        "Вибраторы",
-        "Секс-товары для женщин",
-      ],
+      subsection: "Анальные вибраторы",
       orderBy,
       priceRange: priceRange.length !== 0 ? priceRange : [],
     },
@@ -101,4 +112,4 @@ const ForFemale = () => {
   );
 };
 
-export default ForFemale;
+export default AnalVibrators;
