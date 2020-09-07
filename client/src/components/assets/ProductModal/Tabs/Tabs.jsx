@@ -9,7 +9,17 @@ import FullDescriptionSkeleton from "./FullDescriptionSkeleton";
 import ShippingAndPayment from "./ShippingAndPayment";
 import Reviews from "./Reviews";
 
-const Tabs = ({ data, loading, refetch, instance, vendorCode }) => {
+const Tabs = ({
+  data,
+  loading,
+  refetch,
+  instance,
+  vendorCode,
+  size,
+  setSize,
+  color,
+  setColor,
+}) => {
   const tabsRef = useRef(null);
 
   useEffect(() => {
@@ -51,7 +61,13 @@ const Tabs = ({ data, loading, refetch, instance, vendorCode }) => {
               </div>
             </div>
           ) : (
-            <Overview product={data.product.product} />
+            <Overview
+              product={data.product.product}
+              size={size}
+              setSize={setSize}
+              color={color}
+              setColor={setColor}
+            />
           )
         ) : (
           <OverviewSkeleton />

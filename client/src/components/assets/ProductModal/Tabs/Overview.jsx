@@ -1,18 +1,16 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 
 import M from "materialize-css";
 
 const date = new Date();
 
-const Overview = ({ product }) => {
+const Overview = ({ product, size, setSize, color, setColor }) => {
   const sliderRef = useRef(null);
-  const [size, setSize] = useState(null);
-  const [color, setColor] = useState(null);
 
   useEffect(() => {
     if (product.size.length === 1) setSize(product.size[0]);
     if (product.color.length === 1) setColor(product.color[0]);
-  }, [product]);
+  }, [product, setSize, setColor]);
 
   useEffect(() => {
     if (sliderRef.current) {

@@ -15,6 +15,8 @@ const ProductModal = () => {
 
   const [inCart, setInCart] = useState(false);
   const [instance, setInstance] = useState(null);
+  const [size, setSize] = useState(null);
+  const [color, setColor] = useState(null);
 
   const { currentVendorCode, productsInCart, setProductsInCart } = useContext(
     Context
@@ -26,6 +28,39 @@ const ProductModal = () => {
       vendorCode: currentVendorCode,
     },
   });
+
+  useEffect(() => {
+    if (productsInCart !== null) {
+      for (let i in productsInCart) {
+        if (productsInCart[i].vendor_code === currentVendorCode.toString()) {
+          if (size) {
+            if (productsInCart[i].size !== size) productsInCart[i].size = size;
+          }
+        }
+      }
+      sessionStorage.setItem(
+        "products_in_cart",
+        JSON.stringify(productsInCart)
+      );
+    }
+  }, [size, productsInCart, currentVendorCode]);
+
+  useEffect(() => {
+    if (productsInCart !== null) {
+      for (let i in productsInCart) {
+        if (productsInCart[i].vendor_code === currentVendorCode.toString()) {
+          if (color) {
+            if (productsInCart[i].color !== color)
+              productsInCart[i].color = color;
+          }
+        }
+      }
+      sessionStorage.setItem(
+        "products_in_cart",
+        JSON.stringify(productsInCart)
+      );
+    }
+  }, [color, productsInCart, currentVendorCode]);
 
   useEffect(() => {
     if (productsInCart !== null) {
@@ -49,6 +84,8 @@ const ProductModal = () => {
   }, []);
 
   const onAddToCard = () => {
+    setColor(null);
+    setSize(null);
     const productToCard = {
       vendor_code: data.product.product.vendor_code,
       image_small: data.product.product.photo_small,
@@ -58,6 +95,8 @@ const ProductModal = () => {
           0,
           data.product.product.price_retail.length - 3
         ) + " р.",
+      color: color,
+      size: size,
     };
 
     if (productsInCart === null && !inCart) {
@@ -94,6 +133,10 @@ const ProductModal = () => {
           refetch={refetch}
           instance={instance}
           vendorCode={currentVendorCode}
+          size={size}
+          setSize={setSize}
+          color={color}
+          setColor={setColor}
         />
       </div>
       <div className="modal-footer">
