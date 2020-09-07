@@ -6,6 +6,7 @@ const { products } = require("./query/products");
 const { product } = require("./query/product");
 const { updateMe } = require("./mutation/updateMe");
 const { searchProducts } = require("./query/searchProducts");
+const { changePassword } = require("./mutation/changePassword");
 
 module.exports = {
   Query: {
@@ -93,6 +94,9 @@ module.exports = {
   },
 
   Mutation: {
+    changePassword: async (_, { email }, { dataSources }) =>
+      await changePassword(email, dataSources),
+
     updateMe: async (_, { data }, { user, dataSources }) =>
       await updateMe({ data, user, dataSources }),
 

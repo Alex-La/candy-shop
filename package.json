@@ -27,6 +27,8 @@
     "ibm-watson": "^5.7.0",
     "isemail": "^3.2.0",
     "jsonwebtoken": "^8.5.1",
+    "nodemailer": "^6.4.11",
+    "password-generator": "^2.3.2",
     "pg": "^8.3.3",
     "request": "^2.88.2",
     "sequelize": "^6.3.5"

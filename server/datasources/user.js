@@ -18,6 +18,15 @@ class UserAPI extends DataSource {
     );
   }
 
+  async updatePassword({ password, email }) {
+    return await this.store.User.update(
+      {
+        password,
+      },
+      { where: { email } }
+    );
+  }
+
   async findUser({ email }) {
     if (!isEmail.validate(email)) return;
     return await this.store.User.findOne({ where: { email } });

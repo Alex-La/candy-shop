@@ -36,6 +36,7 @@ const typeDefs = gql`
     registration(data: UserData!): String
     review(data: ReviewData!): Review!
     productReview(data: ReviewData!): ProductReview!
+    changePassword(email: String!): String!
   }
 
   input ReviewData {
