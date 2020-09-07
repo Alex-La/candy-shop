@@ -98,9 +98,8 @@ const ProductModal = () => {
       </div>
       <div className="modal-footer">
         <a
-          style={{ marginRight: 30 }}
-          className={`waves-effect waves-light btn ${
-            inCart ? "red" : "black"
+          className={`waves-effect waves-dark btn-flat ${
+            inCart ? "red-text" : "black-text"
           } ${
             ((data && data.product.refetch_require) ||
               loading ||
