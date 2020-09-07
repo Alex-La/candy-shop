@@ -189,19 +189,19 @@ const AllForSex = () => {
             <div className="collapsible-body">
               <ul className="collapsible">
                 <li>
-                  <Link to="/catalog/all-for-sex/sex-furniture-and-swing/sex-swings">
+                  <Link to="/catalog/all-for-sex/sex-furniture-and-swings/sex-swings">
                     Секс-качели
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog/all-for-sex/sex-furniture-and-swing/sex-machines">
+                  <Link to="/catalog/all-for-sex/sex-furniture-and-swings/sex-machines">
                     Секс-машины
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog/all-for-sex/sex-furniture-and-swing/sex-furniture">
+                  <Link to="/catalog/all-for-sex/sex-furniture-and-swings/sex-furniture">
                     Секс-мебель
                     <i className="material-icons">chevron_right</i>
                   </Link>

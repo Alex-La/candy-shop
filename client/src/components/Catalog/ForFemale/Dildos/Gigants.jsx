@@ -85,6 +85,7 @@ const Gigants = () => {
                   to="/catalog/for-female/falloimetators"
                   className="orange-text"
                 >
+                  {window.innerWidth <= 425 && <br />}
                   Фаллоимитаторы
                 </Link>
               </li>

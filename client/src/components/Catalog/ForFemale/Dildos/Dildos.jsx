@@ -80,7 +80,10 @@ const Dildos = () => {
                   Женщинам
                 </Link>
               </li>
-              <li className="black-text">Фаллоимитаторы</li>
+              <li className="black-text">
+                {window.innerWidth <= 425 && <br />}
+                Фаллоимитаторы
+              </li>
             </ul>
           </div>
         </div>
