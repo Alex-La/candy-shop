@@ -75,7 +75,12 @@ const AnalToys = () => {
                   Каталог
                 </Link>
               </li>
-              <li className="black-text">Всё для секса</li>
+              <li>
+                <Link to="/catalog/for-female" className="orange-text">
+                  Женщинам
+                </Link>
+              </li>
+              <li className="black-text">Анальные игрушки</li>
             </ul>
           </div>
         </div>

@@ -75,7 +75,20 @@ const AnalDildos = () => {
                   Каталог
                 </Link>
               </li>
-              <li className="black-text">Всё для секса</li>
+              <li>
+                <Link to="/catalog/for-female" className="orange-text">
+                  Женщинам
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/catalog/for-female/anal-toys"
+                  className="orange-text"
+                >
+                  Анальные игрушки
+                </Link>
+              </li>
+              <li className="black-text">Анальные фаллоимитаторы</li>
             </ul>
           </div>
         </div>

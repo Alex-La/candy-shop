@@ -32,8 +32,7 @@ class ProductsAPI extends DataSource {
     return await this.store.FullMode.findAll({
       where: {
         main_product_category: main,
-        subsection_product_category,
-        subsection,
+        subsection_product_category: subsection,
         can_buy: "1",
       },
     });

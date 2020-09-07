@@ -11,40 +11,40 @@ import FixedToCartButton from "../../../assets/FloatActionBtn/FixedToCartButton"
 
 const catalogData = [
   {
-    path: "/catalog/for-female/anal-toys/anal-vibrators",
-    name: "Анальные вибраторы",
+    path: "/catalog/for-female/falloimetators/anal-vaginal-phalluses",
+    name: "Анально-вагинальные",
   },
   {
-    path: "/catalog/for-female/anal-toys/anal-plugs",
-    name: "Анальные пробки",
+    path: "/catalog/for-female/falloimetators/vaginal-plugs",
+    name: "Вагинальные пробки",
   },
   {
-    path: "/catalog/for-female/anal-toys/anal-stimulators-without-vibration",
-    name: "Анальные стимуляторы без вибрации",
+    path: "/catalog/for-female/falloimetators/giants",
+    name: "Гиганты",
   },
   {
-    path: "/catalog/for-female/anal-toys/anal-dildos",
-    name: "Анальные фаллоимитаторы",
+    path: "/catalog/for-female/falloimetators/bilateral-phalluses",
+    name: "Двусторонние",
   },
   {
-    path: "/catalog/for-female/anal-toys/anal-beads-and-chains",
-    name: "Анальные шарики, цепочки",
+    path: "/catalog/for-female/falloimetators/classic-dildos",
+    name: "Классичиские дилдо",
   },
   {
-    path: "/catalog/for-female/anal-toys/inflatable-expanders",
-    name: "Надувные расширители",
+    path: "/catalog/for-female/falloimetators/realistic-phalluses",
+    name: "Реалистичные",
   },
   {
-    path: "/catalog/for-female/anal-toys/glass-and-metal",
-    name: "Стеклянные и металлические",
+    path: "/catalog/for-female/falloimetators/glass-phalluses",
+    name: "Стеклянные фаллосы",
   },
   {
-    path: "/catalog/for-female/anal-toys/fisting",
-    name: "Фистинг",
+    path: "/catalog/for-female/falloimetators/g-spot-stimulants-phalluses",
+    name: "Стимуляторы точки G",
   },
 ];
 
-const InflatableExpanders = () => {
+const GSpotStimulants = () => {
   const [loadingOnButton, setLoadingOnButton] = useState(false);
   const [priceRange, setPriceRange] = useState([]);
   const [radio, setRadio] = useState("block");
@@ -53,7 +53,7 @@ const InflatableExpanders = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      subsection: "Надувные расширители",
+      subsection: "Стимуляторы точки G",
       orderBy,
       priceRange: priceRange.length !== 0 ? priceRange : [],
     },
@@ -82,13 +82,13 @@ const InflatableExpanders = () => {
               </li>
               <li>
                 <Link
-                  to="/catalog/for-female/anal-toys"
+                  to="/catalog/for-female/falloimetators"
                   className="orange-text"
                 >
-                  Анальные игрушки
+                  Фаллоимитаторы
                 </Link>
               </li>
-              <li className="black-text">Надувные расширители</li>
+              <li className="black-text">Стимуляторы точки G</li>
             </ul>
           </div>
         </div>
@@ -125,4 +125,4 @@ const InflatableExpanders = () => {
   );
 };
 
-export default InflatableExpanders;
+export default GSpotStimulants;
