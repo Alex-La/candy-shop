@@ -72,6 +72,12 @@ import ClassicDildos from "../components/Catalog/ForFemale/Dildos/ClassicDildos"
 import RealisticPhalluses from "../components/Catalog/ForFemale/Dildos/RealisticPhalluses";
 import GlassPhalluses from "../components/Catalog/ForFemale/Dildos/GlassPhalluses";
 import GSpotStimulants from "../components/Catalog/ForFemale/Dildos/GSpotStimulants";
+import SexProductsForFemale from "../components/Catalog/ForFemale/SexProductsForFemale/SexProductsForFemale";
+import BreastPumpsAndStimulants from "../components/Catalog/ForFemale/SexProductsForFemale/BreastPumpsAndStimulants";
+import ClitorisPumps from "../components/Catalog/ForFemale/SexProductsForFemale/ClitorisPumps";
+import ClitoralStimulants from "../components/Catalog/ForFemale/SexProductsForFemale/ClitoralStimulants";
+import VibrationEgg from "../components/Catalog/ForFemale/SexProductsForFemale/VibratingEgg";
+import VaginalBalls from "../components/Catalog/ForFemale/SexProductsForFemale/VaginalBalls";
 
 import Manufacturers from "../components/Manufacturers/Manufacturers";
 
@@ -280,6 +286,31 @@ const renderPublicRoutes = () => {
       <Route
         path="/catalog/for-female/falloimetators/g-spot-stimulants-phalluses"
         component={GSpotStimulants}
+      />
+      <Route
+        exact
+        path="/catalog/for-female/sex-products-for-female"
+        component={SexProductsForFemale}
+      />
+      <Route
+        path="/catalog/for-female/sex-products-for-female/vaginal-balls"
+        component={VaginalBalls}
+      />
+      <Route
+        path="/catalog/for-female/sex-products-for-female/vibrating-egg"
+        component={VibrationEgg}
+      />
+      <Route
+        path="/catalog/for-female/sex-products-for-female/clitoral-stimulants"
+        component={ClitoralStimulants}
+      />
+      <Route
+        path="/catalog/for-female/sex-products-for-female/clitoris-pumps"
+        component={ClitorisPumps}
+      />
+      <Route
+        path="/catalog/for-female/sex-products-for-female/breast-pumps-and-stimulants"
+        component={BreastPumpsAndStimulants}
       />
 
       <Route path="/catalog/manufacturer" component={Manufacturers} />

@@ -53,6 +53,24 @@ import SilconeBased from "../components/Catalog/AllForSex/Lubricants/SilconeBase
 import Prolongators from "../components/Catalog/AllForSex/Lubricants/Prolongators";
 
 import ForFemale from "../components/Catalog/ForFemale/ForFemale";
+import AnalToys from "../components/Catalog/ForFemale/AnalToys/AnalToys";
+import AnalVibrators from "../components/Catalog/ForFemale/AnalToys/AnalVibrators";
+import AnalPlugs from "../components/Catalog/ForFemale/AnalToys/AnalPlugs";
+import AnalStimulatorsWithoutVibration from "../components/Catalog/ForFemale/AnalToys/AnalStimulatorsWithoutVibration";
+import AnalDildos from "../components/Catalog/ForFemale/AnalToys/AnalDildos";
+import AnalBeadsAndChains from "../components/Catalog/ForFemale/AnalToys/AnalBeadsAndChains";
+import InflatableExpanders from "../components/Catalog/ForFemale/AnalToys/InflatableExpanders";
+import GlassAndMetal from "../components/Catalog/ForFemale/AnalToys/GlassAndMetal";
+import Fisting from "../components/Catalog/ForFemale/AnalToys/Fisting";
+import Dildos from "../components/Catalog/ForFemale/Dildos/Dildos";
+import AnalVaginalPhalluses from "../components/Catalog/ForFemale/Dildos/AnalVaginalPhalluses";
+import VaginalPlugs from "../components/Catalog/ForFemale/Dildos/VaginalPlugs";
+import Gigants from "../components/Catalog/ForFemale/Dildos/Gigants";
+import BilateralPhalluses from "../components/Catalog/ForFemale/Dildos/BilateralPhalluses";
+import ClassicDildos from "../components/Catalog/ForFemale/Dildos/ClassicDildos";
+import RealisticPhalluses from "../components/Catalog/ForFemale/Dildos/RealisticPhalluses";
+import GlassPhalluses from "../components/Catalog/ForFemale/Dildos/GlassPhalluses";
+import GSpotStimulants from "../components/Catalog/ForFemale/Dildos/GSpotStimulants";
 
 import Manufacturers from "../components/Manufacturers/Manufacturers";
 
@@ -195,6 +213,74 @@ const renderPrivateRoutes = () => {
         component={Prolongators}
       />
       <Route path="/catalog/for-female" component={ForFemale} />
+      <Route exact path="/catalog/for-female/anal-toys" component={AnalToys} />
+      <Route
+        path="/catalog/for-female/anal-toys/anal-vibrators"
+        component={AnalVibrators}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/anal-plugs"
+        component={AnalPlugs}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/anal-stimulators-without-vibration"
+        component={AnalStimulatorsWithoutVibration}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/anal-dildos"
+        component={AnalDildos}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/anal-beads-and-chains"
+        component={AnalBeadsAndChains}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/inflatable-expanders"
+        component={InflatableExpanders}
+      />
+      <Route
+        path="/catalog/for-female/anal-toys/glass-and-metal"
+        component={GlassAndMetal}
+      />
+      <Route path="/catalog/for-female/anal-toys/fisting" component={Fisting} />
+      <Route
+        exact
+        path="/catalog/for-female/falloimetators"
+        component={Dildos}
+      />
+      <Route
+        path="/catalog/for-female/falloimetators/anal-vaginal-phalluses"
+        component={AnalVaginalPhalluses}
+      />
+      <Route
+        path="/catalog/for-female/falloimetators/vaginal-plugs"
+        component={VaginalPlugs}
+      />
+      <Route
+        path="/catalog/for-female/falloimetators/giants"
+        component={Gigants}
+      />
+      <Route
+        path="/catalog/for-female/falloimetators/bilateral-phalluses"
+        component={BilateralPhalluses}
+      />
+      <Route
+        path="/catalog/for-female/falloimetators/classic-dildos"
+        component={ClassicDildos}
+      />
+      <Route
+        path="/catalog/for-female/falloimetators/realistic-phalluses"
+        component={RealisticPhalluses}
+      />
+      <Route
+        path="/catalog/for-female/falloimetators/glass-phalluses"
+        component={GlassPhalluses}
+      />
+      <Route
+        path="/catalog/for-female/falloimetators/g-spot-stimulants-phalluses"
+        component={GSpotStimulants}
+      />
+
       <Route path="/catalog/manufacturer" component={Manufacturers} />
       <Route render={() => <Redirect to="/" />} />
     </Switch>
