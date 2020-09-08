@@ -33,7 +33,7 @@ const sendEmail = async (email, password) => {
   });
 
   let info = await transporter.sendMail({
-    from: '"sexshop@candy-shop.su',
+    from: "sexshop@candy-shop.su",
     to: email,
     subject: "Новый пароль ✔",
     text: "На вашем аккаунте был создан новый пароль.",
