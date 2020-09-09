@@ -120,7 +120,11 @@ const BustierAndBra = () => {
                   Одежда
                 </Link>
               </li>
-              <li className="black-text">Бюстье и бра</li>
+              <li className="black-text">
+                {" "}
+                {window.innerWidth <= 425 && <br />}
+                Бюстье и бра
+              </li>
             </ul>
           </div>
         </div>

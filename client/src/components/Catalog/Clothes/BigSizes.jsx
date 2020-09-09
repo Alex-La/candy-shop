@@ -120,7 +120,11 @@ const BigSizes = () => {
                   Одежда
                 </Link>
               </li>
-              <li className="black-text">БОЛЬШИЕ размеры</li>
+              <li className="black-text">
+                {" "}
+                {window.innerWidth <= 425 && <br />}
+                БОЛЬШИЕ размеры
+              </li>
             </ul>
           </div>
         </div>

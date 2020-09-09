@@ -120,7 +120,11 @@ const GlovesAndAccessories = () => {
                   Одежда
                 </Link>
               </li>
-              <li className="black-text">Перчатки и аксессуары</li>
+              <li className="black-text">
+                {" "}
+                {window.innerWidth <= 425 && <br />}
+                Перчатки и аксессуары
+              </li>
             </ul>
           </div>
         </div>

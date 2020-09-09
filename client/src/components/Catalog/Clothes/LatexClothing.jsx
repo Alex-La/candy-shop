@@ -120,7 +120,11 @@ const LatexClothing = () => {
                   Одежда
                 </Link>
               </li>
-              <li className="black-text">Одежда из латекса</li>
+              <li className="black-text">
+                {" "}
+                {window.innerWidth <= 425 && <br />}
+                Одежда из латекса
+              </li>
             </ul>
           </div>
         </div>

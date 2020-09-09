@@ -120,7 +120,11 @@ const BeautyAccessories = () => {
                   Одежда
                 </Link>
               </li>
-              <li className="black-text">Beauty-аксессуары</li>
+              <li className="black-text">
+                {" "}
+                {window.innerWidth <= 425 && <br />}
+                Beauty-аксессуары
+              </li>
             </ul>
           </div>
         </div>

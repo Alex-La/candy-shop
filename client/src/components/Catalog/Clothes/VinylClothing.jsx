@@ -120,7 +120,11 @@ const VinylClothing = () => {
                   Одежда
                 </Link>
               </li>
-              <li className="black-text">Одежда из винила</li>
+              <li className="black-text">
+                {" "}
+                {window.innerWidth <= 425 && <br />}
+                Одежда из винила
+              </li>
             </ul>
           </div>
         </div>

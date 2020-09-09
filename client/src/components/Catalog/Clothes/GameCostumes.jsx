@@ -120,7 +120,11 @@ const GameCostumes = () => {
                   Одежда
                 </Link>
               </li>
-              <li className="black-text">Игровые костюмы</li>
+              <li className="black-text">
+                {" "}
+                {window.innerWidth <= 425 && <br />}
+                Игровые костюмы
+              </li>
             </ul>
           </div>
         </div>

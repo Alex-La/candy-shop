@@ -120,7 +120,11 @@ const ShirtsAndBabyDollar = () => {
                   Одежда
                 </Link>
               </li>
-              <li className="black-text">Сорочки, беби-долл</li>
+              <li className="black-text">
+                {" "}
+                {window.innerWidth <= 425 && <br />}
+                Сорочки, беби-долл
+              </li>
             </ul>
           </div>
         </div>
