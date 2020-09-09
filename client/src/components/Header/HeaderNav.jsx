@@ -33,7 +33,7 @@ const HeaderNav = () => {
         </Link>
       </li>
       <li>
-        <Link to="/personal/carts" className="hide-on-med-and-down">
+        <Link to="/carts" className="hide-on-med-and-down">
           <i
             className="material-icons black-text tooltipped"
             data-position="bottom"

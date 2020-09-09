@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Main from "../components/Main/Main";
 
 import Search from "../components/Search/Search";
+import Cart from "../components/Cart/Cart";
 
 import ProcessingPolicy from "../components/Info/ProcessingPolicy/ProcessingPolicy";
 import Dilvery from "../components/Info/Delivery/Delivery";
@@ -157,6 +158,7 @@ const renderPrivateRoutes = () => {
       <Route path="/personal" exact component={PersonalArea} />
       <Route path="/personal/profile" component={PersonalData} />
       <Route path="/search" component={Search} />
+      <Route path="/carts" component={Cart} />
       <Route path="/catalog" exact component={Catalog} />
       <Route path="/catalog/all-for-sex" exact component={AllForSex} />
       <Route

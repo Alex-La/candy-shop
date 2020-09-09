@@ -74,7 +74,7 @@ const CartModal = () => {
       </div>
       <div className="modal-footer">
         <Link
-          to="/personal/carts"
+          to="/carts"
           className="modal-close waves-effect waves-dark btn-flat"
         >
           К корзине

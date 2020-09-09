@@ -47,6 +47,7 @@ const Reviews = ({ instance, vendorCode }) => {
     sendReview({
       variables: { data: { vendorCode, name: user.name, review } },
     });
+    setCreateReview(false);
     refetch();
   };
 

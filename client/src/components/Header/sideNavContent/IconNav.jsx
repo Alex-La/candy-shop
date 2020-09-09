@@ -21,7 +21,7 @@ const IconNav = () => {
           </Link>
         </div>
         <div className="col">
-          <Link to="/personal/carts">
+          <Link to="/carts">
             <i className="material-icons " data-position="bottom">
               shopping_cart
             </i>

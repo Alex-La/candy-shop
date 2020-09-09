@@ -50,7 +50,7 @@ const PersonalArea = () => {
                   <Link className="collection-item">Заказы</Link>
                 </li>
                 <li className="collection-item">
-                  <Link to="/personal/carts" className="collection-item">
+                  <Link to="/carts" className="collection-item">
                     Моя корзина
                   </Link>
                 </li>
@@ -83,10 +83,7 @@ const PersonalArea = () => {
                 <Link className="collection-item orange-text">
                   Ознакомиться с состоянием заказов
                 </Link>
-                <Link
-                  to="/personal/carts"
-                  className="collection-item orange-text"
-                >
+                <Link to="/carts" className="collection-item orange-text">
                   Посмотреть содержимое корзины
                 </Link>
                 <Link className="collection-item orange-text">

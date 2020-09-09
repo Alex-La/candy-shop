@@ -121,7 +121,7 @@ const PersonalData = () => {
                   <Link className="collection-item">Заказы</Link>
                 </li>
                 <li className="collection-item">
-                  <Link to="/personal/carts" className="collection-item">
+                  <Link to="/carts" className="collection-item">
                     Моя корзина
                   </Link>
                 </li>
