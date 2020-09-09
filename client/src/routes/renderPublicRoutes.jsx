@@ -95,6 +95,15 @@ import WithRadioControl from "../components/Catalog/ForFemale/Vibrators/WithRadi
 import WithClitorisStimulator from "../components/Catalog/ForFemale/Vibrators/WithClitorisStimulator";
 import GSpotStimulantsVibrators from "../components/Catalog/ForFemale/Vibrators/GSpotStimulantsVibrators";
 
+import ForMale from "../components/Catalog/ForMale/ForMale";
+import Vaginas from "../components/Catalog/ForMale/Vaginas";
+import VacuumPumps from "../components/Catalog/ForMale/VacuumPumps";
+import ProstateMassagers from "../components/Catalog/ForMale/ProstateMassagers";
+import Masturbators from "../components/Catalog/ForMale/Masturbators";
+import NozzlesAndExtensions from "../components/Catalog/ForMale/NozzlesAndExtensions";
+import SexDolls from "../components/Catalog/ForMale/SexDolls";
+import CockRings from "../components/Catalog/ForMale/CockRings";
+
 import Manufacturers from "../components/Manufacturers/Manufacturers";
 
 const renderPublicRoutes = () => {
@@ -380,6 +389,20 @@ const renderPublicRoutes = () => {
         path="/catalog/for-female/vibrators/g-spot-stimulants-vibrators"
         component={GSpotStimulantsVibrators}
       />
+      <Route exact path="/catalog/for-male" component={ForMale} />
+      <Route path="/catalog/for-male/vaginas" component={Vaginas} />
+      <Route path="/catalog/for-male/vacuum-pumps" component={VacuumPumps} />
+      <Route
+        path="/catalog/for-male/prostate-massagers"
+        component={ProstateMassagers}
+      />
+      <Route path="/catalog/for-male/masturbators" component={Masturbators} />
+      <Route
+        path="/catalog/for-male/nozzles-and-extensions"
+        component={NozzlesAndExtensions}
+      />
+      <Route path="/catalog/for-male/sex-dolls" component={SexDolls} />
+      <Route path="/catalog/for-male/cock-rings" component={CockRings} />
 
       <Route path="/catalog/manufacturer" component={Manufacturers} />
       <Route render={() => <Redirect to="/" />} />

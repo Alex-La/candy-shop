@@ -77,6 +77,22 @@ import ClitorisPumps from "../components/Catalog/ForFemale/SexProductsForFemale/
 import ClitoralStimulants from "../components/Catalog/ForFemale/SexProductsForFemale/ClitoralStimulants";
 import VibrationEgg from "../components/Catalog/ForFemale/SexProductsForFemale/VibratingEgg";
 import VaginalBalls from "../components/Catalog/ForFemale/SexProductsForFemale/VaginalBalls";
+import Vibrators from "../components/Catalog/ForFemale/Vibrators/Vibrators";
+import HiTech from "../components/Catalog/ForFemale/Vibrators/HiTech";
+import AnalVaginalVibrators from "../components/Catalog/ForFemale/Vibrators/AnalVaginalVibrators";
+import BigVibrators from "../components/Catalog/ForFemale/Vibrators/BigVibrators";
+import VibrationKits from "../components/Catalog/ForFemale/Vibrators/VibrationKits";
+import VibrationStimulantsAndVibrationBullets from "../components/Catalog/ForFemale/Vibrators/VibrationStimulantsAndVibrationBullets";
+import Waterproof from "../components/Catalog/ForFemale/Vibrators/Waterproof";
+import Rotating from "../components/Catalog/ForFemale/Vibrators/Rotating";
+import BilateralVibrators from "../components/Catalog/ForFemale/Vibrators/BilateralVibrators";
+import ForTwo from "../components/Catalog/ForFemale/Vibrators/ForTwo";
+import Classic from "../components/Catalog/ForFemale/Vibrators/Classic";
+import ComputerType from "../components/Catalog/ForFemale/Vibrators/ComputerType";
+import RealisticVibrators from "../components/Catalog/ForFemale/Vibrators/RealisticVibrators";
+import WithRadioControl from "../components/Catalog/ForFemale/Vibrators/WithRadioControl";
+import WithClitorisStimulator from "../components/Catalog/ForFemale/Vibrators/WithClitorisStimulator";
+import GSpotStimulantsVibrators from "../components/Catalog/ForFemale/Vibrators/GSpotStimulantsVibrators";
 
 import Manufacturers from "../components/Manufacturers/Manufacturers";
 
@@ -310,6 +326,58 @@ const renderPrivateRoutes = () => {
       <Route
         path="/catalog/for-female/sex-products-for-female/breast-pumps-and-stimulants"
         component={BreastPumpsAndStimulants}
+      />
+      <Route exact path="/catalog/for-female/vibrators" component={Vibrators} />
+      <Route path="/catalog/for-female/vibrators/hi-tech" component={HiTech} />
+      <Route
+        path="/catalog/for-female/vibrators/anal-vaginal-vibrators"
+        component={AnalVaginalVibrators}
+      />
+      <Route
+        path="/catalog/for-female/vibrators/big-vibrators"
+        component={BigVibrators}
+      />
+      <Route
+        path="/catalog/for-female/vibrators/vibration-kits"
+        component={VibrationKits}
+      />
+      <Route
+        path="/catalog/for-female/vibrators/vibration-stimulators-and-vibration-bullets"
+        component={VibrationStimulantsAndVibrationBullets}
+      />
+      <Route
+        path="/catalog/for-female/vibrators/waterproof"
+        component={Waterproof}
+      />
+      <Route
+        path="/catalog/for-female/vibrators/rotating"
+        component={Rotating}
+      />
+      <Route
+        path="/catalog/for-female/vibrators/bilateral-vibrators"
+        component={BilateralVibrators}
+      />
+      <Route path="/catalog/for-female/vibrators/for-two" component={ForTwo} />
+      <Route path="/catalog/for-female/vibrators/classic" component={Classic} />
+      <Route
+        path="/catalog/for-female/vibrators/computer-type"
+        component={ComputerType}
+      />
+      <Route
+        path="/catalog/for-female/vibrators/realistic-vibrators"
+        component={RealisticVibrators}
+      />
+      <Route
+        path="/catalog/for-female/vibrators/with-radio-control"
+        component={WithRadioControl}
+      />
+      <Route
+        path="/catalog/for-female/vibrators/with-clitoris-stimulator"
+        component={WithClitorisStimulator}
+      />
+      <Route
+        path="/catalog/for-female/vibrators/g-spot-stimulants-vibrators"
+        component={GSpotStimulantsVibrators}
       />
 
       <Route path="/catalog/manufacturer" component={Manufacturers} />
