@@ -113,6 +113,31 @@ import MasksGags from "../components/Catalog/ForPairs/BdsmProducts/MasksGags";
 import MedicalFetish from "../components/Catalog/ForPairs/BdsmProducts/MedicalFetish";
 import HandcuffsCollars from "../components/Catalog/ForPairs/BdsmProducts/HandcuffsCollars";
 import Electrostimulators from "../components/Catalog/ForPairs/BdsmProducts/Electrostimulators";
+import Beltless from "../components/Catalog/ForPairs/StrapOnsPhalloprostheses/Beltless";
+import FemaleStrapon from "../components/Catalog/ForPairs/StrapOnsPhalloprostheses/FemaleStrapon";
+import MaleStrapon from "../components/Catalog/ForPairs/StrapOnsPhalloprostheses/MaleStrapon";
+import PantiesAndAttachments from "../components/Catalog/ForPairs/StrapOnsPhalloprostheses/PantiesAndAttachments";
+import Falloprostheses from "../components/Catalog/ForPairs/StrapOnsPhalloprostheses/Falloprostheses";
+
+import Clothes from "../components/Catalog/Clothes/Clothes";
+import BeautyAccessories from "../components/Catalog/Clothes/BeautyAccessories";
+import BikinisAndSets from "../components/Catalog/Clothes/BikinisAndSets";
+import BodysuitsAndJumpsuits from "../components/Catalog/Clothes/BodysuitsAndJumpsuits";
+import BigSizes from "../components/Catalog/Clothes/BigSizes";
+import BustierAndBra from "../components/Catalog/Clothes/BustierAndBra";
+import GameCostumes from "../components/Catalog/Clothes/GameCostumes";
+import CorsetsAndGrace from "../components/Catalog/Clothes/CorsetsAndGrace";
+import Swimwear from "../components/Catalog/Clothes/Swimwear";
+import MensUnderwear from "../components/Catalog/Clothes/MensUnderwear";
+import VinylClothing from "../components/Catalog/Clothes/VinylClothing";
+import LatexClothing from "../components/Catalog/Clothes/LatexClothing";
+import GlovesAndAccessories from "../components/Catalog/Clothes/GlovesAndAccessories";
+import ShirtsAndBabyDollar from "../components/Catalog/Clothes/ShirtsAndBabyDollar";
+import PantiesShorts from "../components/Catalog/Clothes/PantiesShorts";
+import RobesAndNegligees from "../components/Catalog/Clothes/RobesAndNegligees";
+import StockingsAndTights from "../components/Catalog/Clothes/StockingsAndTights";
+import EroticShoes from "../components/Catalog/Clothes/EroticShoes";
+import EroticDress from "../components/Catalog/Clothes/EroticDress";
 
 import Manufacturers from "../components/Manufacturers/Manufacturers";
 
@@ -448,8 +473,94 @@ const renderPrivateRoutes = () => {
       <Route
         path="/catalog/for-pairs/bdsm-products/electrostimulators"
         component={Electrostimulators}
+      />{" "}
+      <Route
+        path="/catalog/for-pairs/strap-ons-phalloprostheses/beltless"
+        component={Beltless}
       />
-
+      <Route
+        path="/catalog/for-pairs/strap-ons-phalloprostheses/female-strapon"
+        component={FemaleStrapon}
+      />
+      <Route
+        path="/catalog/for-pairs/strap-ons-phalloprostheses/male-strapon"
+        component={MaleStrapon}
+      />
+      <Route
+        path="/catalog/for-pairs/strap-ons-phalloprostheses/panties-and-attachments"
+        component={PantiesAndAttachments}
+      />
+      <Route
+        path="/catalog/for-pairs/strap-ons-phalloprostheses/falloprostheses"
+        component={Falloprostheses}
+      />
+      <Route exact path="/catalog/erotic-clothes" component={Clothes} />
+      <Route
+        path="/catalog/erotic-clothes/beauty-accessories"
+        component={BeautyAccessories}
+      />
+      <Route
+        path="/catalog/erotic-clothes/bikinis-and-sets"
+        component={BikinisAndSets}
+      />
+      <Route
+        path="/catalog/erotic-clothes/bodysuits-and-jumpsuits"
+        component={BodysuitsAndJumpsuits}
+      />
+      <Route path="/catalog/erotic-clothes/big-sizes" component={BigSizes} />
+      <Route
+        path="/catalog/erotic-clothes/bustier-and-bra"
+        component={BustierAndBra}
+      />
+      <Route
+        path="/catalog/erotic-clothes/game-costumes"
+        component={GameCostumes}
+      />
+      <Route
+        path="/catalog/erotic-clothes/corsets-and-grace"
+        component={CorsetsAndGrace}
+      />
+      <Route path="/catalog/erotic-clothes/swimwear" component={Swimwear} />
+      <Route
+        path="/catalog/erotic-clothes/mens-underwear"
+        component={MensUnderwear}
+      />
+      <Route
+        path="/catalog/erotic-clothes/vinyl-clothing"
+        component={VinylClothing}
+      />
+      <Route
+        path="/catalog/erotic-clothes/latex-clothing"
+        component={LatexClothing}
+      />
+      <Route
+        path="/catalog/erotic-clothes/gloves-and-accessories"
+        component={GlovesAndAccessories}
+      />
+      <Route
+        path="/catalog/erotic-clothes/shirts-and-baby-dollar"
+        component={ShirtsAndBabyDollar}
+      />
+      <Route
+        path="/catalog/erotic-clothes/panties-shorts"
+        component={PantiesShorts}
+      />
+      <Route
+        path="/catalog/erotic-clothes/robes-and-negligees"
+        component={RobesAndNegligees}
+      />
+      <Route
+        path="/catalog/erotic-clothes/stockings-and-tights"
+        component={StockingsAndTights}
+      />
+      <Route
+        path="/catalog/erotic-clothes/erotic-shoes"
+        component={EroticShoes}
+      />
+      <Route
+        path="/catalog/erotic-clothes/erotic-dress"
+        component={EroticDress}
+      />
       <Route path="/catalog/manufacturer" component={Manufacturers} />
       <Route render={() => <Redirect to="/" />} />
     </Switch>

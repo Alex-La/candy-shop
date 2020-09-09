@@ -33,7 +33,7 @@ const catalogData = [
   },
 ];
 
-const ForPairs = () => {
+const PantiesAndAttachments = () => {
   const [loadingOnButton, setLoadingOnButton] = useState(false);
   const [priceRange, setPriceRange] = useState([]);
   const [radio, setRadio] = useState("block");
@@ -42,7 +42,7 @@ const ForPairs = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      main: ["Страпоны, фаллопротезы"],
+      subsection: "Трусики и насадки",
       orderBy,
       priceRange: priceRange.length !== 0 ? priceRange : [],
     },
@@ -69,11 +69,17 @@ const ForPairs = () => {
                   Парам
                 </Link>
               </li>
-              <li className="black-text">
-                {" "}
-                {window.innerWidth <= 425 && <br />}
-                Страпоны, фаллопротезы
+              <li>
+                <Link
+                  to="/catalog/for-pairs/strap-ons-phalloprostheses"
+                  className="orange-text"
+                >
+                  {" "}
+                  {window.innerWidth <= 425 && <br />}
+                  Страпоны, фаллопротезы
+                </Link>
               </li>
+              <li className="black-text">Трусики и насадки</li>
             </ul>
           </div>
         </div>
@@ -110,4 +116,4 @@ const ForPairs = () => {
   );
 };
 
-export default ForPairs;
+export default PantiesAndAttachments;
