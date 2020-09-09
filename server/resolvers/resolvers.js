@@ -155,7 +155,8 @@ module.exports = {
       return { successMessage: "Отзыв добавлен успешно!" };
     },
 
-    productReview: async (_, { vendorCode, name, review }, { dataSources }) => {
+    productReview: async (_, { data }, { dataSources }) => {
+      const { vendorCode, name, review } = data;
       const rev = await dataSources.shopAPI.createProductReview({
         vendorCode,
         name,

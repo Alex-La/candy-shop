@@ -8,7 +8,7 @@ class ShopAPI extends DataSource {
 
   async createProductReview({ vendorCode, name, review }) {
     return await this.store.ProductReview.create({
-      vendorCode,
+      vendor_code: vendorCode,
       name,
       review,
     });
