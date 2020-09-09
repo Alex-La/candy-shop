@@ -94,6 +94,26 @@ import WithRadioControl from "../components/Catalog/ForFemale/Vibrators/WithRadi
 import WithClitorisStimulator from "../components/Catalog/ForFemale/Vibrators/WithClitorisStimulator";
 import GSpotStimulantsVibrators from "../components/Catalog/ForFemale/Vibrators/GSpotStimulantsVibrators";
 
+import ForMale from "../components/Catalog/ForMale/ForMale";
+import Vaginas from "../components/Catalog/ForMale/Vaginas";
+import VacuumPumps from "../components/Catalog/ForMale/VacuumPumps";
+import ProstateMassagers from "../components/Catalog/ForMale/ProstateMassagers";
+import Masturbators from "../components/Catalog/ForMale/Masturbators";
+import NozzlesAndExtensions from "../components/Catalog/ForMale/NozzlesAndExtensions";
+import SexDolls from "../components/Catalog/ForMale/SexDolls";
+import CockRings from "../components/Catalog/ForMale/CockRings";
+
+import ForPairs from "../components/Catalog/ForPairs/ForPairs";
+import BdsmProducts from "../components/Catalog/ForPairs/BdsmProducts/BdsmProducts";
+import StrapOnsPhalloprostheses from "../components/Catalog/ForPairs/StrapOnsPhalloprostheses/StrapOnsPhalloprostheses";
+import OtherBdsmProducts from "../components/Catalog/ForPairs/BdsmProducts/OtherBdsmProducts";
+import IntimateJewelry from "../components/Catalog/ForPairs/BdsmProducts/IntimateJewelry";
+import Whips from "../components/Catalog/ForPairs/BdsmProducts/Whips";
+import MasksGags from "../components/Catalog/ForPairs/BdsmProducts/MasksGags";
+import MedicalFetish from "../components/Catalog/ForPairs/BdsmProducts/MedicalFetish";
+import HandcuffsCollars from "../components/Catalog/ForPairs/BdsmProducts/HandcuffsCollars";
+import Electrostimulators from "../components/Catalog/ForPairs/BdsmProducts/Electrostimulators";
+
 import Manufacturers from "../components/Manufacturers/Manufacturers";
 
 const renderPrivateRoutes = () => {
@@ -378,6 +398,56 @@ const renderPrivateRoutes = () => {
       <Route
         path="/catalog/for-female/vibrators/g-spot-stimulants-vibrators"
         component={GSpotStimulantsVibrators}
+      />
+      <Route exact path="/catalog/for-male" component={ForMale} />
+      <Route path="/catalog/for-male/vaginas" component={Vaginas} />
+      <Route path="/catalog/for-male/vacuum-pumps" component={VacuumPumps} />
+      <Route
+        path="/catalog/for-male/prostate-massagers"
+        component={ProstateMassagers}
+      />
+      <Route path="/catalog/for-male/masturbators" component={Masturbators} />
+      <Route
+        path="/catalog/for-male/nozzles-and-extensions"
+        component={NozzlesAndExtensions}
+      />
+      <Route path="/catalog/for-male/sex-dolls" component={SexDolls} />
+      <Route path="/catalog/for-male/cock-rings" component={CockRings} />
+      <Route exact path="/catalog/for-pairs" component={ForPairs} />
+      <Route
+        exact
+        path="/catalog/for-pairs/bdsm-products"
+        component={BdsmProducts}
+      />
+      <Route
+        exact
+        path="/catalog/for-pairs/strap-ons-phalloprostheses"
+        component={StrapOnsPhalloprostheses}
+      />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/other-bdsm-products"
+        component={OtherBdsmProducts}
+      />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/intimate-jewelry"
+        component={IntimateJewelry}
+      />
+      <Route path="/catalog/for-pairs/bdsm-products/whips" component={Whips} />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/masks-gags"
+        component={MasksGags}
+      />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/medical-fetish"
+        component={MedicalFetish}
+      />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/handcuffs-collars"
+        component={HandcuffsCollars}
+      />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/electrostimulators"
+        component={Electrostimulators}
       />
 
       <Route path="/catalog/manufacturer" component={Manufacturers} />

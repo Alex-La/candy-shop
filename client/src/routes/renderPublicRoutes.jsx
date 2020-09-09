@@ -104,6 +104,17 @@ import NozzlesAndExtensions from "../components/Catalog/ForMale/NozzlesAndExtens
 import SexDolls from "../components/Catalog/ForMale/SexDolls";
 import CockRings from "../components/Catalog/ForMale/CockRings";
 
+import ForPairs from "../components/Catalog/ForPairs/ForPairs";
+import BdsmProducts from "../components/Catalog/ForPairs/BdsmProducts/BdsmProducts";
+import StrapOnsPhalloprostheses from "../components/Catalog/ForPairs/StrapOnsPhalloprostheses/StrapOnsPhalloprostheses";
+import OtherBdsmProducts from "../components/Catalog/ForPairs/BdsmProducts/OtherBdsmProducts";
+import IntimateJewelry from "../components/Catalog/ForPairs/BdsmProducts/IntimateJewelry";
+import Whips from "../components/Catalog/ForPairs/BdsmProducts/Whips";
+import MasksGags from "../components/Catalog/ForPairs/BdsmProducts/MasksGags";
+import MedicalFetish from "../components/Catalog/ForPairs/BdsmProducts/MedicalFetish";
+import HandcuffsCollars from "../components/Catalog/ForPairs/BdsmProducts/HandcuffsCollars";
+import Electrostimulators from "../components/Catalog/ForPairs/BdsmProducts/Electrostimulators";
+
 import Manufacturers from "../components/Manufacturers/Manufacturers";
 
 const renderPublicRoutes = () => {
@@ -403,6 +414,42 @@ const renderPublicRoutes = () => {
       />
       <Route path="/catalog/for-male/sex-dolls" component={SexDolls} />
       <Route path="/catalog/for-male/cock-rings" component={CockRings} />
+      <Route exact path="/catalog/for-pairs" component={ForPairs} />
+      <Route
+        exact
+        path="/catalog/for-pairs/bdsm-products"
+        component={BdsmProducts}
+      />
+      <Route
+        exact
+        path="/catalog/for-pairs/strap-ons-phalloprostheses"
+        component={StrapOnsPhalloprostheses}
+      />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/other-bdsm-products"
+        component={OtherBdsmProducts}
+      />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/intimate-jewelry"
+        component={IntimateJewelry}
+      />
+      <Route path="/catalog/for-pairs/bdsm-products/whips" component={Whips} />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/masks-gags"
+        component={MasksGags}
+      />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/medical-fetish"
+        component={MedicalFetish}
+      />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/handcuffs-collars"
+        component={HandcuffsCollars}
+      />
+      <Route
+        path="/catalog/for-pairs/bdsm-products/electrostimulators"
+        component={Electrostimulators}
+      />
 
       <Route path="/catalog/manufacturer" component={Manufacturers} />
       <Route render={() => <Redirect to="/" />} />
