@@ -38,10 +38,7 @@ const ProductModal = () => {
           }
         }
       }
-      sessionStorage.setItem(
-        "products_in_cart",
-        JSON.stringify(productsInCart)
-      );
+      localStorage.setItem("products_in_cart", JSON.stringify(productsInCart));
     }
   }, [size, productsInCart, currentVendorCode]);
 
@@ -55,10 +52,7 @@ const ProductModal = () => {
           }
         }
       }
-      sessionStorage.setItem(
-        "products_in_cart",
-        JSON.stringify(productsInCart)
-      );
+      localStorage.setItem("products_in_cart", JSON.stringify(productsInCart));
     }
   }, [color, productsInCart, currentVendorCode]);
 
@@ -100,17 +94,14 @@ const ProductModal = () => {
     };
 
     if (productsInCart === null && !inCart) {
-      sessionStorage.setItem(
-        "products_in_cart",
-        JSON.stringify([productToCard])
-      );
+      localStorage.setItem("products_in_cart", JSON.stringify([productToCard]));
       setProductsInCart([productToCard]);
     }
 
     if (productsInCart !== null && !inCart) {
       const products = productsInCart;
       products.push(productToCard);
-      sessionStorage.setItem("products_in_cart", JSON.stringify(products));
+      localStorage.setItem("products_in_cart", JSON.stringify(products));
       setProductsInCart(products.slice());
     }
 
@@ -119,7 +110,7 @@ const ProductModal = () => {
       const filtered = productsInCart.filter(
         (prod) => prod.vendor_code !== currentVendorCode.toString()
       );
-      sessionStorage.setItem("products_in_cart", JSON.stringify(filtered));
+      localStorage.setItem("products_in_cart", JSON.stringify(filtered));
       setProductsInCart(filtered);
     }
   };

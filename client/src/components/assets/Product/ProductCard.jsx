@@ -86,15 +86,12 @@ const ProductCard = ({
     if (productsInCart !== null && !inCart) {
       const products = productsInCart;
       products.push(productToCard);
-      sessionStorage.setItem("products_in_cart", JSON.stringify(products));
+      localStorage.setItem("products_in_cart", JSON.stringify(products));
       setProductsInCart(products.slice());
     }
 
     if (productsInCart === null && !inCart) {
-      sessionStorage.setItem(
-        "products_in_cart",
-        JSON.stringify([productToCard])
-      );
+      localStorage.setItem("products_in_cart", JSON.stringify([productToCard]));
       setProductsInCart([productToCard]);
     }
 
@@ -102,7 +99,7 @@ const ProductCard = ({
       setInCart(false);
       const products = productsInCart;
       const filtred = products.filter((el) => el.vendor_code !== vendor_code);
-      sessionStorage.setItem("products_in_cart", JSON.stringify(filtred));
+      localStorage.setItem("products_in_cart", JSON.stringify(filtred));
       setProductsInCart(filtred);
     }
   };

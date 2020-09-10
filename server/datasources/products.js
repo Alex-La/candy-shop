@@ -13,7 +13,7 @@ class ProductsAPI extends DataSource {
   }
 
   async getProducts() {
-    return await this.store.FullMode.findAll();
+    return await this.store.FullMode.findAll({ where: { can_buy: "1" } });
   }
 
   async getProductsByMain({ main }) {
@@ -55,15 +55,15 @@ class ProductsAPI extends DataSource {
       switch (category) {
         case "Категория":
           return await this.store.FullMode.findAll({
-            where: { main_product_category: searchName },
+            where: { main_product_category: searchName, can_buy: "1" },
           });
         case "Подкатегория":
           return await this.store.FullMode.findAll({
-            where: { subsection_product_category: searchName },
+            where: { subsection_product_category: searchName, can_buy: "1" },
           });
         case "Производитель":
           return await this.store.FullMode.findAll({
-            where: { manufacturer: searchName },
+            where: { manufacturer: searchName, can_buy: "1" },
           });
       }
     } else {
@@ -72,7 +72,7 @@ class ProductsAPI extends DataSource {
           where: { name: searchName, can_buy: "1" },
         });
       } else {
-        return await this.store.FullMode.findAll();
+        return await this.store.FullMode.findAll({ where: { can_buy: "1" } });
       }
     }
   }

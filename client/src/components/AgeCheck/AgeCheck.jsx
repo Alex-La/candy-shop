@@ -26,12 +26,12 @@ const AgeCheck = () => {
   }, []);
 
   useEffect(() => {
-    const isAdult = sessionStorage.getItem("adult");
+    const isAdult = localStorage.getItem("adult");
     if (!isAdult && instance) instance.open();
   }, [instance]);
 
   const handleAgeTrue = () => {
-    sessionStorage.setItem("adult", true);
+    localStorage.setItem("adult", true);
     instance.close();
   };
 

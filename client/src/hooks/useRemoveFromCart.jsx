@@ -9,7 +9,7 @@ const useRemoveFromCart = () => {
     e.preventDefault();
     const products = productsInCart;
     const filtred = products.filter((el) => el.vendor_code !== vendor_code);
-    sessionStorage.setItem("products_in_cart", JSON.stringify(filtred));
+    localStorage.setItem("products_in_cart", JSON.stringify(filtred));
     setProductsInCart(filtred);
   };
 

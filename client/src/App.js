@@ -21,7 +21,7 @@ const App = () => {
   const [searchValue, setSearchValue] = useState("");
   const [currentVendorCode, setCurrentVendorCode] = useState(0);
   const [productsInCart, setProductsInCart] = useState(
-    JSON.parse(sessionStorage.getItem("products_in_cart"))
+    JSON.parse(localStorage.getItem("products_in_cart"))
   );
   const [manufacturer, setManufacturer] = useState(null);
   const [cartModalInstance, setCartModalInstance] = useState(null);
