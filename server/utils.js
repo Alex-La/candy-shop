@@ -90,6 +90,7 @@ module.exports.createStore = () => {
         primaryKey: true,
         autoIncrement: true,
       },
+      role: DataTypes.STRING,
       email: { type: DataTypes.STRING, unique: true, allowNull: false },
       password: { type: DataTypes.STRING, allowNull: false },
       name: DataTypes.STRING,
@@ -97,6 +98,20 @@ module.exports.createStore = () => {
       sex: DataTypes.STRING,
     },
     { sequelize, modelName: "user" }
+  );
+
+  class PromoCode extends Model {}
+  PromoCode.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      name: DataTypes.STRING,
+      percent: DataTypes.INTEGER,
+    },
+    { sequelize, modelName: "promo_code" }
   );
 
   class FullMode extends Model {}
@@ -134,5 +149,5 @@ module.exports.createStore = () => {
 
   sequelize.sync();
 
-  return { Review, ProductReview, User, FullMode };
+  return { Review, ProductReview, User, FullMode, PromoCode };
 };

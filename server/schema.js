@@ -7,6 +7,8 @@ const typeDefs = gql`
     productReviews(vendorCode: Int!): [ProductReview!]!
     sales: [Product!]!
     main: Main!
+    getPromoCode(name: String!): Int
+    getPromoCodes: [PromoCode]
     products(
       pageSize: Int
       after: String
@@ -37,6 +39,8 @@ const typeDefs = gql`
     review(data: ReviewData!): Review!
     productReview(data: ReviewData!): ProductReview!
     changePassword(email: String!): String!
+    createPromoCode(name: String!, percent: Int!): String
+    removePromoCode(name: String!): String
   }
 
   input ReviewData {
@@ -65,6 +69,11 @@ const typeDefs = gql`
     priceRange: [String]
   }
 
+  type PromoCode {
+    name: String!
+    percent: Int!
+  }
+
   type Login {
     message: String
     token: String
@@ -73,6 +82,7 @@ const typeDefs = gql`
 
   type User {
     id: Int
+    role: String
     email: String
     name: String
     surname: String

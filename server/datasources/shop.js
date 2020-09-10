@@ -6,6 +6,27 @@ class ShopAPI extends DataSource {
     this.store = store;
   }
 
+  async createPromoCode({ name, percent }) {
+    return await this.store.PromoCode.create({
+      name,
+      percent,
+    });
+  }
+
+  async removePromoCode({ name }) {
+    return await this.store.PromoCode.destroy({ where: { name } });
+  }
+
+  async getPromoCode({ name }) {
+    return await this.store.PromoCode.findOne({
+      where: { name },
+    });
+  }
+
+  async getPromoCodes() {
+    return await this.store.PromoCode.findAll();
+  }
+
   async createProductReview({ vendorCode, name, review }) {
     return await this.store.ProductReview.create({
       vendor_code: vendorCode,

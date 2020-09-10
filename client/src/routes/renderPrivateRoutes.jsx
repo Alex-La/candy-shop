@@ -141,10 +141,14 @@ import EroticShoes from "../components/Catalog/Clothes/EroticShoes";
 import EroticDress from "../components/Catalog/Clothes/EroticDress";
 
 import Manufacturers from "../components/Manufacturers/Manufacturers";
+import AdminPanel from "../components/AdminPanel/AdminPanel";
 
-const renderPrivateRoutes = () => {
+const renderPrivateRoutes = (me) => {
   return (
     <Switch>
+      {me.role === "admin" && (
+        <Route path="/admin-panel" component={AdminPanel} />
+      )}
       <Route path="/" exact component={Main} />
       <Route path="/info" exact component={Info} />
       <Route path="/info/pdp" component={ProcessingPolicy} />

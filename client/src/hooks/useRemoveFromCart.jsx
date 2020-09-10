@@ -5,8 +5,7 @@ import Context from "../context/Context";
 const useRemoveFromCart = () => {
   const { productsInCart, setProductsInCart } = useContext(Context);
 
-  const removeFromCart = (e, vendor_code) => {
-    e.preventDefault();
+  const removeFromCart = (vendor_code) => {
     const products = productsInCart;
     const filtred = products.filter((el) => el.vendor_code !== vendor_code);
     localStorage.setItem("products_in_cart", JSON.stringify(filtred));

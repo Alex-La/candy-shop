@@ -21,7 +21,7 @@ const Routes = () => {
   return (
     <UserContext.Provider value={me}>
       <ProductModal />
-      {me ? renderPrivateRoutes() : renderPublicRoutes()}
+      {me ? renderPrivateRoutes(me) : renderPublicRoutes()}
     </UserContext.Provider>
   );
 };

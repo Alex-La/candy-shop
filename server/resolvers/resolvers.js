@@ -44,6 +44,20 @@ module.exports = {
       return { slider_images, top_section_images };
     },
 
+    getPromoCode: async (_, { name }, { dataSources }) => {
+      const promo = await dataSources.shopAPI.getPromoCode({ name });
+
+      if (!promo) return null;
+      return promo.percent;
+    },
+
+    getPromoCodes: async (_, __, { dataSources }) => {
+      const prom = await dataSources.shopAPI.getPromoCodes();
+
+      if (!prom) return null;
+      return prom;
+    },
+
     product: async (_, { vendorCode }, { dataSources }) =>
       await product(vendorCode, dataSources),
 
@@ -166,6 +180,29 @@ module.exports = {
       if (!rev)
         return { successMessage: "Что-то пошло не так. Попробуйте снова." };
       return { successMessage: "Отзыв добавлен успешно!" };
+    },
+
+    createPromoCode: async (_, { name, percent }, { user, dataSources }) => {
+      if (!user || user.role !== "admin") return null;
+
+      const promo = await dataSources.shopAPI.createPromoCode({
+        name,
+        percent,
+      });
+
+      if (!promo) return "Error!";
+      return "Success!";
+    },
+
+    removePromoCode: async (_, { name }, { user, dataSources }) => {
+      if (!user || user.role !== "admin") return null;
+
+      const removed = await dataSources.shopAPI.removePromoCode({
+        name,
+      });
+
+      if (!removed) return "Error!";
+      return "Success!";
     },
   },
 };
