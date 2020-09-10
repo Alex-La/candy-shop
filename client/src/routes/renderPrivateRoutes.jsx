@@ -6,6 +6,7 @@ import Main from "../components/Main/Main";
 
 import Search from "../components/Search/Search";
 import Cart from "../components/Cart/Cart";
+import Make from "../components/Cart/Make";
 
 import ProcessingPolicy from "../components/Info/ProcessingPolicy/ProcessingPolicy";
 import Dilvery from "../components/Info/Delivery/Delivery";
@@ -162,7 +163,8 @@ const renderPrivateRoutes = (me) => {
       <Route path="/personal" exact component={PersonalArea} />
       <Route path="/personal/profile" component={PersonalData} />
       <Route path="/search" component={Search} />
-      <Route path="/carts" component={Cart} />
+      <Route exact path="/carts" component={Cart} />
+      <Route path="/carts/make" component={Make} />
       <Route path="/catalog" exact component={Catalog} />
       <Route path="/catalog/all-for-sex" exact component={AllForSex} />
       <Route
