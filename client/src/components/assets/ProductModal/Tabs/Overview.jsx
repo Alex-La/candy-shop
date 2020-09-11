@@ -17,6 +17,7 @@ const Overview = ({ product, size, setSize, color, setColor }) => {
         if (productsInCart[i].vendor_code === product.vendor_code) {
           productsInCart[i]["color"] = color;
           productsInCart[i]["size"] = size;
+          setProductsInCart(productsInCart);
           localStorage.setItem(
             "products_in_cart",
             JSON.stringify(productsInCart)

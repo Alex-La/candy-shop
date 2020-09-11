@@ -35,8 +35,9 @@ const Cart = () => {
       );
       price += parseInt(priceToInt, 10);
     }
-    setPrice(price);
-  }, [productsInCart]);
+    if (data) setPrice(Math.floor((price * (100 - data.getPromoCode)) / 100));
+    else setPrice(price);
+  }, [productsInCart, data]);
 
   const onRemove = (vendor_code) => {
     removeFromCart(vendor_code);
@@ -85,7 +86,19 @@ const Cart = () => {
             ) : (
               <Fragment>
                 <div className="col m12 xl8">
-                  <h4>Ваш заказ</h4>
+                  <div className="row">
+                    <div className="col">
+                      <h4>Ваш заказ</h4>
+                    </div>
+                    <div className="col" style={{ marginTop: 23 }}>
+                      <div
+                        className="waves-effect waves-dark btn-small white black-text"
+                        onClick={() => window.location.reload()}
+                      >
+                        Обновить
+                      </div>
+                    </div>
+                  </div>
                   {productsInCart &&
                     productsInCart.map((prod, index) => (
                       <div
