@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 import useRemoveFromCart from "../../hooks/useRemoveFromCart";
 
+import M from "materialize-css";
+
 import { useLazyQuery } from "@apollo/react-hooks";
 import GET_PROMO_CODE_QUERY from "../../graphql/queries/getPromoCode";
 
@@ -21,8 +23,12 @@ const Cart = () => {
 
   useEffect(() => {
     if (data) {
-      setPercent(data.getPromoCode);
-      setPrice((val) => Math.floor((val * (100 - data.getPromoCode)) / 100));
+      if (data.getPromoCode) {
+        setPercent(data.getPromoCode);
+        setPrice((val) => Math.floor((val * (100 - data.getPromoCode)) / 100));
+      } else {
+        M.toast({ html: "Неверный промокод!" });
+      }
     }
   }, [data]);
 
