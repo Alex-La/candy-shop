@@ -105,7 +105,7 @@ const ForPairs = () => {
                   )
                 }
               >
-                Страпоны, фаллопротезы
+                Страпоны, фаллопрот...
               </b>
               <i className="collapsible-header material-icons right">add</i>
             </a>
