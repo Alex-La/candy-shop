@@ -30,6 +30,8 @@ const PRODUCTS_QUERY = gql`
         name
         description
         price_retail
+        color
+        size
       }
     }
   }

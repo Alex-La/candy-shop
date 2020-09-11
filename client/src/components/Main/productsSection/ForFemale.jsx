@@ -57,6 +57,8 @@ const ForFemale = () => {
                 image={product.photos[0]}
                 name={product.name}
                 description={product.description}
+                color={product.color[0]}
+                size={product.size[0]}
                 price={product.price_retail}
               />
             </div>

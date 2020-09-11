@@ -28,6 +28,8 @@ const ProductCont = ({ data, refetch, loading, loadingOnButton, radio }) => {
                   image={dat.photos[0]}
                   name={dat.name}
                   description={dat.description}
+                  color={dat.color[0]}
+                  size={dat.size[0]}
                   price={dat.price_retail}
                   radio={radio}
                 />

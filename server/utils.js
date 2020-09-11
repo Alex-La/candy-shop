@@ -7,6 +7,8 @@ module.exports.toUniqueArray = (data) => {
   return data.filter((el) => {
     const duplicate = seen.has(el.vendor_code);
     seen.add(el.vendor_code);
+    el.size = [el.size];
+    el.color = [el.color];
     return !duplicate;
   });
 };

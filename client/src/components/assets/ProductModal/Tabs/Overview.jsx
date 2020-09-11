@@ -1,30 +1,36 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 
 import M from "materialize-css";
+
+import Context from "../../../../context/Context";
 
 const date = new Date();
 
 const Overview = ({ product, size, setSize, color, setColor }) => {
   const sliderRef = useRef(null);
 
+  const { productsInCart, setProductsInCart } = useContext(Context);
+
   useEffect(() => {
-    if (product.size.length === 1) setSize(product.size[0]);
-    if (product.color.length === 1) setColor(product.color[0]);
-  }, [product, setSize, setColor]);
+    if (productsInCart) {
+      for (let i in productsInCart) {
+        if (productsInCart[i].vendor_code === product.vendor_code) {
+          productsInCart[i]["color"] = color;
+          productsInCart[i]["size"] = size;
+          localStorage.setItem(
+            "products_in_cart",
+            JSON.stringify(productsInCart)
+          );
+        }
+      }
+    }
+  }, [product, productsInCart, setProductsInCart, color, size]);
 
   useEffect(() => {
     if (sliderRef.current) {
       M.Slider.init(sliderRef.current);
     }
   }, []);
-
-  const onSizeChange = (e) => {
-    setSize(e.target.id);
-  };
-
-  const onColorChange = (e) => {
-    setColor(e.target.id);
-  };
 
   return (
     <div className="row">
@@ -68,64 +74,50 @@ const Overview = ({ product, size, setSize, color, setColor }) => {
 
         <p>{product.description}</p>
 
-        {product.size.length !== 1 && product.size[0].length !== 0 && (
-          <div className="row" style={{ marginTop: 20 }}>
-            <div className="col s2">
-              <b>Размер:</b>
+        {product && product.size.length !== 0 && product.size[0].length !== 0 && (
+          <div className="row">
+            <div className="col">
+              <b>Размер: </b>
             </div>
-            <div className="col s10">
-              <div className="row">
-                {product.size.map((siz, index) => (
-                  <div key={index} className="col">
-                    <div
-                      className={`${siz === size && "grey"} lighten-2`}
-                      onClick={onSizeChange}
-                      id={siz}
-                      style={{
-                        border: "1px solid black",
-                        padding: 5,
-                        margin: 1,
-                        cursor: "pointer",
-                      }}
-                    >
-                      {siz}
-                    </div>
-                  </div>
-                ))}
+            {product.size.map((s, i) => (
+              <div
+                key={i}
+                className={`col ${s === size && "grey lighten-2"}`}
+                style={{
+                  border: "1px solid black",
+                  margin: 2,
+                  cursor: "pointer",
+                }}
+                onClick={() => setSize(s)}
+              >
+                {s}
               </div>
-            </div>
+            ))}
           </div>
         )}
-
-        {product.color.length !== 0 && product.color[0].length !== 0 && (
-          <div className="row" style={{ marginTop: 20 }}>
-            <div className="col s2">
-              <b>Цвет:</b>
-            </div>
-            <div className="col s10">
-              <div className="row">
-                {product.color.map((col, index) => (
-                  <div key={index} className="col">
-                    <div
-                      className={`${col === color && "grey"} lighten-2`}
-                      onClick={onColorChange}
-                      id={col}
-                      style={{
-                        border: "1px solid black",
-                        padding: 5,
-                        margin: 1,
-                        cursor: "pointer",
-                      }}
-                    >
-                      {col}
-                    </div>
-                  </div>
-                ))}
+        {product &&
+          product.color.length !== 0 &&
+          product.color[0].length !== 0 && (
+            <div className="row">
+              <div className="col">
+                <b>Цвет: </b>
               </div>
+              {product.color.map((c, i) => (
+                <div
+                  key={i}
+                  className={`col ${c === color && "grey lighten-2"}`}
+                  style={{
+                    border: "1px solid black",
+                    margin: 2,
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setColor(c)}
+                >
+                  {c}
+                </div>
+              ))}
             </div>
-          </div>
-        )}
-
+          )}
         <br />
         <h4 className="orange-text ">
           {product.price_retail.slice(0, product.price_retail.length - 3) +

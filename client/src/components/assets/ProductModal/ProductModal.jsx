@@ -13,10 +13,11 @@ import Tabs from "./Tabs/Tabs";
 const ProductModal = () => {
   const modalRef = useRef(null);
 
+  const [color, setColor] = useState([]);
+  const [size, setSize] = useState([]);
+
   const [inCart, setInCart] = useState(false);
   const [instance, setInstance] = useState(null);
-  const [size, setSize] = useState(null);
-  const [color, setColor] = useState(null);
 
   const { currentVendorCode, productsInCart, setProductsInCart } = useContext(
     Context
@@ -33,28 +34,12 @@ const ProductModal = () => {
     if (productsInCart !== null) {
       for (let i in productsInCart) {
         if (productsInCart[i].vendor_code === currentVendorCode.toString()) {
-          if (size) {
-            if (productsInCart[i].size !== size) productsInCart[i].size = size;
-          }
+          setSize(productsInCart[i].size);
+          setColor(productsInCart[i].color);
         }
       }
-      localStorage.setItem("products_in_cart", JSON.stringify(productsInCart));
     }
-  }, [size, productsInCart, currentVendorCode]);
-
-  useEffect(() => {
-    if (productsInCart !== null) {
-      for (let i in productsInCart) {
-        if (productsInCart[i].vendor_code === currentVendorCode.toString()) {
-          if (color) {
-            if (productsInCart[i].color !== color)
-              productsInCart[i].color = color;
-          }
-        }
-      }
-      localStorage.setItem("products_in_cart", JSON.stringify(productsInCart));
-    }
-  }, [color, productsInCart, currentVendorCode]);
+  }, [productsInCart, currentVendorCode]);
 
   useEffect(() => {
     if (productsInCart !== null) {
@@ -78,19 +63,17 @@ const ProductModal = () => {
   }, []);
 
   const onAddToCard = () => {
-    setColor(null);
-    setSize(null);
     const productToCard = {
       vendor_code: data.product.product.vendor_code,
       image_small: data.product.product.photo_small,
       name: data.product.product.name,
+      size,
+      color,
       price:
         data.product.product.price_retail.slice(
           0,
           data.product.product.price_retail.length - 3
         ) + " р.",
-      color: color,
-      size: size,
     };
 
     if (productsInCart === null && !inCart) {

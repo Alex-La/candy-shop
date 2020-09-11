@@ -17,6 +17,8 @@ const ProductCard = ({
   image,
   name,
   description,
+  color,
+  size,
   price,
   radio = "block",
 }) => {
@@ -80,6 +82,8 @@ const ProductCard = ({
       vendor_code,
       image_small,
       name,
+      color,
+      size,
       price: price.slice(0, price.length - 3) + " р.",
     };
 
