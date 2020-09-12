@@ -25,11 +25,11 @@ const Cart = () => {
     setPercent(sessionStorage.getItem("promo_code"));
   }, []);
 
-  useEffect(() => {
-    if (percent) {
-      setPrice((val) => Math.floor((val * (100 - percent)) / 100));
-    }
-  }, [percent]);
+  // useEffect(() => {
+  //   if (percent) {
+  //     setPrice((val) => Math.floor((val * (100 - percent)) / 100));
+  //   }
+  // }, [percent]);
 
   useEffect(() => {
     if (data) {
@@ -51,8 +51,9 @@ const Cart = () => {
       );
       price += parseInt(priceToInt, 10);
     }
-    setPrice(price);
-  }, [productsInCart, data]);
+    if (percent) setPrice(() => Math.floor((price * (100 - percent)) / 100));
+    else setPrice(price);
+  }, [productsInCart, data, percent]);
 
   const onRemove = (vendor_code) => {
     removeFromCart(vendor_code);
