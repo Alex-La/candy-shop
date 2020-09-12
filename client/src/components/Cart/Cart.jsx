@@ -25,12 +25,6 @@ const Cart = () => {
     setPercent(sessionStorage.getItem("promo_code"));
   }, []);
 
-  // useEffect(() => {
-  //   if (percent) {
-  //     setPrice((val) => Math.floor((val * (100 - percent)) / 100));
-  //   }
-  // }, [percent]);
-
   useEffect(() => {
     if (data) {
       if (data.getPromoCode) {
