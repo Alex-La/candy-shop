@@ -22,10 +22,20 @@ const Cart = () => {
   const [validateCode, { data, loading }] = useLazyQuery(GET_PROMO_CODE_QUERY);
 
   useEffect(() => {
+    setPercent(sessionStorage.getItem("promo_code"));
+  }, []);
+
+  useEffect(() => {
+    if (percent) {
+      setPrice((val) => Math.floor((val * (100 - percent)) / 100));
+    }
+  }, [percent]);
+
+  useEffect(() => {
     if (data) {
       if (data.getPromoCode) {
         setPercent(data.getPromoCode);
-        setPrice((val) => Math.floor((val * (100 - data.getPromoCode)) / 100));
+        sessionStorage.setItem("promo_code", data.getPromoCode);
       } else {
         M.toast({ html: "Неверный промокод!" });
       }
@@ -41,8 +51,7 @@ const Cart = () => {
       );
       price += parseInt(priceToInt, 10);
     }
-    if (data) setPrice(Math.floor((price * (100 - data.getPromoCode)) / 100));
-    else setPrice(price);
+    setPrice(price);
   }, [productsInCart, data]);
 
   const onRemove = (vendor_code) => {
@@ -156,6 +165,7 @@ const Cart = () => {
                   <Link
                     to="/carts/make"
                     className="waves-effect waves-light btn-large black"
+                    onClick={() => sessionStorage.removeItem("promo_code")}
                   >
                     Оформить заказ
                   </Link>

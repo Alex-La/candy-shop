@@ -25,6 +25,8 @@ const SEARCH_PRODUCTS_QUERY = gql`
         photos
         name
         description
+        color
+        size
         price_retail
       }
     }

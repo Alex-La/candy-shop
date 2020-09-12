@@ -78,7 +78,7 @@ const Footer = () => {
               <li>
                 <Link
                   className="grey-text text-lighten-1 under-line"
-                  to="/info/contact"
+                  to="/info/contacts"
                 >
                   Контакты
                 </Link>

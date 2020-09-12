@@ -48,7 +48,10 @@ const CartModal = () => {
                 <div className="secondary-content">
                   <a
                     href=""
-                    onClick={(e) => removeFromCart(e, prod.vendor_code)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      removeFromCart(prod.vendor_code);
+                    }}
                   >
                     <i className="material-icons black-text">close</i>
                   </a>
