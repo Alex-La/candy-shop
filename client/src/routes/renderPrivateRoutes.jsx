@@ -6,7 +6,7 @@ import Main from "../components/Main/Main";
 
 import Search from "../components/Search/Search";
 import Cart from "../components/Cart/Cart";
-import Make from "../components/Cart/Make";
+import Make from "../components/Cart/Make/Make";
 
 import ProcessingPolicy from "../components/Info/ProcessingPolicy/ProcessingPolicy";
 import Dilvery from "../components/Info/Delivery/Delivery";
