@@ -25,6 +25,7 @@ const App = () => {
   );
   const [manufacturer, setManufacturer] = useState(null);
   const [cartModalInstance, setCartModalInstance] = useState(null);
+  const [priceGlobal, setPriceGlobal] = useState(0);
 
   return (
     <Fragment>
@@ -44,6 +45,8 @@ const App = () => {
             setManufacturer,
             cartModalInstance,
             setCartModalInstance,
+            priceGlobal,
+            setPriceGlobal,
           }}
         >
           <ApolloProvider client={client}>

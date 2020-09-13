@@ -34,7 +34,7 @@ const EnterContactData = ({ setAdress }) => {
   };
 
   return (
-    <div className="col s12 m8 xl9 center">
+    <div className="col s12 center">
       <h5 className="first">1. Введите контактные данные</h5>
       <div className="row">
         <div className="input-field col s12 l6">

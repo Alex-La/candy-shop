@@ -12,7 +12,9 @@ import { useLazyQuery } from "@apollo/react-hooks";
 import GET_PROMO_CODE_QUERY from "../../graphql/queries/getPromoCode";
 
 const Cart = () => {
-  const { productsInCart, setCurrentVendorCode } = useContext(Context);
+  const { productsInCart, setCurrentVendorCode, setPriceGlobal } = useContext(
+    Context
+  );
   const [price, setPrice] = useState(0);
   const [promoCode, setPromoCode] = useState("");
   const [percent, setPercent] = useState(null);
@@ -60,6 +62,11 @@ const Cart = () => {
   const usePromoCode = () => {
     validateCode({ variables: { name: promoCode } });
     setPromoCode("");
+  };
+
+  const onOrder = () => {
+    sessionStorage.removeItem("promo_code");
+    setPriceGlobal(price);
   };
 
   return (
@@ -160,7 +167,7 @@ const Cart = () => {
                   <Link
                     to="/carts/make"
                     className="waves-effect waves-light btn-large black"
-                    onClick={() => sessionStorage.removeItem("promo_code")}
+                    onClick={onOrder}
                   >
                     Оформить заказ
                   </Link>
