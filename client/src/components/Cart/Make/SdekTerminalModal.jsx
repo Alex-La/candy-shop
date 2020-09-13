@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 
 import M from "materialize-css";
 
-const SdekTerminalModal = ({ setSdekTerminalAdress }) => {
+const SdekTerminalModal = ({ setSdekTerminalData }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -19,13 +19,13 @@ const SdekTerminalModal = ({ setSdekTerminalAdress }) => {
       });
 
       const choosePVZ = (wat) => {
-        setSdekTerminalAdress(wat);
+        setSdekTerminalData(wat);
         instance.close();
       };
 
       widget.binders.add(choosePVZ, "onChoose");
     }
-  }, [setSdekTerminalAdress]);
+  }, [setSdekTerminalData]);
 
   return (
     <div id="sdek_terminal_modal" className="modal" ref={modalRef}>

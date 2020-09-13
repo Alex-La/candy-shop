@@ -1,24 +1,72 @@
 import React, { Fragment, useState } from "react";
-import { useEffect } from "react";
 
 import SdekTerminalModal from "../SdekTerminalModal";
 import YandexMap from "../YandexMap";
 
 import CourierMoscowForm from "./CourierMoscowForm";
 import RussianPostForm from "./RussianPostForm";
+import SdekCourierForm from "./SdekCourierForm";
 
 const DeliveryMethod = ({ adress }) => {
   const [radio, setRadio] = useState("pick_point");
-  const [sdekTerminalAdress, setSdekTerminalAdress] = useState(null);
+  const [sdekTerminalData, setSdekTerminalData] = useState(null);
+  const [pickPointData, setPickPointData] = useState(null);
 
   const onRadioChange = (e) => {
     setRadio(e.target.name);
+  };
+
+  const selectFun = (result) => {
+    setPickPointData(result);
+  };
+
+  const onSelectPickPoint = (e) => {
+    e.preventDefault();
+    window.PickPoint.open(selectFun);
+    return false;
   };
 
   return (
     <Fragment>
       <div className="col s12 m8 xl9">
         <h5 className="first center">2. Способ доставки</h5>
+
+        <div className="col s12">
+          <p>
+            <label>
+              <input
+                name="pick_point"
+                type="radio"
+                checked={radio === "pick_point"}
+                onChange={onRadioChange}
+              />
+              <span className="black-text">
+                <b>Терминалы PickPoint</b>
+                <br />
+                {radio === "pick_point" && (
+                  <Fragment>
+                    <a
+                      href=""
+                      className="under-line"
+                      onClick={onSelectPickPoint}
+                    >
+                      Выберите пункт выдачи
+                    </a>
+
+                    <br />
+                    {pickPointData && (
+                      <i className="grey-text">
+                        {pickPointData.name}
+                        <br />
+                        {pickPointData.address}
+                      </i>
+                    )}
+                  </Fragment>
+                )}
+              </span>
+            </label>
+          </p>
+        </div>
 
         <div className="col s12">
           <p>
@@ -42,14 +90,14 @@ const DeliveryMethod = ({ adress }) => {
                     </a>
 
                     <br />
-                    {sdekTerminalAdress && (
+                    {sdekTerminalData && (
                       <i className="grey-text">
-                        {sdekTerminalAdress.PVZ.Name}
+                        {sdekTerminalData.PVZ.Name}
                         <br />
                         {[
-                          sdekTerminalAdress.PVZ.Address,
-                          sdekTerminalAdress.PVZ.Phone,
-                          sdekTerminalAdress.PVZ.WorkTime,
+                          sdekTerminalData.PVZ.Address,
+                          sdekTerminalData.PVZ.Phone,
+                          sdekTerminalData.PVZ.WorkTime,
                         ].join("; ")}
                       </i>
                     )}
@@ -59,6 +107,32 @@ const DeliveryMethod = ({ adress }) => {
             </label>
           </p>
         </div>
+
+        {adress && adress.value !== "г Москва" && (
+          <div className="col s12">
+            <p>
+              <label>
+                <input
+                  name="sdek_courier"
+                  type="radio"
+                  checked={radio === "sdek_courier"}
+                  onChange={onRadioChange}
+                />
+                <span className="black-text">
+                  <b>Курьером СДЭК по России</b>
+                </span>
+              </label>
+            </p>
+
+            {radio === "sdek_courier" && (
+              <div className="col s12 xl8">
+                <div className="card-panel white">
+                  <SdekCourierForm />
+                </div>
+              </div>
+            )}
+          </div>
+        )}
 
         <div className="col s12">
           <p>
@@ -84,7 +158,7 @@ const DeliveryMethod = ({ adress }) => {
           )}
         </div>
 
-        {adress && adress.value !== "г Москва" && (
+        {adress && adress.value === "г Москва" && (
           <Fragment>
             <div className="col s12">
               <p>
@@ -112,7 +186,7 @@ const DeliveryMethod = ({ adress }) => {
           </Fragment>
         )}
 
-        {adress && adress.value !== "г Москва" && (
+        {adress && adress.value === "г Москва" && (
           <div className="col s12">
             <p>
               <label>
@@ -137,7 +211,7 @@ const DeliveryMethod = ({ adress }) => {
         )}
       </div>
       <YandexMap />
-      <SdekTerminalModal setSdekTerminalAdress={setSdekTerminalAdress} />
+      <SdekTerminalModal setSdekTerminalData={setSdekTerminalData} />
     </Fragment>
   );
 };
