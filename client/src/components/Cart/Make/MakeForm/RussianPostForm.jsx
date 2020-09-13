@@ -1,19 +1,39 @@
 import React, { useState } from "react";
 
-const CourierMoscowForm = () => {
+const RussianPostForm = () => {
   const [form, setForm] = useState({
+    postIndex: "",
+    houseNumber: "",
     street: "",
     flat: "",
-    houseNumber: "",
-    addInfo: "",
   });
 
-  const onFormChange = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value });
+  const onFormChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   return (
     <div className="row">
+      <div className="input-field col s12 l6">
+        <input
+          id="post_index"
+          type="text"
+          placeholder="Почтовый индекс*"
+          name="postIndex"
+          value={form.postIndex}
+          onChange={onFormChange}
+        />
+      </div>
+      <div className="input-field col s12 l6">
+        <input
+          id="house_number"
+          type="text"
+          placeholder="Номер дома*"
+          name="houseNumber"
+          value={form.houseNumber}
+          onChange={onFormChange}
+        />
+      </div>
       <div className="input-field col s12 l6">
         <input
           id="street"
@@ -34,28 +54,8 @@ const CourierMoscowForm = () => {
           onChange={onFormChange}
         />
       </div>
-      <div className="input-field col s12 l6">
-        <input
-          id="house_number"
-          type="text"
-          placeholder="Номер дома*"
-          name="houseNumber"
-          value={form.houseNumber}
-          onChange={onFormChange}
-        />
-      </div>
-      <div className="input-field col s12 l6">
-        <input
-          id="add_info"
-          type="text"
-          placeholder="Доп. информация(подъезд, этаж)"
-          name="addInfo"
-          value={form.addInfo}
-          onChange={onFormChange}
-        />
-      </div>
     </div>
   );
 };
 
-export default CourierMoscowForm;
+export default RussianPostForm;
