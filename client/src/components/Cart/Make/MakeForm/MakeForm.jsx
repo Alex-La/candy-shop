@@ -1,8 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
 import Context from "../../../../context/Context";
+import OrderContext from "../../../../context/OrderContext";
+
+import M from "materialize-css";
 
 import Confirmation from "./Confirmation";
 import DeliveryMethod from "./DeliveryMethod";
@@ -10,15 +13,19 @@ import EnterContactData from "./EnterContactData";
 import PaymentMethod from "./PaymentMethod";
 
 const MakeForm = () => {
-  const [adress, setAdress] = useState({});
   const [policy, setPolicy] = useState(false);
 
   const { priceGlobal } = useContext(Context);
+  const data = useContext(OrderContext);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <div className="col s12 m8 xl9">
-      <EnterContactData setAdress={setAdress} />
-      <DeliveryMethod adress={adress} />
+      <EnterContactData />
+      <DeliveryMethod />
       <PaymentMethod />
       <Confirmation />
 

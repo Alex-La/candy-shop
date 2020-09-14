@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+
+import OrderContext from "../../../../context/OrderContext";
 
 const CourierMoscowForm = () => {
-  const [form, setForm] = useState({
-    street: "",
-    flat: "",
-    houseNumber: "",
-    addInfo: "",
-  });
+  const { courierMoscowForm, setCourierMoscowForm } = useContext(OrderContext);
 
   const onFormChange = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value });
+    setCourierMoscowForm({
+      ...courierMoscowForm,
+      [event.target.name]: event.target.value,
+    });
   };
 
   return (
@@ -20,7 +20,7 @@ const CourierMoscowForm = () => {
           type="text"
           placeholder="Улица*"
           name="street"
-          value={form.street}
+          value={courierMoscowForm.street}
           onChange={onFormChange}
         />
       </div>
@@ -30,7 +30,7 @@ const CourierMoscowForm = () => {
           type="text"
           placeholder="Квартира"
           name="flat"
-          value={form.flat}
+          value={courierMoscowForm.flat}
           onChange={onFormChange}
         />
       </div>
@@ -40,7 +40,7 @@ const CourierMoscowForm = () => {
           type="text"
           placeholder="Номер дома*"
           name="houseNumber"
-          value={form.houseNumber}
+          value={courierMoscowForm.houseNumber}
           onChange={onFormChange}
         />
       </div>
@@ -50,7 +50,7 @@ const CourierMoscowForm = () => {
           type="text"
           placeholder="Доп. информация(подъезд, этаж)"
           name="addInfo"
-          value={form.addInfo}
+          value={courierMoscowForm.addInfo}
           onChange={onFormChange}
         />
       </div>

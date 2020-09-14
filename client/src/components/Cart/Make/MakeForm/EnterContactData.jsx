@@ -1,36 +1,36 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { AddressSuggestions } from "react-dadata";
 import "react-dadata/dist/react-dadata.css";
 
 import UserContext from "../../../../context/UserContext";
 
+import OrderContext from "../../../../context/OrderContext";
+
 const token = "7f4b5cfbed7bcf19270f403d8a6827b9674526c3";
 
-const EnterContactData = ({ setAdress }) => {
-  const [form, setForm] = useState({
-    name: "",
-    surname: "",
-    number: "",
-    email: "",
-    city: "",
-  });
-
+const EnterContactData = () => {
+  const { contactDataForm, setContactDataForm, setAddress } = useContext(
+    OrderContext
+  );
   const me = useContext(UserContext);
 
   useEffect(() => {
     if (me)
-      setForm({
+      setContactDataForm({
         name: me.name,
         surname: me.surname,
         email: me.email,
         number: "",
         city: "",
       });
-  }, [me, setForm]);
+  }, [me, setContactDataForm]);
 
   const onFormChange = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value });
+    setContactDataForm({
+      ...contactDataForm,
+      [event.target.name]: event.target.value,
+    });
   };
 
   return (
@@ -43,7 +43,7 @@ const EnterContactData = ({ setAdress }) => {
             type="text"
             placeholder="Имя"
             name="name"
-            value={form.name}
+            value={contactDataForm.name}
             onChange={onFormChange}
           />
         </div>
@@ -53,7 +53,7 @@ const EnterContactData = ({ setAdress }) => {
             type="text"
             placeholder="Фамилия"
             name="surname"
-            value={form.surname}
+            value={contactDataForm.surname}
             onChange={onFormChange}
           />
         </div>
@@ -63,7 +63,7 @@ const EnterContactData = ({ setAdress }) => {
             type="text"
             name="number"
             placeholder="Телефон"
-            value={form.number}
+            value={contactDataForm.number}
             onChange={onFormChange}
           />
         </div>
@@ -74,7 +74,7 @@ const EnterContactData = ({ setAdress }) => {
             className="validate"
             placeholder="Email"
             name="email"
-            value={form.email}
+            value={contactDataForm.email}
             onChange={onFormChange}
           />
         </div>
@@ -87,7 +87,7 @@ const EnterContactData = ({ setAdress }) => {
               autoComplete: "nope",
             }}
             filterLanguage="ru"
-            onChange={setAdress}
+            onChange={setAddress}
           />
         </div>
       </div>

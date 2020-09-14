@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+
+import OrderContext from "../../../../context/OrderContext";
 
 const RussianPostForm = () => {
-  const [form, setForm] = useState({
-    postIndex: "",
-    houseNumber: "",
-    street: "",
-    flat: "",
-  });
+  const { russianPostForm, setRussianPostForm } = useContext(OrderContext);
 
   const onFormChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setRussianPostForm({ ...russianPostForm, [e.target.name]: e.target.value });
   };
 
   return (
@@ -20,7 +17,7 @@ const RussianPostForm = () => {
           type="text"
           placeholder="Почтовый индекс*"
           name="postIndex"
-          value={form.postIndex}
+          value={russianPostForm.postIndex}
           onChange={onFormChange}
         />
       </div>
@@ -30,7 +27,7 @@ const RussianPostForm = () => {
           type="text"
           placeholder="Номер дома*"
           name="houseNumber"
-          value={form.houseNumber}
+          value={russianPostForm.houseNumber}
           onChange={onFormChange}
         />
       </div>
@@ -40,7 +37,7 @@ const RussianPostForm = () => {
           type="text"
           placeholder="Улица*"
           name="street"
-          value={form.street}
+          value={russianPostForm.street}
           onChange={onFormChange}
         />
       </div>
@@ -50,7 +47,7 @@ const RussianPostForm = () => {
           type="text"
           placeholder="Квартира"
           name="flat"
-          value={form.flat}
+          value={russianPostForm.flat}
           onChange={onFormChange}
         />
       </div>

@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+
+import OrderContext from "../../../../context/OrderContext";
 
 const SdekCourierForm = () => {
-  const [form, setForm] = useState({
-    street: "",
-    flat: "",
-    houseNumber: "",
-    addInfo: "",
-  });
+  const { sdekCourierForm, setSdekCourierForm } = useContext(OrderContext);
 
   const onFormChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setSdekCourierForm({ ...sdekCourierForm, [e.target.name]: e.target.value });
   };
 
   return (
@@ -20,7 +17,7 @@ const SdekCourierForm = () => {
           type="text"
           placeholder="Улица*"
           name="street"
-          value={form.postIndex}
+          value={sdekCourierForm.postIndex}
           onChange={onFormChange}
         />
       </div>
@@ -30,7 +27,7 @@ const SdekCourierForm = () => {
           type="text"
           placeholder="Квартира"
           name="flat"
-          value={form.postIndex}
+          value={sdekCourierForm.postIndex}
           onChange={onFormChange}
         />
       </div>
@@ -40,7 +37,7 @@ const SdekCourierForm = () => {
           type="text"
           placeholder="Номер дома*"
           name="houseNumber"
-          value={form.postIndex}
+          value={sdekCourierForm.postIndex}
           onChange={onFormChange}
         />
       </div>
@@ -50,7 +47,7 @@ const SdekCourierForm = () => {
           type="text"
           placeholder="Доп. информация(подъезд, этаж)"
           name="addInfo"
-          value={form.postIndex}
+          value={sdekCourierForm.postIndex}
           onChange={onFormChange}
         />
       </div>

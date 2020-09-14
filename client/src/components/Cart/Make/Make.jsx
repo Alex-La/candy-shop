@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,44 @@ import OrderContext from "../../../context/OrderContext";
 import MakeForm from "./MakeForm/MakeForm";
 
 const Make = () => {
+  const [contactDataForm, setContactDataForm] = useState({
+    name: "",
+    surname: "",
+    number: "",
+    email: "",
+    city: "",
+  });
+  const [address, setAddress] = useState({});
+
+  const [deliveryMetodRadio, setDeliveryMetodRadio] = useState("pick_point");
+  const [sdekTerminalData, setSdekTerminalData] = useState(null);
+  const [pickPointData, setPickPointData] = useState(null);
+
+  const [sdekCourierForm, setSdekCourierForm] = useState({
+    street: "",
+    flat: "",
+    houseNumber: "",
+    addInfo: "",
+  });
+
+  const [russianPostForm, setRussianPostForm] = useState({
+    postIndex: "",
+    houseNumber: "",
+    street: "",
+    flat: "",
+  });
+
+  const [courierMoscowForm, setCourierMoscowForm] = useState({
+    street: "",
+    flat: "",
+    houseNumber: "",
+    addInfo: "",
+  });
+
+  const [paymentMethodRadio, setPaymentMethodRadio] = useState("card_payment");
+
+  const [comment, setComment] = useState("");
+
   const me = useContext(UserContext);
 
   return (
@@ -84,7 +122,30 @@ const Make = () => {
               </p>
             </div>
 
-            <OrderContext.Provider>
+            <OrderContext.Provider
+              value={{
+                contactDataForm,
+                setContactDataForm,
+                address,
+                setAddress,
+                deliveryMetodRadio,
+                setDeliveryMetodRadio,
+                sdekTerminalData,
+                setSdekTerminalData,
+                pickPointData,
+                setPickPointData,
+                sdekCourierForm,
+                setSdekCourierForm,
+                russianPostForm,
+                setRussianPostForm,
+                courierMoscowForm,
+                setCourierMoscowForm,
+                paymentMethodRadio,
+                setPaymentMethodRadio,
+                comment,
+                setComment,
+              }}
+            >
               <MakeForm />
             </OrderContext.Provider>
           </div>

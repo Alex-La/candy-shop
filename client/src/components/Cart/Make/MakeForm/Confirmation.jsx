@@ -1,7 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext } from "react";
+
+import OrderContext from "../../../../context/OrderContext";
 
 const Confirmation = () => {
-  const [comment, setComment] = useState("");
+  const { comment, setComment } = useContext(OrderContext);
 
   return (
     <Fragment>

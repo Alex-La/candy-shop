@@ -1,10 +1,14 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext } from "react";
+
+import OrderContext from "../../../../context/OrderContext";
 
 const PaymentMethod = () => {
-  const [radio, setRadio] = useState("card_payment");
+  const { paymentMethodRadio, setPaymentMethodRadio } = useContext(
+    OrderContext
+  );
 
   const onRadioChange = (e) => {
-    setRadio(e.target.name);
+    setPaymentMethodRadio(e.target.name);
   };
 
   return (
@@ -17,7 +21,7 @@ const PaymentMethod = () => {
             <input
               name="card_payment"
               type="radio"
-              checked={radio === "card_payment"}
+              checked={paymentMethodRadio === "card_payment"}
               onChange={onRadioChange}
             />
             <span className="black-text">
@@ -33,7 +37,7 @@ const PaymentMethod = () => {
             <input
               name="cash"
               type="radio"
-              checked={radio === "cash"}
+              checked={paymentMethodRadio === "cash"}
               onChange={onRadioChange}
             />
             <span className="black-text">
@@ -49,7 +53,7 @@ const PaymentMethod = () => {
             <input
               name="cod"
               type="radio"
-              checked={radio === "cod"}
+              checked={paymentMethodRadio === "cod"}
               onChange={onRadioChange}
             />
             <span className="black-text">

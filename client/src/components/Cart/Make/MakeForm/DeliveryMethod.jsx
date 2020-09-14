@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
+
+import OrderContext from "../../../../context/OrderContext";
 
 import SdekTerminalModal from "../SdekTerminalModal";
 import YandexMap from "../YandexMap";
@@ -8,13 +10,19 @@ import CourierMoscowForm from "./CourierMoscowForm";
 import RussianPostForm from "./RussianPostForm";
 import SdekCourierForm from "./SdekCourierForm";
 
-const DeliveryMethod = ({ adress }) => {
-  const [radio, setRadio] = useState("pick_point");
-  const [sdekTerminalData, setSdekTerminalData] = useState(null);
-  const [pickPointData, setPickPointData] = useState(null);
+const DeliveryMethod = () => {
+  const {
+    address,
+    deliveryMetodRadio,
+    setDeliveryMetodRadio,
+    sdekTerminalData,
+    setSdekTerminalData,
+    pickPointData,
+    setPickPointData,
+  } = useContext(OrderContext);
 
   const onRadioChange = (e) => {
-    setRadio(e.target.name);
+    setDeliveryMetodRadio(e.target.name);
   };
 
   const selectFun = (result) => {
@@ -37,13 +45,13 @@ const DeliveryMethod = ({ adress }) => {
             <input
               name="pick_point"
               type="radio"
-              checked={radio === "pick_point"}
+              checked={deliveryMetodRadio === "pick_point"}
               onChange={onRadioChange}
             />
             <span className="black-text">
               <b>Терминалы PickPoint</b>
               <br />
-              {radio === "pick_point" && (
+              {deliveryMetodRadio === "pick_point" && (
                 <Fragment>
                   <a href="" className="under-line" onClick={onSelectPickPoint}>
                     Выберите пункт выдачи
@@ -70,13 +78,13 @@ const DeliveryMethod = ({ adress }) => {
             <input
               name="sdek_terminals"
               type="radio"
-              checked={radio === "sdek_terminals"}
+              checked={deliveryMetodRadio === "sdek_terminals"}
               onChange={onRadioChange}
             />
             <span className="black-text">
               <b>Терминалы СДЭК</b>
               <br />
-              {radio === "sdek_terminals" && (
+              {deliveryMetodRadio === "sdek_terminals" && (
                 <Fragment>
                   <a
                     href="#sdek_terminal_modal"
@@ -104,14 +112,14 @@ const DeliveryMethod = ({ adress }) => {
         </p>
       </div>
 
-      {adress && adress.value !== "г Москва" && (
+      {address && address.value !== "г Москва" && (
         <div className="col s12">
           <p>
             <label>
               <input
                 name="sdek_courier"
                 type="radio"
-                checked={radio === "sdek_courier"}
+                checked={deliveryMetodRadio === "sdek_courier"}
                 onChange={onRadioChange}
               />
               <span className="black-text">
@@ -120,7 +128,7 @@ const DeliveryMethod = ({ adress }) => {
             </label>
           </p>
 
-          {radio === "sdek_courier" && (
+          {deliveryMetodRadio === "sdek_courier" && (
             <div className="col s12 xl8">
               <div className="card-panel white">
                 <SdekCourierForm />
@@ -136,7 +144,7 @@ const DeliveryMethod = ({ adress }) => {
             <input
               name="russian_post"
               type="radio"
-              checked={radio === "russian_post"}
+              checked={deliveryMetodRadio === "russian_post"}
               onChange={onRadioChange}
             />
             <span className="black-text">
@@ -145,7 +153,7 @@ const DeliveryMethod = ({ adress }) => {
           </label>
         </p>
 
-        {radio === "russian_post" && (
+        {deliveryMetodRadio === "russian_post" && (
           <div className="col s12 xl8">
             <div className="card-panel white">
               <RussianPostForm />
@@ -154,7 +162,7 @@ const DeliveryMethod = ({ adress }) => {
         )}
       </div>
 
-      {adress && adress.value === "г Москва" && (
+      {address && address.value === "г Москва" && (
         <Fragment>
           <div className="col s12">
             <p>
@@ -162,7 +170,7 @@ const DeliveryMethod = ({ adress }) => {
                 <input
                   name="courier_moscow"
                   type="radio"
-                  checked={radio === "courier_moscow"}
+                  checked={deliveryMetodRadio === "courier_moscow"}
                   onChange={onRadioChange}
                 />
                 <span className="black-text">
@@ -172,7 +180,7 @@ const DeliveryMethod = ({ adress }) => {
             </p>
           </div>
 
-          {radio === "courier_moscow" && (
+          {deliveryMetodRadio === "courier_moscow" && (
             <div className="col s12 xl8">
               <div className="card-panel white">
                 <CourierMoscowForm />
@@ -182,14 +190,14 @@ const DeliveryMethod = ({ adress }) => {
         </Fragment>
       )}
 
-      {adress && adress.value === "г Москва" && (
+      {address && address.value === "г Москва" && (
         <div className="col s12">
           <p>
             <label>
               <input
                 name="pickup"
                 type="radio"
-                checked={radio === "pickup"}
+                checked={deliveryMetodRadio === "pickup"}
                 onChange={onRadioChange}
               />
               <span className="black-text">
