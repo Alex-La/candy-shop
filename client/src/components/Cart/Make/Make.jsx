@@ -13,7 +13,6 @@ const Make = () => {
     surname: "",
     number: "",
     email: "",
-    city: "",
   });
   const [address, setAddress] = useState({});
 
