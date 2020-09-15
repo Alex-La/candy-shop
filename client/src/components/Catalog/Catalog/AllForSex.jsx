@@ -19,7 +19,7 @@ const AllForSex = () => {
           </span>
           <p>
             <Link to="/catalog/all-for-sex" className="orange-text under-line">
-              Всё для секса
+              Все товары
             </Link>
           </p>
         </div>

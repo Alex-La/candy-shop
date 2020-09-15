@@ -29,7 +29,7 @@ const App = () => {
   return (
     <Fragment>
       <AgeCheck />
-      <Router>
+      <Router forceRefresh={true}>
         <Context.Provider
           value={{
             instance,
