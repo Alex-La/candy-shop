@@ -1,23 +1,20 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 
 import isEmail from "isemail";
 
 import { Link } from "react-router-dom";
 
-import Context from "../../../../context/Context";
 import OrderContext from "../../../../context/OrderContext";
-
-import M from "materialize-css";
 
 import Confirmation from "./Confirmation";
 import DeliveryMethod from "./DeliveryMethod";
 import EnterContactData from "./EnterContactData";
 import PaymentMethod from "./PaymentMethod";
+import MakeOrderButton from "./MakeOrderButton";
 
 const MakeForm = () => {
   const [policy, setPolicy] = useState(false);
 
-  const { priceGlobal } = useContext(Context);
   const data = useContext(OrderContext);
 
   const checkContactDataForm = (form, address) => {
@@ -71,18 +68,9 @@ const MakeForm = () => {
 
       case "pickup":
         return null;
+      default:
+        return;
     }
-  };
-
-  const onSendOrder = () => {
-    const contactForm = checkContactDataForm(
-      data.contactDataForm,
-      data.address
-    );
-    if (contactForm) return M.toast({ html: contactForm });
-
-    const delivery = checkDeliveryMethod(data);
-    if (delivery) return M.toast({ html: delivery });
   };
 
   return (
@@ -113,16 +101,18 @@ const MakeForm = () => {
             </label>
           </p>
 
-          <h4>Сумма {priceGlobal}р.</h4>
+          <h4>
+            Сумма{" "}
+            {localStorage.getItem("price") ? localStorage.getItem("price") : 0}
+            р.
+          </h4>
 
-          <button
-            className={`waves-effect waves-light btn-large black right ${
-              !policy && "disabled"
-            }`}
-            onClick={onSendOrder}
-          >
-            Заказать
-          </button>
+          <MakeOrderButton
+            policy={policy}
+            data={data}
+            checkContactDataForm={checkContactDataForm}
+            checkDeliveryMethod={checkDeliveryMethod}
+          />
         </div>
       </div>
     </div>

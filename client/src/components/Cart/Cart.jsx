@@ -12,9 +12,7 @@ import { useLazyQuery } from "@apollo/react-hooks";
 import GET_PROMO_CODE_QUERY from "../../graphql/queries/getPromoCode";
 
 const Cart = () => {
-  const { productsInCart, setCurrentVendorCode, setPriceGlobal } = useContext(
-    Context
-  );
+  const { productsInCart, setCurrentVendorCode } = useContext(Context);
   const [price, setPrice] = useState(0);
   const [promoCode, setPromoCode] = useState("");
   const [percent, setPercent] = useState(null);
@@ -66,7 +64,7 @@ const Cart = () => {
 
   const onOrder = () => {
     sessionStorage.removeItem("promo_code");
-    setPriceGlobal(price);
+    localStorage.setItem("price", price);
   };
 
   return (
