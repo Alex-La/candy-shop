@@ -34,7 +34,7 @@ const MakeForm = () => {
   };
 
   const checkDeliveryMethod = (data) => {
-    switch (data.deliveryMetodRadio) {
+    switch (data.deliveryMethodRadio) {
       case "pick_point":
         if (!data.pickPointData) return "Укажите пункт выдачи!";
         return null;

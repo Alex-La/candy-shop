@@ -17,6 +17,8 @@ const MakeOrderButton = ({
 
     const delivery = checkDeliveryMethod(data);
     if (delivery) return M.toast({ html: delivery });
+
+    console.log(data);
   };
 
   return (

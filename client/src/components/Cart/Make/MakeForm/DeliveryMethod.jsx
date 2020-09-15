@@ -13,8 +13,8 @@ import SdekCourierForm from "./SdekCourierForm";
 const DeliveryMethod = () => {
   const {
     address,
-    deliveryMetodRadio,
-    setDeliveryMetodRadio,
+    deliveryMethodRadio,
+    setDeliveryMethodRadio,
     sdekTerminalData,
     setSdekTerminalData,
     pickPointData,
@@ -22,7 +22,7 @@ const DeliveryMethod = () => {
   } = useContext(OrderContext);
 
   const onRadioChange = (e) => {
-    setDeliveryMetodRadio(e.target.name);
+    setDeliveryMethodRadio(e.target.name);
   };
 
   const selectFun = (result) => {
@@ -45,13 +45,13 @@ const DeliveryMethod = () => {
             <input
               name="pick_point"
               type="radio"
-              checked={deliveryMetodRadio === "pick_point"}
+              checked={deliveryMethodRadio === "pick_point"}
               onChange={onRadioChange}
             />
             <span className="black-text">
               <b>Терминалы PickPoint</b>
               <br />
-              {deliveryMetodRadio === "pick_point" && (
+              {deliveryMethodRadio === "pick_point" && (
                 <Fragment>
                   <a href="" className="under-line" onClick={onSelectPickPoint}>
                     Выберите пункт выдачи
@@ -78,13 +78,13 @@ const DeliveryMethod = () => {
             <input
               name="sdek_terminals"
               type="radio"
-              checked={deliveryMetodRadio === "sdek_terminals"}
+              checked={deliveryMethodRadio === "sdek_terminals"}
               onChange={onRadioChange}
             />
             <span className="black-text">
               <b>Терминалы СДЭК</b>
               <br />
-              {deliveryMetodRadio === "sdek_terminals" && (
+              {deliveryMethodRadio === "sdek_terminals" && (
                 <Fragment>
                   <a
                     href="#sdek_terminal_modal"
@@ -119,7 +119,7 @@ const DeliveryMethod = () => {
               <input
                 name="sdek_courier"
                 type="radio"
-                checked={deliveryMetodRadio === "sdek_courier"}
+                checked={deliveryMethodRadio === "sdek_courier"}
                 onChange={onRadioChange}
               />
               <span className="black-text">
@@ -128,7 +128,7 @@ const DeliveryMethod = () => {
             </label>
           </p>
 
-          {deliveryMetodRadio === "sdek_courier" && (
+          {deliveryMethodRadio === "sdek_courier" && (
             <div className="col s12 xl8">
               <div className="card-panel white">
                 <SdekCourierForm />
@@ -144,7 +144,7 @@ const DeliveryMethod = () => {
             <input
               name="russian_post"
               type="radio"
-              checked={deliveryMetodRadio === "russian_post"}
+              checked={deliveryMethodRadio === "russian_post"}
               onChange={onRadioChange}
             />
             <span className="black-text">
@@ -153,7 +153,7 @@ const DeliveryMethod = () => {
           </label>
         </p>
 
-        {deliveryMetodRadio === "russian_post" && (
+        {deliveryMethodRadio === "russian_post" && (
           <div className="col s12 xl8">
             <div className="card-panel white">
               <RussianPostForm />
@@ -170,7 +170,7 @@ const DeliveryMethod = () => {
                 <input
                   name="courier_moscow"
                   type="radio"
-                  checked={deliveryMetodRadio === "courier_moscow"}
+                  checked={deliveryMethodRadio === "courier_moscow"}
                   onChange={onRadioChange}
                 />
                 <span className="black-text">
@@ -180,7 +180,7 @@ const DeliveryMethod = () => {
             </p>
           </div>
 
-          {deliveryMetodRadio === "courier_moscow" && (
+          {deliveryMethodRadio === "courier_moscow" && (
             <div className="col s12 xl8">
               <div className="card-panel white">
                 <CourierMoscowForm />
@@ -197,7 +197,7 @@ const DeliveryMethod = () => {
               <input
                 name="pickup"
                 type="radio"
-                checked={deliveryMetodRadio === "pickup"}
+                checked={deliveryMethodRadio === "pickup"}
                 onChange={onRadioChange}
               />
               <span className="black-text">

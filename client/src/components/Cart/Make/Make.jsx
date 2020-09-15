@@ -16,7 +16,7 @@ const Make = () => {
   });
   const [address, setAddress] = useState({});
 
-  const [deliveryMetodRadio, setDeliveryMetodRadio] = useState("pick_point");
+  const [deliveryMethodRadio, setDeliveryMethodRadio] = useState("pick_point");
   const [sdekTerminalData, setSdekTerminalData] = useState(null);
   const [pickPointData, setPickPointData] = useState(null);
 
@@ -127,8 +127,8 @@ const Make = () => {
                 setContactDataForm,
                 address,
                 setAddress,
-                deliveryMetodRadio,
-                setDeliveryMetodRadio,
+                deliveryMethodRadio,
+                setDeliveryMethodRadio,
                 sdekTerminalData,
                 setSdekTerminalData,
                 pickPointData,
