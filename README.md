@@ -10,7 +10,7 @@ Express server listening on port [:4000]. All get requests redirect to client ap
 ### `yarn server`
 
 Runs Apollo Graphql server.
-'GraphQL Playground' ready at [http://localhost:4000/graphql](http://localhost:4000/graphql);
+`GraphQL Playground` ready at [http://localhost:4000/graphql](http://localhost:4000/graphql);
 
 ### `yarn client`
 
