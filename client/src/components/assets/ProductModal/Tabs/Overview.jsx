@@ -12,6 +12,28 @@ const Overview = ({ product, size, setSize, color, setColor }) => {
   const { productsInCart, setProductsInCart } = useContext(Context);
 
   useEffect(() => {
+    const include =
+      productsInCart &&
+      productsInCart.some((el) => el.vendor_code === product.vendor_code);
+
+    if (
+      !include &&
+      product &&
+      product.size.length !== 0 &&
+      product.size[0].length !== 0
+    )
+      setSize(product.size[0]);
+
+    if (
+      !include &&
+      product &&
+      product.color.length !== 0 &&
+      product.color[0].length !== 0
+    )
+      setColor(product.color[0]);
+  }, [productsInCart, product, setColor, setSize]);
+
+  useEffect(() => {
     if (productsInCart) {
       for (let i in productsInCart) {
         if (productsInCart[i].vendor_code === product.vendor_code) {

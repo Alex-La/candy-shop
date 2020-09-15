@@ -13,8 +13,8 @@ import Tabs from "./Tabs/Tabs";
 const ProductModal = () => {
   const modalRef = useRef(null);
 
-  const [color, setColor] = useState([]);
-  const [size, setSize] = useState([]);
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
 
   const [inCart, setInCart] = useState(false);
   const [instance, setInstance] = useState(null);
