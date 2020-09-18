@@ -14,7 +14,6 @@ import FixedToCartButton from "../assets/FloatActionBtn/FixedToCartButton";
 import Preloader from "../assets/Preloader/Preloader";
 
 const Manufacturers = () => {
-  const { manufacturer } = useContext(Context);
   const [catalogData, setCatalogData] = useState([]);
   const [loadingOnButton, setLoadingOnButton] = useState(false);
   const [priceRange, setPriceRange] = useState([]);
@@ -39,7 +38,7 @@ const Manufacturers = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      manufacturer,
+      manufacturer: sessionStorage.getItem("manufacturer"),
       orderBy,
       priceRange: priceRange.length !== 0 ? priceRange : [],
     },

@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 const date = new Date();
 
 const FullDescription = ({ product, instance }) => {
-  const { setManufacturer, cartModalInstance } = useContext(Context);
+  const { cartModalInstance } = useContext(Context);
 
   const onManufacturer = () => {
     instance.close();
     cartModalInstance.close();
-    setManufacturer(product.manufacturer);
+    sessionStorage.setItem("manufacturer", product.manufacturer);
   };
   return (
     <div className="row">

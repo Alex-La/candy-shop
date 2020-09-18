@@ -23,7 +23,6 @@ const App = () => {
   const [productsInCart, setProductsInCart] = useState(
     JSON.parse(localStorage.getItem("products_in_cart"))
   );
-  const [manufacturer, setManufacturer] = useState(null);
   const [cartModalInstance, setCartModalInstance] = useState(null);
 
   return (
@@ -40,8 +39,6 @@ const App = () => {
             setCurrentVendorCode,
             productsInCart,
             setProductsInCart,
-            manufacturer,
-            setManufacturer,
             cartModalInstance,
             setCartModalInstance,
           }}

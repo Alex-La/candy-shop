@@ -16,7 +16,6 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
   const [selectRefs, setSelectRefs] = useState([]);
 
   const history = useHistory();
-  const { setManufacturer } = useContext(Context);
 
   useEffect(() => {
     setSelectRefs((selectRef) =>
@@ -36,7 +35,10 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
 
   const onCategoryChange = (event) => {
     history.push(event.target.value);
-    setManufacturer(catalogData[event.target.selectedIndex - 1].name);
+    sessionStorage.setItem(
+      "manufacturer",
+      catalogData[event.target.selectedIndex - 1].name
+    );
   };
 
   const onOrderByChange = (event) => {

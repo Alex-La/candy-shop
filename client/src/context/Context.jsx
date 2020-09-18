@@ -9,8 +9,6 @@ const Context = createContext({
   setCurrentVendorCode: () => {},
   productsInCart: null,
   setProductsInCart: () => {},
-  manufacturer: null,
-  setManufacturer: () => {},
   cartModalInstance: null,
   setCartModalInstance: () => {},
 });
