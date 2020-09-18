@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import Context from "../../../../context/Context";
 
 import M from "materialize-css";
 
@@ -8,6 +10,8 @@ const MakeOrderButton = ({
   checkContactDataForm,
   checkDeliveryMethod,
 }) => {
+  const { productsInCart } = useContext(Context);
+
   const onSendOrder = () => {
     const contactForm = checkContactDataForm(
       data.contactDataForm,
@@ -19,6 +23,7 @@ const MakeOrderButton = ({
     if (delivery) return M.toast({ html: delivery });
 
     console.log(data);
+    console.log(productsInCart);
   };
 
   return (
