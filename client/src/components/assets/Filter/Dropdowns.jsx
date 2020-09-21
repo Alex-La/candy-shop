@@ -1,20 +1,11 @@
-import React, {
-  Fragment,
-  useState,
-  useEffect,
-  createRef,
-  useContext,
-} from "react";
+import React, { Fragment, useState, useEffect, createRef } from "react";
 
-import { useHistory } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 
 import M from "materialize-css";
 
-import Context from "../../../context/Context";
-
 const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
   const [selectRefs, setSelectRefs] = useState([]);
-
   const history = useHistory();
 
   useEffect(() => {
@@ -81,4 +72,4 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
   );
 };
 
-export default Dropdowns;
+export default withRouter(Dropdowns);

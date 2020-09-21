@@ -1,7 +1,5 @@
-import React, { Fragment, useState, useContext, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-import Context from "../../context/Context";
 
 import { useQuery } from "@apollo/react-hooks";
 import PRODUCTS_QUERY from "../../graphql/queries/products";
