@@ -1,11 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {
-  useEffect,
-  useState,
-  createRef,
-  useRef,
-  useContext,
-} from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 
 import Context from "../../../context/Context";
 
@@ -24,7 +18,6 @@ const ProductCard = ({
 }) => {
   const materialBoxRef = useRef(null);
   const [inCart, setInCart] = useState(false);
-  const [tooltipRefs, setTooltipRefs] = useState([]);
 
   const {
     setCurrentVendorCode,
@@ -55,22 +48,6 @@ const ProductCard = ({
       M.Materialbox.init(materialBoxRef.current);
     }
   }, []);
-
-  useEffect(() => {
-    setTooltipRefs((tooltipRef) =>
-      Array(2)
-        .fill()
-        .map((_, i) => tooltipRef[i] || createRef())
-    );
-  }, []);
-
-  useEffect(() => {
-    for (let i in tooltipRefs) {
-      if (tooltipRefs[i].current) {
-        M.Tooltip.init(tooltipRefs[i].current);
-      }
-    }
-  }, [tooltipRefs]);
 
   const onOpenModal = () => {
     setCurrentVendorCode(parseInt(vendor_code, 10));
@@ -126,10 +103,14 @@ const ProductCard = ({
       <div className="card-stacked">
         <div className="card-content">
           <p
+            onClick={onOpenModal}
+            className="under-line modal-trigger"
+            href="#ProductModal"
             style={{
               fontSize: 20,
               height: radio === "block" ? 100 : "",
               lineHeight: "20px",
+              cursor: "pointer",
             }}
           >
             {name}
@@ -138,12 +119,9 @@ const ProductCard = ({
         </div>
         <div className="card-action">
           <a
-            ref={tooltipRefs[0]}
             className={`waves-effect waves-light btn ${
               inCart ? "red" : "black"
-            } tooltipped`}
-            data-position="top"
-            data-tooltip={`${inCart ? "Убрать" : "В корзину"}`}
+            }`}
             onClick={onAddToCard}
           >
             <i className="material-icons">
@@ -151,11 +129,8 @@ const ProductCard = ({
             </i>
           </a>
           <a
-            ref={tooltipRefs[1]}
-            className="waves-effect waves-dark btn white black-text tooltipped modal-trigger"
+            className="waves-effect waves-dark btn white black-text modal-trigger"
             href="#ProductModal"
-            data-position="top"
-            data-tooltip="Больше"
             style={{ marginLeft: 10 }}
             onClick={onOpenModal}
           >
