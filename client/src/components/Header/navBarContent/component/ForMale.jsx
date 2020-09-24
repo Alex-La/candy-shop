@@ -1,17 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useRef, useEffect, Fragment, useState } from "react";
+import React, { useRef, useEffect, Fragment } from "react";
 
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import M from "materialize-css";
 
 import ForMaleContent from "../content/ForMale";
 
 const AllForSex = () => {
-  const [counter, setCounter] = useState(false);
-
-  const history = useHistory();
-
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -19,28 +14,21 @@ const AllForSex = () => {
       M.Dropdown.init(dropdownRef.current, {
         constrainWidth: false,
         coverTrigger: false,
-        onOpenEnd: () => setCounter(true),
-        onCloseEnd: () => setCounter(false),
+        hover: true,
       });
     }
   }, []);
 
-  const handleClick = () => {
-    if (counter) {
-      history.push("/catalog/for-male");
-    }
-  };
-
   return (
     <Fragment>
-      <a
+      <Link
+        to="/catalog/for-male"
         className="dropdown-trigger btn-large transparent under-line"
         data-target="ForMale"
         ref={dropdownRef}
-        onClick={handleClick}
       >
         Мужчинам
-      </a>
+      </Link>
 
       <div id="ForMale" className="dropdown-content dropdown-scroll">
         <ForMaleContent />
