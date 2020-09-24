@@ -1,9 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import Context from "../../../context/Context";
-
-import M from "materialize-css";
 
 const ProductCard = ({
   vendor_code,
@@ -16,7 +14,6 @@ const ProductCard = ({
   price,
   radio = "block",
 }) => {
-  const materialBoxRef = useRef(null);
   const [inCart, setInCart] = useState(false);
 
   const {
@@ -42,12 +39,6 @@ const ProductCard = ({
       }
     }
   }, [vendor_code, productsInCart]);
-
-  useEffect(() => {
-    if (materialBoxRef.current) {
-      M.Materialbox.init(materialBoxRef.current);
-    }
-  }, []);
 
   const onOpenModal = () => {
     setCurrentVendorCode(parseInt(vendor_code, 10));
@@ -93,8 +84,10 @@ const ProductCard = ({
     >
       <div className="card-image">
         <img
-          ref={materialBoxRef}
-          className="materialboxed"
+          className="modal-trigger"
+          href="#ProductModal"
+          onClick={onOpenModal}
+          style={{ cursor: "pointer" }}
           height={radio === "block" ? 350 : 500}
           src={image}
           alt={image}
