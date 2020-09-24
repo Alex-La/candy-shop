@@ -27,7 +27,7 @@ const ForPairs = () => {
         data-target="ForPairs"
         ref={dropdownRef}
       >
-        Парам
+        Для двоих
       </Link>
 
       <div id="ForPairs" className="dropdown-content dropdown-scroll">

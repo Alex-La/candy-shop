@@ -73,7 +73,7 @@ const Electrostimulators = () => {
               </li>
               <li>
                 <Link to="/catalog/for-pairs" className="orange-text">
-                  Парам
+                  Для двоих
                 </Link>
               </li>
               <li>
