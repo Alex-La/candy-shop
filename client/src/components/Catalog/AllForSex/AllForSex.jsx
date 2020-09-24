@@ -62,6 +62,7 @@ const AllForSex = () => {
               <li>
                 <Link to="/catalog" className="orange-text">
                   Каталог
+                  {window.innerWidth <= 375 && <br />}
                 </Link>
               </li>
               <li className="black-text">Принадлежности</li>

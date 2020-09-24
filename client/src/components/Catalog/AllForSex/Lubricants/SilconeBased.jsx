@@ -65,6 +65,7 @@ const SilconeBased = () => {
               <li>
                 <Link to="/catalog" className="orange-text">
                   Каталог
+                  {window.innerWidth <= 375 && <br />}
                 </Link>
               </li>
               <li>
