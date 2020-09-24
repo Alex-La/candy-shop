@@ -69,7 +69,7 @@ const Lubricants = () => {
               </li>
               <li>
                 <Link to="/catalog/all-for-sex" className="orange-text">
-                  Всё для секса
+                  Принадлежности
                 </Link>
               </li>
               <li className="black-text">Смазки и лубриканты</li>

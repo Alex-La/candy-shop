@@ -64,7 +64,7 @@ const AllForSex = () => {
                   Каталог
                 </Link>
               </li>
-              <li className="black-text">Всё для секса</li>
+              <li className="black-text">Принадлежности</li>
             </ul>
           </div>
         </div>

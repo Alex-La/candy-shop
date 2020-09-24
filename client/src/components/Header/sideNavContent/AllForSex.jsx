@@ -26,7 +26,7 @@ const AllForSex = () => {
     <li>
       <a className="white-text">
         <b onClick={() => handleRedirect("/catalog/all-for-sex")}>
-          Всё для секса
+          Принадлежности
         </b>
         <i
           className="collapsible-header material-icons white-text right"

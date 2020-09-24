@@ -15,7 +15,7 @@ const AllForSex = () => {
         </div>
         <div className="card-content">
           <span className="card-title activator grey-text text-darken-4">
-            Всё для секса<i className="material-icons right">more_vert</i>
+            Принадлежности<i className="material-icons right">more_vert</i>
           </span>
           <p>
             <Link to="/catalog/all-for-sex" className="orange-text under-line">

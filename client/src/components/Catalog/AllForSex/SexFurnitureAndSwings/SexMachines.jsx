@@ -57,7 +57,7 @@ const SexMachines = () => {
               </li>
               <li>
                 <Link to="/catalog/all-for-sex" className="orange-text">
-                  Всё для секса
+                  Принадлежности
                 </Link>
               </li>
               <li>
