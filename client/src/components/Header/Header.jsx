@@ -13,13 +13,13 @@ const Header = () => {
   return (
     <Fragment>
       <nav className="nav-extended white" role="navigation">
-        <div className="nav-wrapper container">
+        <div className="nav-wrapper container" style={{ height: 100 }}>
           <Link
             to="/"
             className="brand-logo grey-text text-darken-4"
             id="logo-container"
           >
-            <img src={Logo} alt={Logo} height="58px" width="110px" />
+            <img src={Logo} alt={Logo} height="100px" width="200px" />
           </Link>
           <HeaderNav />
 
