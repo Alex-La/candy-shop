@@ -13,6 +13,49 @@ const Header = () => {
   return (
     <Fragment>
       <nav className="nav-extended white" role="navigation">
+        <div className="nav-content hide-on-med-and-down">
+          <div
+            className="container black-text"
+            style={{ paddingTop: 10, paddingBottom: 10 }}
+          >
+            <Link
+              style={{ marginRight: 20 }}
+              to="/info/contacts"
+              className="under-line grey-text"
+            >
+              Контакты
+            </Link>
+            <Link
+              style={{ marginRight: 20 }}
+              to="/info/delivery"
+              className="under-line grey-text"
+            >
+              Доставка и оплата
+            </Link>
+            <Link
+              style={{ marginRight: 20 }}
+              to="/info/refund"
+              className="under-line grey-text"
+            >
+              Гарантии и возврат
+            </Link>
+            <Link
+              style={{ marginRight: 20 }}
+              to="/catalog/manufacturer"
+              className="under-line grey-text"
+            >
+              Производители
+            </Link>
+            <Link
+              style={{ marginRight: 20 }}
+              to="/responses"
+              className="under-line grey-text"
+            >
+              Отзывы о магазине
+            </Link>
+          </div>
+          <div className="divider" />
+        </div>
         <div className="nav-wrapper container" style={{ height: 100 }}>
           <Link
             to="/"
