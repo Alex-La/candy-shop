@@ -19,35 +19,47 @@ const Header = () => {
             style={{ paddingTop: 10, paddingBottom: 10 }}
           >
             <Link
-              style={{ marginRight: 20 }}
+              style={{ paddingRight: 10, borderRight: "1px solid silver" }}
               to="/info/contacts"
               className="under-line grey-text"
             >
               Контакты
             </Link>
             <Link
-              style={{ marginRight: 20 }}
+              style={{
+                marginLeft: 9,
+                paddingRight: 10,
+                borderRight: "1px solid silver",
+              }}
               to="/info/delivery"
               className="under-line grey-text"
             >
               Доставка и оплата
             </Link>
             <Link
-              style={{ marginRight: 20 }}
+              style={{
+                marginLeft: 9,
+                paddingRight: 10,
+                borderRight: "1px solid silver",
+              }}
               to="/info/refund"
               className="under-line grey-text"
             >
               Гарантии и возврат
             </Link>
             <Link
-              style={{ marginRight: 20 }}
+              style={{
+                marginLeft: 9,
+                paddingRight: 10,
+                borderRight: "1px solid silver",
+              }}
               to="/catalog/manufacturer"
               className="under-line grey-text"
             >
               Производители
             </Link>
             <Link
-              style={{ marginRight: 20 }}
+              style={{ marginLeft: 9 }}
               to="/responses"
               className="under-line grey-text"
             >
