@@ -39,9 +39,9 @@ const SideNav = () => {
         </a>
       </li>
       <IconNav />
-      <AllForSex />
       <ForFemale />
       <ForMale />
+      <AllForSex />
       <ForPairs />
       <Clothes />
       <Information />

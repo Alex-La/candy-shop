@@ -14,9 +14,9 @@ const NavContent = () => {
       className="nav-content grey darken-4 hide-on-med-and-down"
       style={{ paddingBottom: 2 }}
     >
-      <AllForSex />
       <ForFemale />
       <ForMale />
+      <AllForSex />
       <ForPairs />
       <Clothes />
       <Info />
