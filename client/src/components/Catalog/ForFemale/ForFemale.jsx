@@ -64,7 +64,7 @@ const ForFemale = () => {
                   Каталог
                 </Link>
               </li>
-              <li className="black-text">Женщинам</li>
+              <li className="black-text">Для женщин</li>
             </ul>
           </div>
         </div>

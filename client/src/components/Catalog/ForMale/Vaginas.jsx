@@ -73,7 +73,7 @@ const Vaginas = () => {
               </li>
               <li>
                 <Link to="/catalog/for-male" className="orange-text">
-                  Мужчинам
+                  Для мужчин
                 </Link>
               </li>
               <li className="black-text">Вагины</li>

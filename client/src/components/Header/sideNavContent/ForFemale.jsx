@@ -25,7 +25,7 @@ const ForFemale = () => {
   return (
     <li>
       <a className="white-text">
-        <b onClick={() => handleRedirect("/catalog/for-female")}>Женщинам</b>
+        <b onClick={() => handleRedirect("/catalog/for-female")}>Для женщин</b>
         <i
           className="collapsible-header material-icons white-text right"
           onClick={() => setExpand(!expand)}

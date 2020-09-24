@@ -71,7 +71,7 @@ const ForMale = () => {
                   Каталог
                 </Link>
               </li>
-              <li className="black-text">Мужчинам</li>
+              <li className="black-text">Для мужчин</li>
             </ul>
           </div>
         </div>

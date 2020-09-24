@@ -77,7 +77,7 @@ const RealisticPhalluses = () => {
               </li>
               <li>
                 <Link to="/catalog/for-female" className="orange-text">
-                  Женщинам
+                  Для женщин
                 </Link>
               </li>
               <li>

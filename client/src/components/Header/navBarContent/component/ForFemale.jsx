@@ -27,7 +27,7 @@ const ForFemale = () => {
         data-target="ForFemale"
         ref={dropdownRef}
       >
-        Женщинам
+        Для женщин
       </Link>
 
       <div id="ForFemale" className="dropdown-content dropdown-scroll">

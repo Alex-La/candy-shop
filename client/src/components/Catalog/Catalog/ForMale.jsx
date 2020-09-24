@@ -15,7 +15,7 @@ const ForMale = () => {
         </div>
         <div className="card-content">
           <span className="card-title activator grey-text text-darken-4">
-            Мужчинам<i className="material-icons right">more_vert</i>
+            Для мужчин<i className="material-icons right">more_vert</i>
           </span>
           <p>
             <Link to="/catalog/for-male" className="orange-text under-line">
@@ -25,7 +25,7 @@ const ForMale = () => {
         </div>
         <div className="card-reveal">
           <span className="card-title grey-text text-darken-4">
-            Мужчинам<i className="material-icons right">close</i>
+            Для мужчин<i className="material-icons right">close</i>
           </span>
           <ul className="collection">
             <Link
