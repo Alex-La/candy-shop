@@ -22,7 +22,7 @@ const ForMale = () => {
       <div className="row">
         <div className="col">
           <Link to="/catalog/for-male" className="black-text under-line">
-            <h3>Для сильных духом</h3>
+            <h4>Для сильных духом</h4>
           </Link>
         </div>
       </div>

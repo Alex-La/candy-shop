@@ -22,7 +22,7 @@ const ForPairs = () => {
       <div className="row">
         <div className="col">
           <Link to="/catalog/for-pairs" className="black-text under-line">
-            <h3>Игрушки для пар</h3>
+            <h4>Игрушки для пар</h4>
           </Link>
         </div>
       </div>

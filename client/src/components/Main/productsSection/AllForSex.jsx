@@ -27,7 +27,7 @@ const AllForSex = () => {
       <div className="row">
         <div className="col">
           <Link to="/catalog/all-for-sex" className="black-text under-line">
-            <h3>Принадлежности</h3>
+            <h4>Принадлежности</h4>
           </Link>
         </div>
       </div>

@@ -65,6 +65,17 @@ const Header = () => {
             >
               Отзывы о магазине
             </Link>
+
+            <a href="tel:+79001259458" className="under-line black-text right">
+              <b>+79001259458</b>
+            </a>
+            <a
+              className="right grey-text center"
+              style={{ fontSize: 10, marginRight: 10 }}
+            >
+              пн-вс
+              <br />с 9:00 до 21:00
+            </a>
           </div>
           <div className="divider" />
         </div>
