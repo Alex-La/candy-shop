@@ -8,25 +8,31 @@ import Filter from "../../../assets/Filter/Filter";
 import ProductCont from "../../../assets/Product/ProductCont";
 import LoadMoreButton from "../../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
+    photo: "/static/anal_vibrators.jpg",
     path: "/catalog/for-female/anal-toys/anal-vibrators",
     name: "Анальные вибраторы",
   },
   {
+    photo: "/static/anal_plugs.jpg",
     path: "/catalog/for-female/anal-toys/anal-plugs",
     name: "Анальные пробки",
   },
   {
+    photo: "/static/anal_plug_no_vibro.jpg",
     path: "/catalog/for-female/anal-toys/anal-stimulators-without-vibration",
     name: "Анальные стимуляторы без вибрации",
   },
   {
+    photo: "/static/anal_phallouses.jpg",
     path: "/catalog/for-female/anal-toys/anal-dildos",
     name: "Анальные фаллоимитаторы",
   },
   {
+    photo: "/static/anal_eggs.jpg",
     path: "/catalog/for-female/anal-toys/anal-beads-and-chains",
     name: "Анальные шарики, цепочки",
   },
@@ -82,6 +88,16 @@ const AnalToys = () => {
               </li>
               <li className="black-text">Анальные игрушки</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.slice(0, 5).map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>
