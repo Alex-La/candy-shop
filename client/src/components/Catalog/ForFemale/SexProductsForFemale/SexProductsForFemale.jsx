@@ -8,25 +8,31 @@ import Filter from "../../../assets/Filter/Filter";
 import ProductCont from "../../../assets/Product/ProductCont";
 import LoadMoreButton from "../../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
+    photo: "/static/vaginal_eggs.jpg",
     path: "/catalog/for-female/sex-products-for-female/vaginal-balls",
     name: "Вагинальные шарики",
   },
   {
+    photo: "/static/vibrating_eggs.jpg",
     path: "/catalog/for-female/sex-products-for-female/vibrating-egg",
     name: "Виброяйцо",
   },
   {
+    photo: "/static/clitoral_stimulants.jpg",
     path: "/catalog/for-female/sex-products-for-female/clitoral-stimulants",
     name: "Клиторальные стимуляторы",
   },
   {
+    photo: "/static/clitoris_pamps.jpg",
     path: "/catalog/for-female/sex-products-for-female/clitoris-pumps",
     name: "Помпы для клитора",
   },
   {
+    photo: "/static/brest_pumps.jpg",
     path:
       "/catalog/for-female/sex-products-for-female/breast-pumps-and-stimulants",
     name: "Помпы и стимуляторы для груди",
@@ -75,6 +81,16 @@ const SexProductsForFemale = () => {
                 Секс-товары для женщин
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>

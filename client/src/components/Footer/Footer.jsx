@@ -42,7 +42,7 @@ const Footer = () => {
                   className="grey-text text-lighten-1 under-line"
                   to="/catalog/for-pairs"
                 >
-                  Для пар
+                  BDSM
                 </Link>
               </li>
               <li>
