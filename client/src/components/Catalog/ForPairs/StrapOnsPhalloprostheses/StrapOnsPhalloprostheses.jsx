@@ -8,26 +8,32 @@ import Filter from "../../../assets/Filter/Filter";
 import ProductCont from "../../../assets/Product/ProductCont";
 import LoadMoreButton from "../../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
+    photo: "/static/beltless.jpg",
     path: "/catalog/for-pairs/strap-ons-phalloprostheses/beltless",
     name: "Безремневые",
   },
   {
+    photo: "/static/female_staps.jpg",
     path: "/catalog/for-pairs/strap-ons-phalloprostheses/female-strapon",
     name: "Женские страпоны",
   },
   {
+    photo: "/static/male_staps.jpg",
     path: "/catalog/for-pairs/strap-ons-phalloprostheses/male-strapon",
     name: "Мужские страпоны",
   },
   {
+    photo: "/static/panties.jpg",
     path:
       "/catalog/for-pairs/strap-ons-phalloprostheses/panties-and-attachments",
     name: "Трусики и насадки",
   },
   {
+    photo: "/static/fallopros.jpg",
     path: "/catalog/for-pairs/strap-ons-phalloprostheses/falloprostheses",
     name: "Фаллопротезы",
   },
@@ -75,6 +81,16 @@ const ForPairs = () => {
                 Страпоны, фаллопротезы
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>
