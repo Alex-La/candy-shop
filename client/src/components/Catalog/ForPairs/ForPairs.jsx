@@ -8,13 +8,16 @@ import Filter from "../../assets/Filter/Filter";
 import ProductCont from "../../assets/Product/ProductCont";
 import LoadMoreButton from "../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
+    photo: "/static/bdsm.jpg",
     path: "/catalog/for-pairs/bdsm-products",
     name: "BDSM, садо-мазо товары",
   },
   {
+    photo: "/static/strap_ons.jpg",
     path: "/catalog/for-pairs/strap-ons-phalloprostheses",
     name: "Страпоны, фаллопротезы",
   },
@@ -53,6 +56,16 @@ const ForPairs = () => {
               </li>
               <li className="black-text">BDSM</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>
