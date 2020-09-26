@@ -25,7 +25,7 @@ const ForPairs = () => {
   return (
     <li>
       <a className="white-text">
-        <b onClick={() => handleRedirect("/catalog/for-pairs")}>Для двоих</b>
+        <b onClick={() => handleRedirect("/catalog/for-pairs")}>BDSM</b>
         <i
           className="collapsible-header material-icons white-text right"
           onClick={() => setExpand(!expand)}

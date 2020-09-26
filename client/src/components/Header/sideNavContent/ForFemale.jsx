@@ -228,7 +228,7 @@ const ForFemale = () => {
                 </li>
                 <li>
                   <Link to="/catalog/for-female/vibrators/for-two">
-                    Для двоих
+                    BDSM
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>

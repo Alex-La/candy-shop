@@ -16,28 +16,10 @@ const ForMale = () => {
                 Вагины
               </Link>
               <Link
-                to="/catalog/for-male/vacuum-pumps"
-                className="collection-item grey-text"
-              >
-                Вакуумные помпы
-              </Link>
-              <Link
                 to="/catalog/for-male/prostate-massagers"
                 className="collection-item grey-text"
               >
                 Массажеры простаты
-              </Link>
-              <Link
-                to="/catalog/for-male/masturbators"
-                className="collection-item grey-text"
-              >
-                Мастурбаторы
-              </Link>
-              <Link
-                to="/catalog/for-male/nozzles-and-extensions"
-                className="collection-item grey-text"
-              >
-                Насадки и удлинители
               </Link>
               <Link
                 to="/catalog/for-male/sex-dolls"
@@ -46,10 +28,28 @@ const ForMale = () => {
                 Секс куклы
               </Link>
               <Link
+                to="/catalog/for-male/nozzles-and-extensions"
+                className="collection-item grey-text"
+              >
+                Насадки и удлинители
+              </Link>
+              <Link
                 to="/catalog/for-male/cock-rings"
                 className="collection-item grey-text"
               >
                 Эрекционные кольца
+              </Link>
+              <Link
+                to="/catalog/for-male/masturbators"
+                className="collection-item grey-text"
+              >
+                Мастурбаторы
+              </Link>
+              <Link
+                to="/catalog/for-male/vacuum-pumps"
+                className="collection-item grey-text"
+              >
+                Вакуумные помпы
               </Link>
             </ul>
           </div>

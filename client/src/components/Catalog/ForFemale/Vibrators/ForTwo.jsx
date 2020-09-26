@@ -45,7 +45,7 @@ const catalogData = [
   },
   {
     path: "/catalog/for-female/vibrators/for-two",
-    name: "Для двоих",
+    name: "BDSM",
   },
   {
     path: "/catalog/for-female/vibrators/classic",
@@ -118,7 +118,7 @@ const ForTwo = () => {
                   Вибраторы
                 </Link>
               </li>
-              <li className="black-text">Для двоих</li>
+              <li className="black-text">BDSM</li>
             </ul>
           </div>
         </div>

@@ -51,7 +51,7 @@ const ForPairs = () => {
                   Каталог
                 </Link>
               </li>
-              <li className="black-text">Для двоих</li>
+              <li className="black-text">BDSM</li>
             </ul>
           </div>
         </div>
