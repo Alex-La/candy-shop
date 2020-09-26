@@ -8,21 +8,26 @@ import Filter from "../../../assets/Filter/Filter";
 import ProductCont from "../../../assets/Product/ProductCont";
 import LoadMoreButton from "../../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
+    photo: "/static/other.jpg",
     path: "/catalog/for-pairs/bdsm-products/other-bdsm-products",
     name: "Другие BDSM товары",
   },
   {
+    photo: "/static/jewerly.jpg",
     path: "/catalog/for-pairs/bdsm-products/intimate-jewelry",
     name: "Интимные украшения",
   },
   {
+    photo: "/static/whips.jpg",
     path: "/catalog/for-pairs/bdsm-products/whips",
     name: "Кнуты, плётки, хлысты",
   },
   {
+    photo: "/static/mask.jpg",
     path: "/catalog/for-pairs/bdsm-products/masks-gags",
     name: "Маски, кляпы",
   },
@@ -82,6 +87,16 @@ const BdsmProducts = () => {
                 BDSM, садо-мазо товары
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.slice(0, 4).map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>
