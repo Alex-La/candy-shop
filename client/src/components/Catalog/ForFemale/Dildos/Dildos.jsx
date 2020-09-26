@@ -8,25 +8,31 @@ import Filter from "../../../assets/Filter/Filter";
 import ProductCont from "../../../assets/Product/ProductCont";
 import LoadMoreButton from "../../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
+    photo: "/static/anal_vaginal.jpg",
     path: "/catalog/for-female/falloimetators/anal-vaginal-phalluses",
     name: "Анально-вагинальные",
   },
   {
+    photo: "/static/vaginal_glass_plug.jpg",
     path: "/catalog/for-female/falloimetators/vaginal-plugs",
     name: "Вагинальные пробки",
   },
   {
+    photo: "/static/gigants.jpg",
     path: "/catalog/for-female/falloimetators/giants",
     name: "Гиганты",
   },
   {
+    photo: "/static/bilitreal.jpg",
     path: "/catalog/for-female/falloimetators/bilateral-phalluses",
     name: "Двусторонние",
   },
   {
+    photo: "/static/classic.jpg",
     path: "/catalog/for-female/falloimetators/classic-dildos",
     name: "Классичиские дилдо",
   },
@@ -85,6 +91,16 @@ const Dildos = () => {
                 Фаллоимитаторы
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.slice(0, 5).map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>
