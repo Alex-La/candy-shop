@@ -8,25 +8,31 @@ import Filter from "../../assets/Filter/Filter";
 import ProductCont from "../../assets/Product/ProductCont";
 import LoadMoreButton from "../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
+    photo: "/static/accessories.jpg",
     path: "/catalog/erotic-clothes/beauty-accessories",
     name: "Beauty-аксессуары",
   },
   {
+    photo: "/static/bikinis.jpg",
     path: "/catalog/erotic-clothes/bikinis-and-sets",
     name: "Бикини и комплекты",
   },
   {
+    photo: "/static/body.jpg",
     path: "/catalog/erotic-clothes/bodysuits-and-jumpsuits",
     name: "Боди и комбинезоны",
   },
   {
+    photo: "/static/big.jpg",
     path: "/catalog/erotic-clothes/big-sizes",
     name: "БОЛЬШИЕ размеры",
   },
   {
+    photo: "/static/bustier.jpg",
     path: "/catalog/erotic-clothes/bustier-and-bra",
     name: "Бюстье и бра",
   },
@@ -117,6 +123,16 @@ const Clothes = () => {
               </li>
               <li className="black-text">Одежда</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.slice(0, 4).map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>
