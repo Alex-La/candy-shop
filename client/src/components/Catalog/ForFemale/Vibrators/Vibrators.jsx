@@ -8,11 +8,33 @@ import Filter from "../../../assets/Filter/Filter";
 import ProductCont from "../../../assets/Product/ProductCont";
 import LoadMoreButton from "../../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
+    photo: "/static/hi_tech.jpg",
     path: "/catalog/for-female/vibrators/hi-tech",
     name: "Hi-tech",
+  },
+  {
+    photo: "/static/with_radio_control.jpg",
+    path: "/catalog/for-female/vibrators/with-radio-control",
+    name: "С радиоуправлением",
+  },
+  {
+    photo: "/static/waterproof.jpg",
+    path: "/catalog/for-female/vibrators/waterproof",
+    name: "Водонепроницаемые",
+  },
+  {
+    photo: "/static/bilateral_vibrators.jpg",
+    path: "/catalog/for-female/vibrators/bilateral-vibrators",
+    name: "Двусторонние",
+  },
+  {
+    photo: "/static/for_two.jpg",
+    path: "/catalog/for-female/vibrators/for-two",
+    name: "Для двоих",
   },
   {
     path: "/catalog/for-female/vibrators/anal-vaginal-vibrators",
@@ -32,20 +54,8 @@ const catalogData = [
     name: "Вибростимуляторы, вибропульки",
   },
   {
-    path: "/catalog/for-female/vibrators/waterproof",
-    name: "Водонепроницаемые",
-  },
-  {
     path: "/catalog/for-female/vibrators/rotating",
     name: "Вращающиеся",
-  },
-  {
-    path: "/catalog/for-female/vibrators/bilateral-vibrators",
-    name: "Двусторонние",
-  },
-  {
-    path: "/catalog/for-female/vibrators/for-two",
-    name: "BDSM",
   },
   {
     path: "/catalog/for-female/vibrators/classic",
@@ -58,10 +68,6 @@ const catalogData = [
   {
     path: "/catalog/for-female/vibrators/realistic-vibrators",
     name: "Реалистики",
-  },
-  {
-    path: "/catalog/for-female/vibrators/with-radio-control",
-    name: "С радиоуправлением",
   },
   {
     path: "/catalog/for-female/vibrators/with-clitoris-stimulator",
@@ -115,6 +121,16 @@ const Vibrators = () => {
                 Вибраторы
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.slice(0, 5).map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>

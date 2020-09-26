@@ -118,7 +118,7 @@ const ForTwo = () => {
                   Вибраторы
                 </Link>
               </li>
-              <li className="black-text">BDSM</li>
+              <li className="black-text">Для двоих</li>
             </ul>
           </div>
         </div>

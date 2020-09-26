@@ -45,7 +45,7 @@ const catalogData = [
   },
   {
     path: "/catalog/for-female/vibrators/for-two",
-    name: "BDSM",
+    name: "Для двоих",
   },
   {
     path: "/catalog/for-female/vibrators/classic",
