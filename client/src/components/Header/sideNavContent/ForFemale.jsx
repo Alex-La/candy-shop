@@ -40,10 +40,10 @@ const ForFemale = () => {
             <a>
               <b
                 onClick={() =>
-                  handleRedirect("/catalog/for-female/falloimetators")
+                  handleRedirect("/catalog/for-female/sex-products-for-female")
                 }
               >
-                Фаллоимитаторы
+                Секс-товары для женщин
               </b>
               <i className="collapsible-header material-icons right">add</i>
             </a>
@@ -51,50 +51,32 @@ const ForFemale = () => {
             <div className="collapsible-body">
               <ul className="collapsible">
                 <li>
-                  <Link to="/catalog/for-female/falloimetators/anal-vaginal-phalluses">
-                    Анально-вагинальные
+                  <Link to="/catalog/for-female/sex-products-for-female/vibrating-egg">
+                    Виброяйцо
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog/for-female/falloimetators/vaginal-plugs">
-                    Вагинальные пробки
+                  <Link to="/catalog/for-female/sex-products-for-female/breast-pumps-and-stimulants">
+                    Для груди
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog/for-female/falloimetators/giants">
-                    Гиганты
+                  <Link to="/catalog/for-female/sex-products-for-female/clitoral-stimulants">
+                    Клиторальные стимулят.
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog/for-female/falloimetators/bilateral-phalluses">
-                    Двусторонние
+                  <Link to="/catalog/for-female/sex-products-for-female/clitoris-pumps">
+                    Помпы для клитора
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog/for-female/falloimetators/classic-dildos">
-                    Классические дилдо
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/falloimetators/realistic-phalluses">
-                    Реалистичные
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/falloimetators/glass-phalluses">
-                    Стеклянные фаллосы
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/falloimetators/g-spot-stimulants-phalluses">
-                    Стимуляторы точки G
+                  <Link to="/catalog/for-female/sex-products-for-female/vaginal-balls">
+                    Вагинальные шарики
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
@@ -115,8 +97,20 @@ const ForFemale = () => {
             <div className="collapsible-body">
               <ul className="collapsible">
                 <li>
-                  <Link to="/catalog/for-female/anal-toys/anal-vibrators">
-                    Анальные вибраторы
+                  <Link to="/catalog/for-female/anal-toys/fisting">
+                    Фистинг
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/anal-toys/glass-and-metal">
+                    Стеклянные и металлич.
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/anal-toys/anal-dildos">
+                    Анальные фаллоиметат.
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
@@ -133,8 +127,8 @@ const ForFemale = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog/for-female/anal-toys/anal-dildos">
-                    Анальные фаллоиметат.
+                  <Link to="/catalog/for-female/anal-toys/anal-vibrators">
+                    Анальные вибраторы
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
@@ -150,15 +144,69 @@ const ForFemale = () => {
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a>
+              <b
+                onClick={() =>
+                  handleRedirect("/catalog/for-female/falloimetators")
+                }
+              >
+                Фаллоимитаторы
+              </b>
+              <i className="collapsible-header material-icons right">add</i>
+            </a>
+
+            <div className="collapsible-body">
+              <ul className="collapsible">
                 <li>
-                  <Link to="/catalog/for-female/anal-toys/glass-and-metal">
-                    Стеклянные и металлич.
+                  <Link to="/catalog/for-female/falloimetators/vaginal-plugs">
+                    Вагинальные пробки
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog/for-female/anal-toys/fisting">
-                    Фистинг
+                  <Link to="/catalog/for-female/falloimetators/glass-phalluses">
+                    Стеклянные фаллосы
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/falloimetators/g-spot-stimulants-phalluses">
+                    Стимуляторы точки G
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/falloimetators/anal-vaginal-phalluses">
+                    Анально-вагинальные
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/falloimetators/classic-dildos">
+                    Классические дилдо
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/falloimetators/giants">
+                    Гиганты
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/falloimetators/realistic-phalluses">
+                    Реалистичные
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/falloimetators/bilateral-phalluses">
+                    Двусторонние
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
@@ -179,32 +227,20 @@ const ForFemale = () => {
             <div className="collapsible-body">
               <ul className="collapsible">
                 <li>
-                  <Link to="/catalog/for-female/vibrators/hi-tech">
-                    Hi-tech
+                  <Link to="/catalog/for-female/vibrators/bilateral-vibrators">
+                    Двусторонние
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog/for-female/vibrators/anal-vaginal-vibrators">
-                    Анально-вагинальные
+                  <Link to="/catalog/for-female/vibrators/with-radio-control">
+                    С радиоуправлением
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog/for-female/vibrators/big-vibrators">
-                    Большие вибраторы
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/vibrators/vibration-kits">
-                    Вибронаборы
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/vibrators/vibration-stimulators-and-vibration-bullets">
-                    Вибростимуляторы, пульки
+                  <Link to="/catalog/for-female/vibrators/for-two">
+                    Для двоих
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
@@ -215,26 +251,56 @@ const ForFemale = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/catalog/for-female/vibrators/hi-tech">
+                    Hi-tech
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/vibrators/big-vibrators">
+                    Большие вибраторы
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/vibrators/vibration-stimulators-and-vibration-bullets">
+                    Вибростимуляторы, пульки
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
                   <Link to="/catalog/for-female/vibrators/rotating">
                     Врощающиеся
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog/for-female/vibrators/bilateral-vibrators">
-                    Двусторонние
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/vibrators/for-two">
-                    BDSM
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
                   <Link to="/catalog/for-female/vibrators/classic">
                     Классические
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/vibrators/vibration-kits">
+                    Вибронаборы
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/vibrators/g-spot-stimulants-vibrators">
+                    Стимуляторы G-точки
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/vibrators/anal-vaginal-vibrators">
+                    Анально-вагинальные
+                    <i className="material-icons">chevron_right</i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/catalog/for-female/vibrators/with-clitoris-stimulator">
+                    Со стимулятором клитора
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>
@@ -246,73 +312,7 @@ const ForFemale = () => {
                 </li>
                 <li>
                   <Link to="/catalog/for-female/vibrators/realistic-vibrators">
-                    Реалистичные
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/vibrators/with-radio-control">
-                    С радиоуправлением
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/vibrators/with-clitoris-stimulator">
-                    Со стимулятором клитора
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/vibrators/g-spot-stimulants-vibrators">
-                    Стимуляторы G-точки
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </li>
-
-          <li>
-            <a>
-              <b
-                onClick={() =>
-                  handleRedirect("/catalog/for-female/sex-products-for-female")
-                }
-              >
-                Секс-товары для женщин
-              </b>
-              <i className="collapsible-header material-icons right">add</i>
-            </a>
-
-            <div className="collapsible-body">
-              <ul className="collapsible">
-                <li>
-                  <Link to="/catalog/for-female/sex-products-for-female/vaginal-balls">
-                    Вагинальные шарики
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/sex-products-for-female/vibrating-egg">
-                    Виброяйцо
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/sex-products-for-female/clitoral-stimulants">
-                    Клиторальные стимулят.
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/sex-products-for-female/clitoris-pumps">
-                    Помпы для клитора
-                    <i className="material-icons">chevron_right</i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/catalog/for-female/sex-products-for-female/breast-pumps-and-stimulants">
-                    Для груди
+                    Реалистики
                     <i className="material-icons">chevron_right</i>
                   </Link>
                 </li>

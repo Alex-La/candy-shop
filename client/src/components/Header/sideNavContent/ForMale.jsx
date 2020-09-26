@@ -31,17 +31,13 @@ const ForMale = () => {
           </li>
 
           <li>
-            <Link to="/catalog/for-male/vacuum-pumps">Вакуумные помпы</Link>
-          </li>
-
-          <li>
             <Link to="/catalog/for-male/prostate-massagers">
               Массажеры простаты
             </Link>
           </li>
 
           <li>
-            <Link to="/catalog/for-male/masturbators">Мастурбаторы</Link>
+            <Link to="/catalog/for-male/sex-dolls">Секс куклы</Link>
           </li>
 
           <li>
@@ -51,11 +47,15 @@ const ForMale = () => {
           </li>
 
           <li>
-            <Link to="/catalog/for-male/sex-dolls">Секс куклы</Link>
+            <Link to="/catalog/for-male/cock-rings">Эрекционные кольца</Link>
           </li>
 
           <li>
-            <Link to="/catalog/for-male/cock-rings">Эрекционные кольца</Link>
+            <Link to="/catalog/for-male/masturbators">Мастурбаторы</Link>
+          </li>
+
+          <li>
+            <Link to="/catalog/for-male/vacuum-pumps">Вакуумные помпы</Link>
           </li>
         </ul>
       </div>

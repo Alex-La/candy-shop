@@ -192,7 +192,7 @@ const ForFemale = () => {
                 to="/catalog/for-female/vibrators/for-two"
                 className="collection-item grey-text"
               >
-                BDSM
+                Для двоих
               </Link>
               <Link
                 to="/catalog/for-female/vibrators/waterproof"
