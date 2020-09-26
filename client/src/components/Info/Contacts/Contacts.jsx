@@ -60,6 +60,11 @@ const Contacts = () => {
                   sexshop@candy-shop.su
                 </a>
               </p>
+              <p className="grey-text">
+                Адрес (склад): 115280, город Москва, Автозаводская улица, дом 16
+                корпус 2 строение 8. Только для выдачи онлайн заказов
+                (самовывоз).
+              </p>
             </div>
             <div className="col s12 m4" style={{ fontSize: 20 }}>
               <h4 style={{ marginBottom: 50 }}>Наши преимущества</h4>
