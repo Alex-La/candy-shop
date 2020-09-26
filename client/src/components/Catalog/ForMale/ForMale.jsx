@@ -8,25 +8,31 @@ import Filter from "../../assets/Filter/Filter";
 import ProductCont from "../../assets/Product/ProductCont";
 import LoadMoreButton from "../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
+    photo: "/static/vaginas.jpg",
     path: "/catalog/for-male/vaginas",
     name: "Вагины",
   },
   {
+    photo: "/static/vacuum_pumps.jpg",
     path: "/catalog/for-male/vacuum-pumps",
     name: "Вакуумные помпы",
   },
   {
+    photo: "/static/prostate_massagers.jpg",
     path: "/catalog/for-male/prostate-massagers",
     name: "Массажеры простаты",
   },
   {
+    photo: "/static/masturbators.jpg",
     path: "/catalog/for-male/masturbators",
     name: "Мастурбаторы",
   },
   {
+    photo: "/static/nuzzles.jpg",
     path: "/catalog/for-male/nozzles-and-extensions",
     name: "Насадки и удлинители",
   },
@@ -73,6 +79,16 @@ const ForMale = () => {
               </li>
               <li className="black-text">Для мужчин</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.slice(0, 5).map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>
