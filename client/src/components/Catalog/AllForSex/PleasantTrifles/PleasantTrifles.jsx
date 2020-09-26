@@ -8,15 +8,32 @@ import Filter from "../../../assets/Filter/Filter";
 import ProductCont from "../../../assets/Product/ProductCont";
 import LoadMoreButton from "../../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
-    path: "/catalog/all-for-sex/pleasant-trifles/vape",
-    name: "Вейп",
-  },
-  {
+    photo: "/static/excitatory.jpg",
     path: "/catalog/all-for-sex/pleasant-trifles/excitatory-agents",
     name: "Возбуждающие средства",
+  },
+  {
+    photo: "/static/intimate.jpg",
+    path: "/catalog/all-for-sex/pleasant-trifles/intimate-hygiene",
+    name: "Интимная гигиена",
+  },
+  {
+    photo: "/static/masks.jpg",
+    path: "/catalog/all-for-sex/pleasant-trifles/masks-antiseptics",
+    name: "Маски, антисептики",
+  },
+  {
+    photo: "/static/souvenirs.jpg",
+    path: "/catalog/all-for-sex/pleasant-trifles/souvenirs",
+    name: "Сувениры",
+  },
+  {
+    path: "/catalog/all-for-sex/pleasant-trifles/vape",
+    name: "Вейп",
   },
   {
     path: "/catalog/all-for-sex/pleasant-trifles/darsonval",
@@ -27,20 +44,8 @@ const catalogData = [
     name: "Ёлочные ишрушки",
   },
   {
-    path: "/catalog/all-for-sex/pleasant-trifles/intimate-hygiene",
-    name: "Интимная гигиена",
-  },
-  {
-    path: "/catalog/all-for-sex/pleasant-trifles/masks-antiseptics",
-    name: "Маски, антисептики",
-  },
-  {
     path: "/catalog/all-for-sex/pleasant-trifles/condoms",
     name: "Презервативы",
-  },
-  {
-    path: "/catalog/all-for-sex/pleasant-trifles/souvenirs",
-    name: "Сувениры",
   },
   {
     path: "/catalog/all-for-sex/pleasant-trifles/batteries-and-accessories",
@@ -99,6 +104,16 @@ const PleasantTrifles = () => {
               </li>
               <li className="black-text">Приятные мелочи</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.slice(0, 4).map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>
