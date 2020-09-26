@@ -8,24 +8,29 @@ import Filter from "../../../assets/Filter/Filter";
 import ProductCont from "../../../assets/Product/ProductCont";
 import LoadMoreButton from "../../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
+    photo: "/static/perfumes.jpg",
     path:
       "/catalog/all-for-sex/cosmetics-with-pheromones/perfumes-and-lubricants-for-female",
     name: "Духи и смазки для женщин",
   },
   {
+    photo: "/static/perfumesForMale.jpg",
     path:
       "/catalog/all-for-sex/cosmetics-with-pheromones/perfumes-and-lubricants-for-male",
     name: "Духи и смазки для мужчин",
   },
   {
+    photo: "/static/concentrates.jpg",
     path:
       "/catalog/all-for-sex/cosmetics-with-pheromones/pheromone-concentrates",
     name: "Концентраты феромонов",
   },
   {
+    photo: "/static/bodyCare.jpg",
     path:
       "/catalog/all-for-sex/cosmetics-with-pheromones/body-care-products-cosmetics",
     name: "Средства по уходу за телом, косметика",
@@ -71,6 +76,16 @@ const CosmeticsWithPheromones = () => {
               </li>
               <li className="black-text">Косметика с феромонами</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>
