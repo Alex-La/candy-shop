@@ -8,21 +8,26 @@ import Filter from "../../assets/Filter/Filter";
 import ProductCont from "../../assets/Product/ProductCont";
 import LoadMoreButton from "../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../assets/FloatActionBtn/FixedToCartButton";
+import CategoryCard from "../../assets/CategoryCard/CategoryCard";
 
 const catalogData = [
   {
+    photo: "/static/cosmetics.jpg",
     path: "/catalog/all-for-sex/cosmetics-with-pheromones",
     name: "Косметика с феромонами",
   },
   {
+    photo: "/static/pleasant_trifles.jpg",
     path: "/catalog/all-for-sex/pleasant-trifles",
     name: "Приятные мелочи",
   },
   {
+    photo: "/static/sex_furniture.jpg",
     path: "/catalog/all-for-sex/sex-furniture-and-swings",
     name: "Секс-мебель и качели",
   },
   {
+    photo: "/static/lubricants.jpg",
     path: "/catalog/all-for-sex/lubricants",
     name: "Смазки и лубриканты",
   },
@@ -67,6 +72,16 @@ const AllForSex = () => {
               </li>
               <li className="black-text">Принадлежности</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {catalogData.map((dat, index) => (
+              <CategoryCard dat={dat} key={index} />
+            ))}
           </div>
         </div>
       </div>
