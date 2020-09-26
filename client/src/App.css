@@ -142,7 +142,7 @@ a.middle-indicator-text {
   position: absolute;
   text-align: center;
   margin: 0px 3px;
-  z-index: 1150;
+  z-index: 1;
 }
 
 .cart-counter-header {
