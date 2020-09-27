@@ -19,7 +19,11 @@ const Header = () => {
             style={{ paddingTop: 10, paddingBottom: 10 }}
           >
             <Link
-              style={{ paddingRight: 10, borderRight: "1px solid silver" }}
+              style={{
+                paddingRight: 10,
+                borderRight: "1px solid silver",
+                fontSize: 11,
+              }}
               to="/info/contacts"
               className="under-line grey-text"
             >
@@ -30,6 +34,7 @@ const Header = () => {
                 marginLeft: 9,
                 paddingRight: 10,
                 borderRight: "1px solid silver",
+                fontSize: 11,
               }}
               to="/info/delivery"
               className="under-line grey-text"
@@ -41,6 +46,7 @@ const Header = () => {
                 marginLeft: 9,
                 paddingRight: 10,
                 borderRight: "1px solid silver",
+                fontSize: 11,
               }}
               to="/info/refund"
               className="under-line grey-text"
@@ -52,6 +58,7 @@ const Header = () => {
                 marginLeft: 9,
                 paddingRight: 10,
                 borderRight: "1px solid silver",
+                fontSize: 11,
               }}
               to="/catalog/manufacturer"
               className="under-line grey-text"
@@ -59,7 +66,7 @@ const Header = () => {
               Производители
             </Link>
             <Link
-              style={{ marginLeft: 9 }}
+              style={{ marginLeft: 9, fontSize: 11 }}
               to="/responses"
               className="under-line grey-text"
             >
