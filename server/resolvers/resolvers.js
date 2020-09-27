@@ -108,6 +108,10 @@ module.exports = {
   },
 
   Mutation: {
+    setProductPriority: async (_, { value, vendor_code }, { dataSources }) => {
+      return await dataSources.productsAPI.setPriority({ value, vendor_code });
+    },
+
     changePassword: async (_, { email }, { dataSources }) =>
       await changePassword(email, dataSources),
 

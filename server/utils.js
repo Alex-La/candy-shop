@@ -119,6 +119,7 @@ module.exports.createStore = () => {
   class FullMode extends Model {}
   FullMode.init(
     {
+      priority: DataTypes.SMALLINT,
       vendor_code: DataTypes.STRING,
       main_product_category: DataTypes.STRING,
       subsection_product_category: DataTypes.STRING,

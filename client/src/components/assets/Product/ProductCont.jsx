@@ -12,7 +12,7 @@ const ProductCont = ({ data, refetch, loading, loadingOnButton, radio }) => {
             Array(12)
               .fill()
               .map((_, index) => (
-                <div key={index} className="col s12 m6 xl4">
+                <div key={index} className="col s12 m4 xl3">
                   <ProductCardSkeleton />
                 </div>
               ))
@@ -20,7 +20,7 @@ const ProductCont = ({ data, refetch, loading, loadingOnButton, radio }) => {
             data.map((dat, index) => (
               <div
                 key={index}
-                className={`col s12 ${radio === "block" && "m6 xl4"}`}
+                className={`col s12 ${radio === "block" && "m4 xl3"}`}
               >
                 <ProductCard
                   vendor_code={dat.vendor_code}

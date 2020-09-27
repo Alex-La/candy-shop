@@ -6,6 +6,17 @@ class ProductsAPI extends DataSource {
     this.store = store;
   }
 
+  async setPriority({ value, vendor_code }) {
+    const update = await this.store.FullMode.findOne({
+      where: { vendor_code, can_buy: "1" },
+    }).then((record) => {
+      return record.update({ priority: value });
+    });
+
+    if (update) return `Updated with value ${value}`;
+    return "Error";
+  }
+
   async getProduct({ vendorCode }) {
     return await this.store.FullMode.findAll({
       where: { vendor_code: vendorCode.toString() },

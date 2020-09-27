@@ -24,14 +24,6 @@ const ProductCardSkeleton = () => {
           >
             <i className="material-icons">add_shopping_cart</i>
           </a>
-          <a
-            className="waves-effect waves-dark btn white black-text tooltipped disabled"
-            data-position="top"
-            data-tooltip="Больше"
-            style={{ marginLeft: 10 }}
-          >
-            <i className="material-icons">open_in_new</i>
-          </a>
           <a className="right" style={{ fontSize: 20 }}>
             <SkeletonTheme color="#ff9800" highlightColor="#fff3e0">
               <Skeleton width={70} height={28} />

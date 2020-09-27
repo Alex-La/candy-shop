@@ -41,6 +41,7 @@ const typeDefs = gql`
     changePassword(email: String!): String!
     createPromoCode(name: String!, percent: Int!): String
     removePromoCode(name: String!): String
+    setProductPriority(value: Int, vendor_code: String): String
   }
 
   input ReviewData {
@@ -124,6 +125,7 @@ const typeDefs = gql`
   }
 
   type Product {
+    priority: Int
     vendor_code: String
     main_product_category: String
     subsection_product_category: String

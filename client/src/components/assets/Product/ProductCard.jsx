@@ -121,14 +121,6 @@ const ProductCard = ({
               {inCart ? "remove_shopping_cart" : "add_shopping_cart"}
             </i>
           </a>
-          <a
-            className="waves-effect waves-dark btn white black-text modal-trigger"
-            href="#ProductModal"
-            style={{ marginLeft: 10 }}
-            onClick={onOpenModal}
-          >
-            <i className="material-icons">open_in_new</i>
-          </a>
           <a className="right" style={{ fontSize: 18, marginTop: 4 }}>
             {price.slice(0, price.length - 3) + " р."}
           </a>
