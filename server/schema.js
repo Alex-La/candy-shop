@@ -41,7 +41,7 @@ const typeDefs = gql`
     changePassword(email: String!): String!
     createPromoCode(name: String!, percent: Int!): String
     removePromoCode(name: String!): String
-    setProductPriority(value: Int, vendor_code: String): String
+    setProductPriority(value: Int, vendor_code: [String]): String
   }
 
   input ReviewData {

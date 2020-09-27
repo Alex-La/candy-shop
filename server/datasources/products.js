@@ -7,11 +7,10 @@ class ProductsAPI extends DataSource {
   }
 
   async setPriority({ value, vendor_code }) {
-    const update = await this.store.FullMode.findOne({
-      where: { vendor_code, can_buy: "1" },
-    }).then((record) => {
-      return record.update({ priority: value });
-    });
+    const update = await this.store.FullMode.update(
+      { priority: value },
+      { where: { vendor_code } }
+    );
 
     if (update) return `Updated with value ${value}`;
     return "Error";
