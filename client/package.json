@@ -12,6 +12,7 @@
     "react": "^16.13.1",
     "react-dadata": "^2.7.1",
     "react-dom": "^16.13.1",
+    "react-easy-swipe": "^0.0.21",
     "react-google-recaptcha": "^2.1.0",
     "react-loading-skeleton": "^2.1.1",
     "react-router-dom": "^5.2.0",
