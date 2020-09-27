@@ -78,11 +78,25 @@ class ProductsAPI extends DataSource {
       }
     } else {
       if (searchName.length !== 0) {
-        return await this.store.FullMode.findAll({
+        const result = await this.store.FullMode.findAll({
           where: { name: searchName, can_buy: "1" },
         });
+        if (result.length === 0) {
+          const data = await this.store.FullMode.findAll({
+            where: { can_buy: "1" },
+          });
+
+          const filteredData = data.filter((el) =>
+            el.name.toLowerCase().includes(searchName.toLowerCase())
+          );
+          return filteredData;
+        }
+        return result;
       } else {
-        return await this.store.FullMode.findAll({ where: { can_buy: "1" } });
+        return await this.store.FullMode.findAll({
+          limit: 1000,
+          where: { can_buy: "1" },
+        });
       }
     }
   }

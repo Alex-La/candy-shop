@@ -106,6 +106,13 @@ const Search = () => {
     }
   }, [setSearchInputValue]);
 
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      setSearchInputValue(e.target.value);
+      instance.close();
+    }
+  };
+
   return (
     <Fragment>
       <div className="section">
@@ -128,6 +135,7 @@ const Search = () => {
           <div className="row">
             <div className="input-field col s12">
               <input
+                onKeyDown={onEnter}
                 placeholder="Поиск..."
                 type="text"
                 id="autocomplete-input"
@@ -135,7 +143,7 @@ const Search = () => {
                 autoComplete="off"
                 ref={autocompleteRef}
               />
-              <label for="autocomplete-input">{searchInputValue}</label>
+              <label htmlFor="autocomplete-input">{searchInputValue}</label>
             </div>
           </div>
         </div>
