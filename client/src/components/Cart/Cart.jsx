@@ -10,6 +10,7 @@ import M from "materialize-css";
 
 import { useLazyQuery } from "@apollo/react-hooks";
 import GET_PROMO_CODE_QUERY from "../../graphql/queries/getPromoCode";
+import InputNumber from "./InputNumber";
 
 const Cart = () => {
   const { productsInCart, setCurrentVendorCode } = useContext(Context);
@@ -132,6 +133,12 @@ const Cart = () => {
                               {[prod.color, prod.size].join(" / ")}
                             </i>
                             <h6 className="orange-text">{prod.price}</h6>
+                            <div className="row">
+                              <div className="col" style={{ marginTop: 8 }}>
+                                Количество:{" "}
+                              </div>
+                              <InputNumber />
+                            </div>
                           </div>
                           <div className="card-action">
                             <a
