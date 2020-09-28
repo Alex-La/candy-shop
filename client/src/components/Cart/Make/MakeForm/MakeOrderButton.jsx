@@ -10,7 +10,7 @@ const MakeOrderButton = ({
   checkContactDataForm,
   checkDeliveryMethod,
 }) => {
-  const { productsInCart } = useContext(Context);
+  const { productsInCart, setProductsInCart } = useContext(Context);
 
   const onSendOrder = () => {
     const contactForm = checkContactDataForm(
@@ -24,6 +24,10 @@ const MakeOrderButton = ({
 
     console.log(data);
     console.log(productsInCart);
+
+    //Clear cart
+    setProductsInCart(null);
+    localStorage.removeItem("products_in_cart");
   };
 
   return (

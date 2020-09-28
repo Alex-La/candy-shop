@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
-const InputNumber = () => {
-  const [value, setValue] = useState(0);
+import Context from "../../context/Context";
+
+const InputNumber = ({ vendorCode }) => {
+  const [value, setValue] = useState(1);
+
+  const { productsInCart } = useContext(Context);
+
+  useEffect(() => {
+    for (let i in productsInCart) {
+      if (productsInCart[i].vendor_code === vendorCode) {
+        productsInCart[i].count = value;
+      }
+    }
+    localStorage.setItem("products_in_cart", JSON.stringify(productsInCart));
+  }, [vendorCode, value, productsInCart]);
 
   const increment = () => {
     setValue((val) => val + 1);
   };
 
   const decrement = () => {
-    if (value === 0) return;
+    if (value === 1) return;
     setValue((val) => val - 1);
   };
 

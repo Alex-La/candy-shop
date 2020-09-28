@@ -123,8 +123,12 @@ const Cart = () => {
                           window.innerWidth >= 768 && "horizontal"
                         }`}
                       >
-                        <div className="card-image" style={{ width: 200 }}>
-                          <img src={prod.image_small} alt={prod.image_small} />
+                        <div className="card-image">
+                          <img
+                            style={{ height: 150 }}
+                            src={prod.image_small}
+                            alt={prod.image_small}
+                          />
                         </div>
                         <div className="card-stacked">
                           <div className="card-content">
@@ -137,7 +141,7 @@ const Cart = () => {
                               <div className="col" style={{ marginTop: 8 }}>
                                 Количество:{" "}
                               </div>
-                              <InputNumber />
+                              <InputNumber vendorCode={prod.vendor_code} />
                             </div>
                           </div>
                           <div className="card-action">
