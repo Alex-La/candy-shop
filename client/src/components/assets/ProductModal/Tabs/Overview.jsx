@@ -1,15 +1,20 @@
-import React, { useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext, useState } from "react";
 
 import M from "materialize-css";
 
 import Context from "../../../../context/Context";
 
+import Swipe from "react-easy-swipe";
+import useDragHandler from "../../../../hooks/useDragHandler";
+
 const date = new Date();
 
 const Overview = ({ product, size, setSize, color, setColor }) => {
   const sliderRef = useRef(null);
+  const [instance, setInstance] = useState(null);
 
   const { productsInCart, setProductsInCart } = useContext(Context);
+  const { onDrag, onDragEnd, onDragStart } = useDragHandler(instance);
 
   useEffect(() => {
     const include =
@@ -51,23 +56,39 @@ const Overview = ({ product, size, setSize, color, setColor }) => {
 
   useEffect(() => {
     if (sliderRef.current) {
-      M.Slider.init(sliderRef.current);
+      const instance = M.Slider.init(sliderRef.current);
+      setInstance(instance);
     }
   }, []);
+
+  const onSwipeLeft = () => {
+    instance.next();
+  };
+
+  const onSwipeRight = () => {
+    instance.prev();
+  };
 
   return (
     <div className="row">
       <div className="col s12 m6">
         <div className="slider" ref={sliderRef}>
-          <ul className="slides">
-            {product.photos
-              .filter((photo) => photo.length !== 0)
-              .map((photo, index) => (
-                <li key={index}>
-                  <img src={photo} alt={photo} />
-                </li>
-              ))}
-          </ul>
+          <Swipe onSwipeLeft={onSwipeLeft} onSwipeRight={onSwipeRight}>
+            <ul
+              className="slides"
+              onDragStart={onDragStart}
+              onDrag={onDrag}
+              onDragEnd={onDragEnd}
+            >
+              {product.photos
+                .filter((photo) => photo.length !== 0)
+                .map((photo, index) => (
+                  <li key={index}>
+                    <img src={photo} alt={photo} />
+                  </li>
+                ))}
+            </ul>
+          </Swipe>
         </div>
       </div>
 
