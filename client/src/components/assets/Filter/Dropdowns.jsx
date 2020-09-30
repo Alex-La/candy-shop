@@ -1,75 +1,97 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Fragment, useState, useEffect, createRef } from "react";
 
-import { useHistory, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import M from "materialize-css";
 
 const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
-  const [selectRefs, setSelectRefs] = useState([]);
-  const history = useHistory();
+  const [dropDownRefs, setDropDownRefs] = useState([]);
 
   useEffect(() => {
-    setSelectRefs((selectRef) =>
+    setDropDownRefs((dropDownRef) =>
       Array(2)
         .fill()
-        .map((_, i) => selectRef[i] || createRef())
+        .map((_, i) => dropDownRef[i] || createRef())
     );
   }, []);
 
   useEffect(() => {
-    for (let i in selectRefs) {
-      if (selectRefs[i].current) {
-        M.FormSelect.init(selectRefs[i].current);
+    for (let i in dropDownRefs) {
+      if (dropDownRefs[i].current) {
+        M.Dropdown.init(dropDownRefs[i].current);
       }
     }
-  }, [selectRefs]);
+  }, [dropDownRefs]);
 
-  const onCategoryChange = (event) => {
-    history.push(event.target.value);
-    sessionStorage.setItem(
-      "manufacturer",
-      catalogData[event.target.selectedIndex - 1].name
-    );
+  const onCategoryChange = (name) => {
+    sessionStorage.setItem("manufacturer", name);
   };
 
-  const onOrderByChange = (event) => {
+  const onOrderByChange = (event, value) => {
+    event.preventDefault();
     setLoadingOnButton(false);
-    setOrderBy(event.target.value);
+    setOrderBy(value);
   };
 
   return (
     <Fragment>
-      <div className="input-field col s12 m4">
-        <select
-          ref={selectRefs[0]}
-          onChange={onCategoryChange}
-          className="dropdown-scroll"
+      <div className="col s12 m4">
+        <button
+          style={{ marginTop: 15 }}
+          id="category"
+          className="dropdown-trigger btn-flat"
+          data-target="dropdown1"
+          ref={dropDownRefs[0]}
         >
-          <option disabled selected>
-            Категория товара
-          </option>
+          <i className="material-icons right">expand_more</i>
+          Категория товара
+        </button>
+        <ul id="dropdown1" className="dropdown-content">
           {catalogData.map((dat, i) => (
-            <option key={i} value={dat.path}>
-              {dat.name}
-            </option>
+            <li>
+              <Link
+                key={i}
+                to={dat.path}
+                onClick={() => onCategoryChange(dat.name)}
+              >
+                {dat.name}
+              </Link>
+            </li>
           ))}
-        </select>
+        </ul>
       </div>
 
       <div className="input-field col s12 m4">
-        <select
-          ref={selectRefs[1]}
-          onChange={onOrderByChange}
-          className="dropdown-scroll"
+        <button
+          id="category"
+          className="dropdown-trigger btn-flat"
+          data-target="dropdown2"
+          ref={dropDownRefs[1]}
         >
-          <option value="DEFAULT">По умолчанию</option>
-          <option value="PRICE_DESC">Сначала дорогие</option>
-          <option value="PRICE_ASC">Сначала дешевые</option>
-        </select>
-        <label>Сортировать по:</label>
+          <i className="material-icons right">expand_more</i>
+          Сортировать по:
+        </button>
+        <ul id="dropdown2" className="dropdown-content">
+          <li>
+            <a href="" onClick={(e) => onOrderByChange(e, "DEFAULT")}>
+              По умолчанию
+            </a>
+          </li>
+          <li>
+            <a href="" onClick={(e) => onOrderByChange(e, "PRICE_DESC")}>
+              Сначала дорогие
+            </a>
+          </li>
+          <li>
+            <a href="" onClick={(e) => onOrderByChange(e, "PRICE_ASC")}>
+              Сначала дешевые
+            </a>
+          </li>
+        </ul>
       </div>
     </Fragment>
   );
 };
 
-export default withRouter(Dropdowns);
+export default Dropdowns;
