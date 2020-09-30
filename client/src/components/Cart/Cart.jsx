@@ -13,8 +13,13 @@ import GET_PROMO_CODE_QUERY from "../../graphql/queries/getPromoCode";
 import InputNumber from "./InputNumber";
 
 const Cart = () => {
-  const { productsInCart, setCurrentVendorCode } = useContext(Context);
-  const [price, setPrice] = useState(0);
+  const {
+    productsInCart,
+    setCurrentVendorCode,
+    totalPrice,
+    setTotalPrice,
+  } = useContext(Context);
+
   const [promoCode, setPromoCode] = useState("");
   const [percent, setPercent] = useState(null);
 
@@ -46,9 +51,17 @@ const Cart = () => {
       );
       price += parseInt(priceToInt, 10);
     }
-    if (percent) setPrice(() => Math.floor((price * (100 - percent)) / 100));
-    else setPrice(price);
-  }, [productsInCart, data, percent]);
+    if (percent) {
+      setTotalPrice(() => Math.floor((price * (100 - percent)) / 100));
+      localStorage.setItem(
+        "total_price",
+        JSON.stringify(Math.floor((price * (100 - percent)) / 100))
+      );
+    } else {
+      setTotalPrice(price);
+      localStorage.setItem("total_price", JSON.stringify(price));
+    }
+  }, [productsInCart, data, percent, setTotalPrice]);
 
   const onRemove = (vendor_code) => {
     removeFromCart(vendor_code);
@@ -65,7 +78,6 @@ const Cart = () => {
 
   const onOrder = () => {
     sessionStorage.removeItem("promo_code");
-    localStorage.setItem("price", price);
   };
 
   return (
@@ -168,7 +180,7 @@ const Cart = () => {
                 <div className="col m12 xl4 center">
                   <h4>Сумма</h4>
                   <p className="divider" />
-                  <h3>{price} р.</h3>
+                  <h3>{totalPrice} р.</h3>
                   <p className="grey-text">
                     Заказы на сумму от 3000 рублей{" "}
                     <b className="black-text">доставляютя бесплатно</b>

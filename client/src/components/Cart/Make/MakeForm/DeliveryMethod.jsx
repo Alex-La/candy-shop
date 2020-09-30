@@ -2,6 +2,7 @@
 import React, { Fragment, useContext } from "react";
 
 import OrderContext from "../../../../context/OrderContext";
+import Context from "../../../../context/Context";
 
 import SdekTerminalModal from "../SdekTerminalModal";
 import YandexMap from "../YandexMap";
@@ -11,6 +12,8 @@ import RussianPostForm from "./RussianPostForm";
 import SdekCourierForm from "./SdekCourierForm";
 
 const DeliveryMethod = () => {
+  const { totalPrice } = useContext(Context);
+
   const {
     address,
     deliveryMethodRadio,
@@ -49,7 +52,10 @@ const DeliveryMethod = () => {
               onChange={onRadioChange}
             />
             <span className="black-text">
-              <b>Терминалы PickPoint</b>
+              <b>
+                Терминалы PickPoint
+                {totalPrice < 3000 ? ", 300р." : " (бесплатно)"}
+              </b>
               <br />
               {deliveryMethodRadio === "pick_point" && (
                 <Fragment>
@@ -82,7 +88,10 @@ const DeliveryMethod = () => {
               onChange={onRadioChange}
             />
             <span className="black-text">
-              <b>Терминалы СДЭК</b>
+              <b>
+                Терминалы СДЭК
+                {totalPrice < 3000 ? ", 300р." : " (бесплатно)"}
+              </b>
               <br />
               {deliveryMethodRadio === "sdek_terminals" && (
                 <Fragment>
@@ -123,7 +132,10 @@ const DeliveryMethod = () => {
                 onChange={onRadioChange}
               />
               <span className="black-text">
-                <b>Курьером СДЭК по России</b>
+                <b>
+                  Курьером СДЭК по России
+                  {totalPrice < 3000 ? ", 300р." : " (бесплатно)"}
+                </b>
               </span>
             </label>
           </p>
@@ -148,7 +160,9 @@ const DeliveryMethod = () => {
               onChange={onRadioChange}
             />
             <span className="black-text">
-              <b>Почта России</b>
+              <b>
+                Почта России{totalPrice < 3000 ? ", 300р." : " (бесплатно)"}
+              </b>
             </span>
           </label>
         </p>
@@ -174,7 +188,10 @@ const DeliveryMethod = () => {
                   onChange={onRadioChange}
                 />
                 <span className="black-text">
-                  <b>Курьером по Москве</b>
+                  <b>
+                    Курьером по Москве
+                    {totalPrice < 3000 ? ", 300р." : " (бесплатно)"}
+                  </b>
                 </span>
               </label>
             </p>

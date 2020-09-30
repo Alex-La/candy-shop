@@ -5,6 +5,7 @@ import isEmail from "isemail";
 import { Link } from "react-router-dom";
 
 import OrderContext from "../../../../context/OrderContext";
+import Context from "../../../../context/Context";
 
 import Confirmation from "./Confirmation";
 import DeliveryMethod from "./DeliveryMethod";
@@ -15,6 +16,7 @@ import MakeOrderButton from "./MakeOrderButton";
 const MakeForm = () => {
   const [policy, setPolicy] = useState(false);
 
+  const { totalPrice } = useContext(Context);
   const data = useContext(OrderContext);
 
   const checkContactDataForm = (form, address) => {
@@ -103,7 +105,11 @@ const MakeForm = () => {
 
           <h4>
             Сумма{" "}
-            {localStorage.getItem("price") ? localStorage.getItem("price") : 0}
+            {totalPrice
+              ? totalPrice < 3000
+                ? totalPrice + 300
+                : totalPrice
+              : 0}
             р.
           </h4>
 

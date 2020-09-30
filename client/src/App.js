@@ -24,6 +24,9 @@ const App = () => {
     JSON.parse(localStorage.getItem("products_in_cart"))
   );
   const [cartModalInstance, setCartModalInstance] = useState(null);
+  const [totalPrice, setTotalPrice] = useState(
+    JSON.parse(localStorage.getItem("total_price"))
+  );
 
   return (
     <Fragment>
@@ -41,6 +44,8 @@ const App = () => {
             setProductsInCart,
             cartModalInstance,
             setCartModalInstance,
+            totalPrice,
+            setTotalPrice,
           }}
         >
           <ApolloProvider client={client}>

@@ -11,6 +11,8 @@ const Context = createContext({
   setProductsInCart: () => {},
   cartModalInstance: null,
   setCartModalInstance: () => {},
+  totalPrice: null,
+  setTotalPrice: () => {},
 });
 
 export default Context;
