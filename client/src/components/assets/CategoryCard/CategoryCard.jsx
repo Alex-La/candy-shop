@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useHistory } from "react-router-dom";
 
-const CategoryCard = ({ dat }) => {
+const CategoryCard = ({ dat, size }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const history = useHistory();
@@ -18,8 +18,8 @@ const CategoryCard = ({ dat }) => {
       <div className="card-image">
         <img
           style={{ marginTop: 10, marginLeft: 10 }}
-          width="50px"
-          height="50px"
+          width={size ? "110px" : "50px"}
+          height={size ? "110px" : "50px"}
           src={dat.photo}
           alt={dat.photo}
         />

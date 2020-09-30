@@ -10,6 +10,7 @@ import FixedToCartButton from "../assets/FloatActionBtn/FixedToCartButton";
 import TopSection from "./topSection/TopSection";
 import Slider from "./slider/Slider";
 import ProductsSection from "./productsSection/ProductsSection";
+import Popular from "./topSection/Popular";
 
 const Main = () => {
   const { data, loading } = useQuery(MAIN_QUERY);
@@ -19,6 +20,7 @@ const Main = () => {
   ) : (
     <Fragment>
       <Slider images={data && data.main && data.main.slider_images} />
+      <Popular />
       <TopSection images={data && data.main && data.main.top_section_images} />
       <ProductsSection />
       <FixedToCartButton />
