@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 import M from "materialize-css";
 
+import FilterSideNav from "./FilterSideNav/FilterSideNav";
+
 const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
   const [dropDownRefs, setDropDownRefs] = useState([]);
 
@@ -36,7 +38,17 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
 
   return (
     <Fragment>
-      <div className="col s12 m4">
+      <div className="col s12 m4 xl3">
+        <button
+          data-target="filter-slide"
+          style={{ marginTop: 15 }}
+          className="waves-effect waves-dark btn-flat sidenav-trigger"
+        >
+          <i className="material-icons right">filter_list</i>Фильтры
+        </button>
+      </div>
+
+      <div className="col s12 m4 xl3">
         <button
           style={{ marginTop: 15 }}
           id="category"
@@ -62,7 +74,7 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
         </ul>
       </div>
 
-      <div className="input-field col s12 m4">
+      <div className="input-field col s12 m4 xl3">
         <button
           id="category"
           className="dropdown-trigger btn-flat"
@@ -90,6 +102,8 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
           </li>
         </ul>
       </div>
+
+      <FilterSideNav />
     </Fragment>
   );
 };

@@ -54,7 +54,7 @@ const Filter = ({
             />
           )}
 
-          <div className="col s12 m4 center">
+          <div className="col s12 m12 xl3 center">
             <div className="col s6">
               <p>
                 <label>
