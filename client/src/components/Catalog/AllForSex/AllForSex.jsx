@@ -38,7 +38,6 @@ const AllForSex = () => {
   const [priceRange, setPriceRange] = useState([]);
   const [radio, setRadio] = useState("block");
   const [orderBy, setOrderBy] = useState("DEFAULT");
-  const [manufacturers, setManufacturers] = useState(null);
 
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
@@ -50,7 +49,6 @@ const AllForSex = () => {
         "Смазки, лубриканты",
       ],
       orderBy,
-      manufacturers,
       priceRange: priceRange.length !== 0 ? priceRange : [],
     },
   });
@@ -89,10 +87,6 @@ const AllForSex = () => {
       </div>
 
       <Filter
-        setManufacturersToFetch={setManufacturers}
-        manufacturersArray={
-          data && data.products && data.products.manufacturers
-        }
         setLoadingOnButton={setLoadingOnButton}
         catalogData={catalogData}
         setPriceRange={setPriceRange}

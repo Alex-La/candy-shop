@@ -5,15 +5,7 @@ import { Link } from "react-router-dom";
 
 import M from "materialize-css";
 
-import FilterSideNav from "./FilterSideNav/FilterSideNav";
-
-const Dropdowns = ({
-  setManufacturersToFetch,
-  manufacturers,
-  catalogData,
-  setOrderBy,
-  setLoadingOnButton,
-}) => {
+const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
   const [dropDownRefs, setDropDownRefs] = useState([]);
 
   useEffect(() => {
@@ -44,19 +36,7 @@ const Dropdowns = ({
 
   return (
     <Fragment>
-      <div className="col s12 m4 xl3">
-        <button
-          data-target="filter-slide"
-          style={{ marginTop: 15 }}
-          className={`waves-effect waves-dark btn-flat sidenav-trigger ${
-            !manufacturers && "disabled"
-          }`}
-        >
-          <i className="material-icons right">filter_list</i>Фильтры
-        </button>
-      </div>
-
-      <div className="col s12 m4 xl3">
+      <div className="col s12 m4">
         <button
           style={{ marginTop: 15 }}
           id="category"
@@ -78,7 +58,7 @@ const Dropdowns = ({
         </ul>
       </div>
 
-      <div className="input-field col s12 m4 xl3">
+      <div className="input-field col s12 m4">
         <button
           id="category"
           className="dropdown-trigger btn-flat"
@@ -106,11 +86,6 @@ const Dropdowns = ({
           </li>
         </ul>
       </div>
-
-      {/* <FilterSideNav
-        manufacturers={manufacturers}
-        setManufacturersToFetch={setManufacturersToFetch}
-      /> */}
     </Fragment>
   );
 };

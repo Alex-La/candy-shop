@@ -8,8 +8,6 @@ import wNumb from "wnumb";
 import Dropdowns from "./Dropdowns";
 
 const Filter = ({
-  setManufacturersToFetch,
-  manufacturersArray,
   setLoadingOnButton,
   catalogData,
   setPriceRange,
@@ -50,15 +48,13 @@ const Filter = ({
         <div className="row">
           {catalogData.length !== 0 && (
             <Dropdowns
-              setManufacturersToFetch={setManufacturersToFetch}
-              manufacturers={manufacturersArray}
               catalogData={catalogData}
               setOrderBy={setOrderBy}
               setLoadingOnButton={setLoadingOnButton}
             />
           )}
 
-          <div className="col s12 m12 xl3 center">
+          <div className="col s12 m4 center">
             <div className="col s6">
               <p>
                 <label>
