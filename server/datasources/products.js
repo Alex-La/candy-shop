@@ -48,15 +48,19 @@ class ProductsAPI extends DataSource {
     });
   }
 
-  async getProductsByManufacturer({ manufacturer }) {
+  async getProductsByManufacturer({ manufacturers }) {
     return await this.store.FullMode.findAll({
-      where: { manufacturer, can_buy: "1" },
+      where: { manufacturer: manufacturers, can_buy: "1" },
     });
   }
 
-  async getProductsByManufacturerAndMain({ manufacturer, main }) {
+  async getProductsByManufacturerAndMain({ manufacturers, main }) {
     return await this.store.FullMode.findAll({
-      where: { main_product_category: main, manufacturer, can_buy: "1" },
+      where: {
+        main_product_category: main,
+        manufacturer: manufacturers,
+        can_buy: "1",
+      },
     });
   }
 

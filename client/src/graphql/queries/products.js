@@ -8,7 +8,7 @@ const PRODUCTS_QUERY = gql`
     $subsection: String
     $orderBy: OrderBy
     $priceRange: [String]
-    $manufacturer: String
+    $manufacturers: [String]
   ) {
     products(
       pageSize: $pageSize
@@ -17,7 +17,7 @@ const PRODUCTS_QUERY = gql`
       subsection: $subsection
       orderBy: $orderBy
       priceRange: $priceRange
-      manufacturer: $manufacturer
+      manufacturers: $manufacturers
     ) {
       cursor
       hasMore

@@ -13,37 +13,37 @@ module.exports.products = async (queryData, dataSources) => {
     subsection,
     orderBy = "",
     priceRange = [],
-    manufacturer,
+    manufacturers,
   } = queryData;
 
   let data = [];
 
-  if (main && !subsection && !manufacturer)
+  if (main && !subsection && !manufacturers)
     data = await dataSources.productsAPI.getProductsByMain({ main });
 
-  if (main && subsection && !manufacturer)
+  if (main && subsection && !manufacturers)
     data = await dataSources.productsAPI.getProductsByMainAndSubsection({
       main,
       subsection,
     });
 
-  if (!main && subsection && !manufacturer)
+  if (!main && subsection && !manufacturers)
     data = await dataSources.productsAPI.getProductsBySubsection({
       subsection,
     });
 
-  if (!main && !subsection && manufacturer)
+  if (!main && !subsection && manufacturers)
     data = await dataSources.productsAPI.getProductsByManufacturer({
-      manufacturer,
+      manufacturers,
     });
 
-  if (main && !subsection && manufacturer)
+  if (main && !subsection && manufacturers)
     data = await dataSources.productsAPI.getProductsByManufacturerAndMain({
-      manufacturer,
+      manufacturers,
       main,
     });
 
-  if (!main && !subsection && !manufacturer)
+  if (!main && !subsection && !manufacturers)
     data = await dataSources.productsAPI.getProducts();
 
   if (!data) {
@@ -59,7 +59,7 @@ module.exports.products = async (queryData, dataSources) => {
   data.reverse();
   data = toUniqueArray(data);
 
-  const manufacturers = getManufacturers(data);
+  const manufacturersArray = getManufacturers(data);
 
   const priceArray = [];
   for (let i in data) {
@@ -114,7 +114,7 @@ module.exports.products = async (queryData, dataSources) => {
       : false,
     price_range: priceRangeArray,
     refetch_require: false,
-    manufacturers,
+    manufacturers: manufacturersArray,
     products: paginatedData,
   };
 };

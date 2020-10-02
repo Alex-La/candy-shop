@@ -16,7 +16,7 @@ const typeDefs = gql`
       subsection: String
       orderBy: OrderBy
       priceRange: [String]
-      manufacturer: String
+      manufacturers: [String]
     ): ProductsConnection!
     product(vendorCode: Int!): ProductConnection!
     manufacturers: [String]!
