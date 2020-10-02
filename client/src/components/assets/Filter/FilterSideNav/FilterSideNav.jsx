@@ -6,7 +6,7 @@ const FilterSideNav = ({ manufacturers }) => {
   const sideNavRef = useRef(null);
 
   const [instance, setInstance] = useState(null);
-
+  const [checkChange, setCheckChange] = useState(false);
   const [manMore, setManMore] = useState(false);
 
   useEffect(() => {
@@ -17,7 +17,12 @@ const FilterSideNav = ({ manufacturers }) => {
   }, []);
 
   const handleShowButton = () => {
+    setCheckChange(false);
     instance.close();
+  };
+
+  const handleCheckChange = (e) => {
+    setCheckChange(true);
   };
 
   const LessMore = (array, checker) => {
@@ -25,7 +30,7 @@ const FilterSideNav = ({ manufacturers }) => {
       return array.map((val, i) => (
         <li key={i} style={{ marginLeft: 10 }}>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" value={val} onChange={handleCheckChange} />
             <span>{val}</span>
           </label>
         </li>
@@ -34,7 +39,7 @@ const FilterSideNav = ({ manufacturers }) => {
       return array.slice(0, 7).map((val, i) => (
         <li key={i} style={{ marginLeft: 10 }}>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" value={val} onChange={handleCheckChange} />
             <span>{val}</span>
           </label>
         </li>
@@ -59,14 +64,16 @@ const FilterSideNav = ({ manufacturers }) => {
       </li>
 
       <div style={{ height: 20 }} />
-      <span className="show-filter">
-        <button
-          className="waves-effect waves-light btn orange"
-          onClick={handleShowButton}
-        >
-          Показать
-        </button>
-      </span>
+      {checkChange && (
+        <span className="show-filter">
+          <button
+            className="waves-effect waves-light btn orange"
+            onClick={handleShowButton}
+          >
+            Показать
+          </button>
+        </span>
+      )}
     </ul>
   );
 };
