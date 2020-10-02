@@ -68,12 +68,8 @@ const Dropdowns = ({
         </button>
         <ul id="dropdown1" className="dropdown-content">
           {catalogData.map((dat, i) => (
-            <li>
-              <Link
-                key={i}
-                to={dat.path}
-                onClick={() => onCategoryChange(dat.name)}
-              >
+            <li key={i}>
+              <Link to={dat.path} onClick={() => onCategoryChange(dat.name)}>
                 {dat.name}
               </Link>
             </li>

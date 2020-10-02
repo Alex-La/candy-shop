@@ -23,6 +23,7 @@ const PRODUCTS_QUERY = gql`
       hasMore
       price_range
       refetch_require
+      manufacturers
       products {
         vendor_code
         photo_small
