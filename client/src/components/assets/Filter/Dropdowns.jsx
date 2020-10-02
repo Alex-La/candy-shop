@@ -8,6 +8,7 @@ import M from "materialize-css";
 import FilterSideNav from "./FilterSideNav/FilterSideNav";
 
 const Dropdowns = ({
+  setManufacturersToFetch,
   manufacturers,
   catalogData,
   setOrderBy,
@@ -106,7 +107,10 @@ const Dropdowns = ({
         </ul>
       </div>
 
-      <FilterSideNav manufacturers={manufacturers} />
+      {/* <FilterSideNav
+        manufacturers={manufacturers}
+        setManufacturersToFetch={setManufacturersToFetch}
+      /> */}
     </Fragment>
   );
 };

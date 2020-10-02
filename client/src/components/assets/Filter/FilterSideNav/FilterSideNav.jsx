@@ -2,12 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 
 import M from "materialize-css";
 
-const FilterSideNav = ({ manufacturers }) => {
+const FilterSideNav = ({ manufacturers, setManufacturersToFetch }) => {
   const sideNavRef = useRef(null);
 
   const [instance, setInstance] = useState(null);
   const [checkChange, setCheckChange] = useState(false);
   const [manMore, setManMore] = useState(false);
+
+  const [manufacturersArray, setManufacturersArray] = useState([]);
 
   useEffect(() => {
     if (sideNavRef.current) {
@@ -19,10 +21,18 @@ const FilterSideNav = ({ manufacturers }) => {
   const handleShowButton = () => {
     setCheckChange(false);
     instance.close();
+    sessionStorage.setItem("man_arr", JSON.stringify(manufacturersArray));
+    setManufacturersToFetch(manufacturersArray);
   };
 
   const handleCheckChange = (e) => {
     setCheckChange(true);
+    const { value, checked } = e.target;
+    if (checked) {
+      setManufacturersArray((arr) => [...arr, value]);
+    } else {
+      setManufacturersArray((arr) => arr.filter((item) => item !== value));
+    }
   };
 
   const LessMore = (array, checker) => {

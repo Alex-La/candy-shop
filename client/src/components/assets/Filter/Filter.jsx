@@ -8,6 +8,7 @@ import wNumb from "wnumb";
 import Dropdowns from "./Dropdowns";
 
 const Filter = ({
+  setManufacturersToFetch,
   manufacturersArray,
   setLoadingOnButton,
   catalogData,
@@ -49,6 +50,7 @@ const Filter = ({
         <div className="row">
           {catalogData.length !== 0 && (
             <Dropdowns
+              setManufacturersToFetch={setManufacturersToFetch}
               manufacturers={manufacturersArray}
               catalogData={catalogData}
               setOrderBy={setOrderBy}
