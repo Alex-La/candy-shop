@@ -100,7 +100,7 @@ const ProductCard = ({
             className="under-line modal-trigger"
             href="#ProductModal"
             style={{
-              fontSize: 20,
+              fontSize: 18,
               height: radio === "block" ? 100 : "",
               lineHeight: "20px",
               cursor: "pointer",

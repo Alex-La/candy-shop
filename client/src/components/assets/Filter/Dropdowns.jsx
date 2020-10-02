@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Fragment, useState, useEffect, createRef } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import M from "materialize-css";
 
 const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
   const [dropDownRefs, setDropDownRefs] = useState([]);
+  const [sortMethod, setSortMethod] = useState("Сортировать по:");
 
   useEffect(() => {
     setDropDownRefs((dropDownRef) =>
@@ -32,6 +33,17 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
     event.preventDefault();
     setLoadingOnButton(false);
     setOrderBy(value);
+
+    switch (value) {
+      case "PRICE_ASC":
+        setSortMethod("Сначала дешевые");
+        break;
+      case "PRICE_DESC":
+        setSortMethod("Сначала дорогие");
+        break;
+      default:
+        setSortMethod("По умолчанию");
+    }
   };
 
   return (
@@ -66,7 +78,7 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
           ref={dropDownRefs[1]}
         >
           <i className="material-icons right">expand_more</i>
-          Сортировать по:
+          {sortMethod}
         </button>
         <ul id="dropdown2" className="dropdown-content">
           <li>
@@ -90,4 +102,4 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
   );
 };
 
-export default Dropdowns;
+export default withRouter(Dropdowns);
