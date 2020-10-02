@@ -205,3 +205,10 @@ ul.breadcrumb li a:hover {
 .input-number button:hover {
   background-color: #26a69a;
 }
+
+.show-filter {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 32%;
+  bottom: 4%;
+}

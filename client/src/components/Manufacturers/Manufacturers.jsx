@@ -36,7 +36,7 @@ const Manufacturers = () => {
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
-      manufacturer: sessionStorage.getItem("manufacturer"),
+      manufacturers: [sessionStorage.getItem("manufacturer")],
       orderBy,
       priceRange: priceRange.length !== 0 ? priceRange : [],
     },

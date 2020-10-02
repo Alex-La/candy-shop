@@ -1,6 +1,18 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 const config = require("config");
 
+module.exports.getManufacturers = (array) => {
+  let a = [];
+  array.map(({ manufacturer }) => {
+    if (!a.includes(manufacturer)) {
+      if (manufacturer.indexOf("�") === -1) {
+        a.push(manufacturer);
+      }
+    }
+  });
+  return a.sort();
+};
+
 module.exports.toUniqueArray = (data) => {
   const seen = new Set();
 

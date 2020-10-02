@@ -107,6 +107,7 @@ const typeDefs = gql`
     hasMore: Boolean!
     price_range: [String]!
     refetch_require: Boolean!
+    manufacturers: [String]!
     products: [Product]!
   }
 

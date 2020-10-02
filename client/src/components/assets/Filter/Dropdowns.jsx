@@ -7,7 +7,12 @@ import M from "materialize-css";
 
 import FilterSideNav from "./FilterSideNav/FilterSideNav";
 
-const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
+const Dropdowns = ({
+  manufacturers,
+  catalogData,
+  setOrderBy,
+  setLoadingOnButton,
+}) => {
   const [dropDownRefs, setDropDownRefs] = useState([]);
 
   useEffect(() => {
@@ -42,7 +47,9 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
         <button
           data-target="filter-slide"
           style={{ marginTop: 15 }}
-          className="waves-effect waves-dark btn-flat sidenav-trigger"
+          className={`waves-effect waves-dark btn-flat sidenav-trigger ${
+            !manufacturers && "disabled"
+          }`}
         >
           <i className="material-icons right">filter_list</i>Фильтры
         </button>
@@ -103,7 +110,7 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
         </ul>
       </div>
 
-      <FilterSideNav />
+      <FilterSideNav manufacturers={manufacturers} />
     </Fragment>
   );
 };

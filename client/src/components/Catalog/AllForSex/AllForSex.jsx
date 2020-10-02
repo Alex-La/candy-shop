@@ -87,6 +87,9 @@ const AllForSex = () => {
       </div>
 
       <Filter
+        manufacturersArray={
+          data && data.products && data.products.manufacturers
+        }
         setLoadingOnButton={setLoadingOnButton}
         catalogData={catalogData}
         setPriceRange={setPriceRange}
