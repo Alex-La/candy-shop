@@ -8,10 +8,12 @@ const TopSection = () => {
   return (
     <div>
       <div className="section">
+        <div className="container">
         <div className="row">
           <ToysForFemale />
           <ForPairs />
           <ForMale />
+        </div>
         </div>
       </div>
       <br />

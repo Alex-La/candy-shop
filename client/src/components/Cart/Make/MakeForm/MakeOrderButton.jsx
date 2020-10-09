@@ -26,8 +26,8 @@ const MakeOrderButton = ({
     console.log(productsInCart);
 
     //Clear cart
-    setProductsInCart(null);
-    localStorage.removeItem("products_in_cart");
+    // setProductsInCart(null);
+    // localStorage.removeItem("products_in_cart");
   };
 
   return (
