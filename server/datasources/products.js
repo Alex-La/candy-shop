@@ -26,6 +26,23 @@ class ProductsAPI extends DataSource {
     return await this.store.FullMode.findAll({ where: { can_buy: "1" } });
   }
 
+  async getProductsToOrder({ vendorCode, color, size }) {
+    
+    if (color && size) {
+      return await this.store.FullMode.findOne({ where: { vendor_code: vendorCode, color, size } });
+    }
+
+    if (color && !size) {
+      return await this.store.FullMode.findOne({ where: { vendor_code: vendorCode, color } });
+    }
+
+    if (!color && size) {
+      return await this.store.FullMode.findOne({ where: { vendor_code: vendorCode, size } });
+    }
+
+    return await this.store.FullMode.findOne({ where: { vendor_code: vendorCode } });
+  }
+
   async getProductsByMain({ main }) {
     return await this.store.FullMode.findAll({
       where: { main_product_category: main, can_buy: "1" },

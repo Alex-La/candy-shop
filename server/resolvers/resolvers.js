@@ -105,6 +105,15 @@ module.exports = {
 
     searchProducts: async (_, data, { dataSources }) =>
       await searchProducts(data, dataSources),
+
+    productsToOrder: async (_, { vendorCode, color = null, size = null }, { dataSources }) => {
+      let data = [];
+      for (let i in vendorCode) {
+         const res = await dataSources.productsAPI.getProductsToOrder({ vendorCode: vendorCode[i], color: color && color[i], size: size && size[i] });
+         data.push(res);
+      }
+      return data;
+    }
   },
 
   Mutation: {

@@ -30,6 +30,7 @@ const typeDefs = gql`
       orderBy: OrderBy
       priceRange: [String]
     ): ProductsConnection!
+    productsToOrder(vendorCode: [String]!, color: [String], size: [String]): [ProductsToOrder]!
   }
 
   type Mutation {
@@ -68,6 +69,11 @@ const typeDefs = gql`
     subsection: String
     orderBy: OrderBy
     priceRange: [String]
+  }
+
+  type ProductsToOrder {
+    aid: String!
+    price_retail: String!
   }
 
   type PromoCode {
