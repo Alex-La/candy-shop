@@ -9,7 +9,7 @@ const QRModal = ({ openQRModal, setOpenQRModal }) => {
 
   useEffect(() => {
     if (openQRModal) instance.open();
-  }, [openQRModal]);
+  }, [openQRModal, instance]);
 
   useEffect(() => {
     if (modalRef.current) {
@@ -20,7 +20,7 @@ const QRModal = ({ openQRModal, setOpenQRModal }) => {
       });
       setInstance(instance);
     }
-  }, [setOpenQRModal]);
+  }, [setOpenQRModal, setInstance]);
 
   return (
     <div id="qr-modal" className="modal" ref={modalRef}>

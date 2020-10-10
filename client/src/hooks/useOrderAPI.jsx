@@ -15,9 +15,9 @@ const useOrderAPI = (productsInCart) => {
   const [sendOrder, { data, loading }] = useMutation(CREATE_ORDER_MUTATION);
 
   const makeOrder = (data) => {
-    console.log(data);
-    console.log(products.data);
-    console.log(productsInCart);
+    // console.log(data);
+    // console.log(products.data);
+    // console.log(productsInCart);
 
     const order = {};
     const orderArr = [];
@@ -39,12 +39,12 @@ const useOrderAPI = (productsInCart) => {
     }
     order.order = orderArr;
 
-    if (data.paymentMethodRadio === "card_payment") order.ExtOrderPaid = "1";
-    else order.ExtOrderPaid = "0";
+    if (data.paymentMethodRadio === "card_payment") order.ExtOrderPaid = 1;
+    else order.ExtOrderPaid = 0;
 
     if (parseInt(localStorage.getItem("total_price"), 10) <= 3000)
-      order.ExtDeliveryCost = "300";
-    else order.ExtDeliveryCost = "0";
+      order.ExtDeliveryCost = 300;
+    else order.ExtDeliveryCost = 0;
 
     switch (data.deliveryMethodRadio) {
       case "pick_point":
@@ -79,6 +79,8 @@ const useOrderAPI = (productsInCart) => {
       case "pickup":
         order.dsDelivery = "4";
         break;
+      default:
+        return;
     }
 
     const fio = [];
@@ -94,10 +96,10 @@ const useOrderAPI = (productsInCart) => {
     order.dsArea = data.address.data.region_with_type;
     order.dsComments = data.comment;
 
-    console.log(order);
+    sendOrder({ variables: { data: order } });
   };
 
-  return { makeOrder, data, loading };
+  return { makeOrder, loading, data };
 };
 
 export default useOrderAPI;

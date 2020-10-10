@@ -1,4 +1,4 @@
-import React, { useContext, useState, Fragment } from "react";
+import React, { useContext, useState, Fragment, useEffect } from "react";
 
 import Context from "../../../../context/Context";
 
@@ -7,6 +7,7 @@ import M from "materialize-css";
 import useOrderAPI from "../../../../hooks/useOrderAPI";
 
 import QRModal from "./QRModal";
+import SuccessOrderModal from "./SuccessOrderModal";
 
 const MakeOrderButton = ({
   policy,
@@ -15,10 +16,18 @@ const MakeOrderButton = ({
   checkDeliveryMethod,
 }) => {
   const [openQrModal, setOpenQrModal] = useState(false);
+  const [instance, setInstance] = useState(null);
 
   const { productsInCart, setProductsInCart } = useContext(Context);
 
-  const { makeOrder } = useOrderAPI(productsInCart);
+  const order = useOrderAPI(productsInCart);
+
+  useEffect(() => {
+    if (order.data) M.toast({ html: order.data.createOrder.ResultStatusMsg });
+    if (order.data && order.data.createOrder.ResultStatus[0] === "5") {
+      if (instance) instance.open();
+    }
+  }, [order.data, instance]);
 
   const onSendOrder = () => {
     const contactForm = checkContactDataForm(
@@ -32,7 +41,7 @@ const MakeOrderButton = ({
 
     if (data.paymentMethodRadio === "card_payment") return setOpenQrModal(true);
 
-    makeOrder(data);
+    order.makeOrder(data);
 
     //Clear cart
     // setProductsInCart(null);
@@ -43,7 +52,7 @@ const MakeOrderButton = ({
     <Fragment>
       <button
         className={`waves-effect waves-light btn-large black right ${
-          !policy && "disabled"
+          !policy && order.loading && "disabled"
         }`}
         onClick={onSendOrder}
       >
@@ -51,6 +60,7 @@ const MakeOrderButton = ({
       </button>
 
       <QRModal openQRModal={openQrModal} setOpenQRModal={setOpenQrModal} />
+      <SuccessOrderModal setInstance={setInstance} />
     </Fragment>
   );
 };
