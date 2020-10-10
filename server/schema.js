@@ -95,7 +95,7 @@ const typeDefs = gql`
 
   type CreateOrder {
     ResultStatus: [String]
-    resultStatusMsg: [String]
+    ResultStatusMsg: [String]
     timestamp: [String]
     orderID: [String]
     totalSum: [String]

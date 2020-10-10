@@ -27,26 +27,6 @@ function xmlToJson(url, callback) {
 
 module.exports.createOrder = async ({ data, dataSources }) => {
     let url = "http://api.ds-platforma.ru/ds_order.php?ApiKey=5f7b1f51d022d0.27256421&TestMode=1";
-    // const {     
-    //     order,
-    //     ExtOrderID,
-    //     ExtOrderPaid,
-    //     ExtDeliveryCost,
-    //     dsDelivery,
-    //     dsFio,
-    //     dsMobPhone,
-    //     dsEmail,
-    //     dsCity,
-    //     dsPickUpId,
-    //     dsPostcode,
-    //     dsCountry,
-    //     dsArea,
-    //     dsStreet,
-    //     dsHouse,
-    //     dsFlat,
-    //     dsDeliveryDate,
-    //     dsComments,
-    //  } = data;
 
     url += "&order=" + data.order.join(",");
 
@@ -75,16 +55,17 @@ module.exports.createOrder = async ({ data, dataSources }) => {
     if (data.dsDeliveryDate) url += "&dsDeliveryDate=" + data.dsDeliveryDate;
     if (data.dsComments) url += "&dsComments=" + data.dsComments;
 
-
     console.log(url);
 
-
-     const res = await new Promise((resolve) => xmlToJson(url, (err, data) => {
+    const res = await new Promise((resolve) => xmlToJson(url, (err, data) => {
         if (err) return console.err(err); 
         resolve(data);
-      })); 
+    })); 
 
-      console.log(res.Result);
+    if (res.Result.ResultStatus[0] === "1") 
+         await dataSources.shopAPI.createOrder({ order_id: res.Result.orderID[0], order_items: res.Result.OrderItems[0], ext_delivery_cost: res.Result.ExtDeliveryCost[0] });
+    
+    console.log(res.Result);
 
-     return res.Result;
+    return res.Result;
 };
