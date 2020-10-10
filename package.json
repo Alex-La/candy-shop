@@ -24,6 +24,7 @@
     "bcryptjs": "^2.4.3",
     "chroma-js": "^2.1.0",
     "config": "^3.3.1",
+    "cors": "^2.8.5",
     "ibm-watson": "^5.7.0",
     "isemail": "^3.2.0",
     "jsonwebtoken": "^8.5.1",
@@ -31,6 +32,7 @@
     "password-generator": "^2.3.2",
     "pg": "^8.3.3",
     "request": "^2.88.2",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "xml2js": "^0.4.23"
   }
 }

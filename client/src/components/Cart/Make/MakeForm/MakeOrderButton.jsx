@@ -4,8 +4,7 @@ import Context from "../../../../context/Context";
 
 import M from "materialize-css";
 
-import PRODUCTS_TO_ORDER_QUERY from "../../../../graphql/queries/productsToOrder";
-import { useQuery } from "@apollo/react-hooks";
+import useOrderAPI from "../../../../hooks/useOrderAPI";
 
 const MakeOrderButton = ({
   policy,
@@ -15,11 +14,7 @@ const MakeOrderButton = ({
 }) => {
   const { productsInCart, setProductsInCart } = useContext(Context);
 
-  const queryRes = useQuery(PRODUCTS_TO_ORDER_QUERY, { variables: { 
-    vendorCode: productsInCart && productsInCart.map(({vendor_code}) => vendor_code), 
-    size: productsInCart && productsInCart.map(item => item.size),
-    color: productsInCart && productsInCart.map(item => item.color)
-} });
+  const queryRes = useOrderAPI(productsInCart);
 
   const onSendOrder = () => {
     const contactForm = checkContactDataForm(

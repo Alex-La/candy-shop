@@ -7,6 +7,7 @@ const { product } = require("./query/product");
 const { updateMe } = require("./mutation/updateMe");
 const { searchProducts } = require("./query/searchProducts");
 const { changePassword } = require("./mutation/changePassword");
+const { createOrder } = require("./mutation/createOrder");
 
 module.exports = {
   Query: {
@@ -217,5 +218,7 @@ module.exports = {
       if (!removed) return "Error!";
       return "Success!";
     },
+
+    createOrder: async (_, { data }, { dataSources }) => await createOrder({ data, dataSources }),
   },
 };

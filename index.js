@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
 const config = require("config");
@@ -35,6 +36,7 @@ const server = new ApolloServer({
 });
 
 const app = express();
+app.use(cors());
 
 app.use("/static", express.static(path.join(__dirname, "public")));
 

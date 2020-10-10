@@ -43,6 +43,28 @@ const typeDefs = gql`
     createPromoCode(name: String!, percent: Int!): String
     removePromoCode(name: String!): String
     setProductPriority(value: Int, vendor_code: [String]): String
+    createOrder(data: OrderData): CreateOrder!
+  }
+
+  input OrderData {
+    order: [String]
+    ExtOrderID: String
+    ExtOrderPaid: Int
+    ExtDeliveryCost: Int
+    dsDelivery: String
+    dsFio: [String]
+    dsMobPhone: String
+    dsEmail: String
+    dsCity: String
+    dsPickUpId: String
+    dsPostcode: String
+    dsCountry: String
+    dsArea: String
+    dsStreet: String
+    dsHouse: String
+    dsFlat: String
+    dsDeliveryDate: String
+    dsComments: String
   }
 
   input ReviewData {
@@ -69,6 +91,20 @@ const typeDefs = gql`
     subsection: String
     orderBy: OrderBy
     priceRange: [String]
+  }
+
+  type CreateOrder {
+    ResultStatus: [String]
+    resultStatusMsg: [String]
+    timestamp: [String]
+    orderID: [String]
+    totalSum: [String]
+    ExtTotalSum: [String]
+    ExtDeliveryCost: [String]
+    OrderItems: [String]
+    pickupDate: [String]
+    ErrorItems: [String]
+    messages: [String]
   }
 
   type ProductsToOrder {

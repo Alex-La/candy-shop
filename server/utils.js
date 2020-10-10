@@ -128,6 +128,21 @@ module.exports.createStore = () => {
     { sequelize, modelName: "promo_code" }
   );
 
+  class Order extends Model {}
+  Order.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      order_id: DataTypes.STRING,
+      order_items: DataTypes.STRING,
+      ext_delivery_cost: DataTypes.STRING,
+    },
+    { sequelize, modelName: "order" }
+  );
+
   class FullMode extends Model {}
   FullMode.init(
     {
@@ -164,5 +179,5 @@ module.exports.createStore = () => {
 
   sequelize.sync();
 
-  return { Review, ProductReview, User, FullMode, PromoCode };
+  return { Review, ProductReview, User, FullMode, PromoCode, Order };
 };
