@@ -108,6 +108,7 @@ const typeDefs = gql`
   }
 
   type ProductsToOrder {
+    vendor_code: String!
     aid: String!
     price_retail: String!
   }

@@ -14,7 +14,7 @@ const MakeOrderButton = ({
 }) => {
   const { productsInCart, setProductsInCart } = useContext(Context);
 
-  const queryRes = useOrderAPI(productsInCart);
+  const { makeOrder } = useOrderAPI(productsInCart);
 
   const onSendOrder = () => {
     const contactForm = checkContactDataForm(
@@ -26,8 +26,7 @@ const MakeOrderButton = ({
     const delivery = checkDeliveryMethod(data);
     if (delivery) return M.toast({ html: delivery });
 
-    console.log(queryRes.data && queryRes.data.productsToOrder);
-    console.log(data);
+    makeOrder(data);
 
     //Clear cart
     // setProductsInCart(null);

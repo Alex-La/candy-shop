@@ -55,8 +55,6 @@ module.exports.createOrder = async ({ data, dataSources }) => {
     if (data.dsDeliveryDate) url += "&dsDeliveryDate=" + data.dsDeliveryDate;
     if (data.dsComments) url += "&dsComments=" + data.dsComments;
 
-    console.log(url);
-
     const res = await new Promise((resolve) => xmlToJson(url, (err, data) => {
         if (err) return console.err(err); 
         resolve(data);
@@ -65,7 +63,5 @@ module.exports.createOrder = async ({ data, dataSources }) => {
     if (res.Result.ResultStatus[0] === "1") 
          await dataSources.shopAPI.createOrder({ order_id: res.Result.orderID[0], order_items: res.Result.OrderItems[0], ext_delivery_cost: res.Result.ExtDeliveryCost[0] });
     
-    console.log(res.Result);
-
     return res.Result;
 };
