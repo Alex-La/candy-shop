@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const QRModal = () => {
+import M from "materialize-css";
 
-    return(
-  <div id="qr-modal" className="modal">
-    <div className="modal-content">
-      <button>Payed</button>
+const QRModal = ({ openQRModal, setOpenQRModal }) => {
+  const modalRef = useRef(null);
+
+  const [instance, setInstance] = useState(null);
+
+  useEffect(() => {
+    if (openQRModal) instance.open();
+  }, [openQRModal]);
+
+  useEffect(() => {
+    if (modalRef.current) {
+      const instance = M.Modal.init(modalRef.current, {
+        onCloseEnd: () => {
+          setOpenQRModal(false);
+        },
+      });
+      setInstance(instance);
+    }
+  }, [setOpenQRModal]);
+
+  return (
+    <div id="qr-modal" className="modal" ref={modalRef}>
+      <div className="modal-content">
+        <button>Payed</button>
+      </div>
     </div>
-  </div>
-    );
-}
+  );
+};
 
 export default QRModal;
