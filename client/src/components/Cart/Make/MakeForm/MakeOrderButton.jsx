@@ -5,9 +5,9 @@ import Context from "../../../../context/Context";
 import M from "materialize-css";
 
 import useOrderAPI from "../../../../hooks/useOrderAPI";
+import { useHistory } from "react-router-dom";
 
 import QRModal from "./QRModal";
-import SuccessOrderModal from "./SuccessOrderModal";
 
 const MakeOrderButton = ({
   policy,
@@ -16,9 +16,9 @@ const MakeOrderButton = ({
   checkDeliveryMethod,
 }) => {
   const [openQrModal, setOpenQrModal] = useState(false);
-  const [instance, setInstance] = useState(null);
 
   const { productsInCart, setProductsInCart } = useContext(Context);
+  const history = useHistory();
 
   const order = useOrderAPI(productsInCart);
 
@@ -26,9 +26,9 @@ const MakeOrderButton = ({
     if (order.loading) M.toast({ html: "loading..." });
     if (order.data) M.toast({ html: order.data.createOrder.ResultStatusMsg });
     if (order.data && order.data.createOrder.ResultStatus[0] === "1") {
-      if (instance) instance.open();
+      history.push("/carts/make/success");
     }
-  }, [order.data, instance, order.loading]);
+  }, [order.data, order.loading, history]);
 
   const onSendOrder = () => {
     const contactForm = checkContactDataForm(
@@ -61,7 +61,6 @@ const MakeOrderButton = ({
       </button>
 
       <QRModal openQRModal={openQrModal} setOpenQRModal={setOpenQrModal} />
-      <SuccessOrderModal setInstance={setInstance} />
     </Fragment>
   );
 };

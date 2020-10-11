@@ -64,16 +64,15 @@ module.exports.createOrder = async ({ data, dataSources }) => {
     })
   );
 
-  if (res.Result.ResultStatus[0] === "5") {
+  if (res.Result.ResultStatus[0] === "1") {
     await dataSources.shopAPI.createOrder({
-      order_id: "235235", //res.Result.orderID[0],
-      order_items: "h4ll", //res.Result.OrderItems[0],
-      ext_delivery_cost: "1245", //res.Result.ExtDeliveryCost[0],
+      order_id: res.Result.orderID[0],
+      order_items: res.Result.OrderItems[0],
+      ext_delivery_cost: res.Result.ExtDeliveryCost[0],
       email: data.dsEmail,
     });
 
-    const emData = await sendEmail("235235", data.dsEmail);
-    console.log(emData);
+    await sendEmail(res.Result.orderID[0], data.dsEmail);
   }
 
   return res.Result;
