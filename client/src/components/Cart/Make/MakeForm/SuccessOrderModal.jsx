@@ -13,7 +13,7 @@ const SuccessOrderModal = ({ setInstance }) => {
     if (modalRef.current) {
       const instance = M.Modal.init(modalRef.current, {
         onCloseEnd: () => {
-          history.push("/");
+          history.push("/carts/make/success");
         },
       });
       setInstance(instance);

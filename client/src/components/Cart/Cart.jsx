@@ -222,6 +222,10 @@ const Cart = () => {
               </Fragment>
             )}
           </div>
+          <div className="row center">
+            Если вы хотите отследить заказ, то перейдите в раздел{" "}
+            <Link to="/carts/tracker">отследить заказ.</Link>
+          </div>
         </div>
       </div>
     </Fragment>

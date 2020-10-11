@@ -23,11 +23,12 @@ const MakeOrderButton = ({
   const order = useOrderAPI(productsInCart);
 
   useEffect(() => {
+    if (order.loading) M.toast({ html: "loading..." });
     if (order.data) M.toast({ html: order.data.createOrder.ResultStatusMsg });
-    if (order.data && order.data.createOrder.ResultStatus[0] === "5") {
+    if (order.data && order.data.createOrder.ResultStatus[0] === "1") {
       if (instance) instance.open();
     }
-  }, [order.data, instance]);
+  }, [order.data, instance, order.loading]);
 
   const onSendOrder = () => {
     const contactForm = checkContactDataForm(
@@ -44,15 +45,15 @@ const MakeOrderButton = ({
     order.makeOrder(data);
 
     //Clear cart
-    // setProductsInCart(null);
-    // localStorage.removeItem("products_in_cart");
+    setProductsInCart(null);
+    localStorage.removeItem("products_in_cart");
   };
 
   return (
     <Fragment>
       <button
         className={`waves-effect waves-light btn-large black right ${
-          !policy && order.loading && "disabled"
+          !policy && "disabled"
         }`}
         onClick={onSendOrder}
       >
