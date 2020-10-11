@@ -6,11 +6,12 @@ class ShopAPI extends DataSource {
     this.store = store;
   }
 
-  async createOrder({ order_id, order_items, ext_delivery_cost }) {
+  async createOrder({ order_id, order_items, ext_delivery_cost, email }) {
     return await this.store.Order.create({
       order_id,
       order_items,
-      ext_delivery_cost
+      ext_delivery_cost,
+      email,
     });
   }
 

@@ -134,11 +134,12 @@ module.exports.createStore = () => {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
       },
       order_id: DataTypes.STRING,
       order_items: DataTypes.STRING,
       ext_delivery_cost: DataTypes.STRING,
+      email: DataTypes.STRING,
     },
     { sequelize, modelName: "order" }
   );
