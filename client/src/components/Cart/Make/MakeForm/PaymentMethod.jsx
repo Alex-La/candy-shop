@@ -25,7 +25,7 @@ const PaymentMethod = () => {
               onChange={onRadioChange}
             />
             <span className="black-text">
-              <b>Оплата QR-кодом (Для клиентов Cбербанка и Тинькоффа)</b>
+              <b>Оплата QR-кодом (Для клиентов Cбербанка и Тинькофф)</b>
             </span>
           </label>
         </p>
