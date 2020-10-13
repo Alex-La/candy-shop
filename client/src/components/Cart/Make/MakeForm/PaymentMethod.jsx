@@ -25,7 +25,7 @@ const PaymentMethod = () => {
               onChange={onRadioChange}
             />
             <span className="black-text">
-              <b>Оплата картой (Visa, MasterCard...)</b>
+              <b>Оплата QR-кодом (Для клиентов Cбербанка и Тинькоффа)</b>
             </span>
           </label>
         </p>
@@ -42,22 +42,6 @@ const PaymentMethod = () => {
             />
             <span className="black-text">
               <b>Наличными при получении</b>
-            </span>
-          </label>
-        </p>
-      </div>
-
-      <div className="col s12">
-        <p>
-          <label>
-            <input
-              name="cod"
-              type="radio"
-              checked={paymentMethodRadio === "cod"}
-              onChange={onRadioChange}
-            />
-            <span className="black-text">
-              <b>Наложенный платёж</b>
             </span>
           </label>
         </p>

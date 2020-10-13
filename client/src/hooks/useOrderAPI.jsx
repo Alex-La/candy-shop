@@ -15,9 +15,6 @@ const useOrderAPI = (productsInCart) => {
   const [sendOrder, { data, loading }] = useMutation(CREATE_ORDER_MUTATION);
 
   const makeOrder = (data) => {
-    // console.log(data);
-    // console.log(products.data);
-    // console.log(productsInCart);
 
     const order = {};
     const orderArr = [];

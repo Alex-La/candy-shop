@@ -2,30 +2,23 @@ import React, { useEffect, useRef, useState } from "react";
 
 import M from "materialize-css";
 
-const QRModal = ({ openQRModal, setOpenQRModal }) => {
+const QRModal = ({ setQrModalInstance, onPaySuccess }) => {
   const modalRef = useRef(null);
 
   const [instance, setInstance] = useState(null);
 
   useEffect(() => {
-    if (openQRModal) instance.open();
-  }, [openQRModal, instance]);
-
-  useEffect(() => {
     if (modalRef.current) {
-      const instance = M.Modal.init(modalRef.current, {
-        onCloseEnd: () => {
-          setOpenQRModal(false);
-        },
-      });
+      const instance = M.Modal.init(modalRef.current);
+      setQrModalInstance(instance);
       setInstance(instance);
     }
-  }, [setOpenQRModal, setInstance]);
+  }, [setQrModalInstance]);
 
   return (
     <div id="qr-modal" className="modal" ref={modalRef}>
       <div className="modal-content">
-        <button>Payed</button>
+        <button onClick={() => {onPaySuccess(); instance.close()}}>Payed</button>
       </div>
     </div>
   );

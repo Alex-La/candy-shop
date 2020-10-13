@@ -15,7 +15,7 @@ const MakeOrderButton = ({
   checkContactDataForm,
   checkDeliveryMethod,
 }) => {
-  const [openQrModal, setOpenQrModal] = useState(false);
+  const [qrModalInstance, setQrModalInstance] = useState(null);
 
   const { productsInCart, setProductsInCart } = useContext(Context);
   const history = useHistory();
@@ -27,8 +27,11 @@ const MakeOrderButton = ({
     if (order.data) M.toast({ html: order.data.createOrder.ResultStatusMsg });
     if (order.data && order.data.createOrder.ResultStatus[0] === "1") {
       history.push("/carts/make/success");
+
+      setProductsInCart(null);
+      localStorage.removeItem("products_in_cart");
     }
-  }, [order.data, order.loading, history]);
+  }, [order.data, order.loading, history, setProductsInCart]);
 
   const onSendOrder = () => {
     const contactForm = checkContactDataForm(
@@ -40,27 +43,27 @@ const MakeOrderButton = ({
     const delivery = checkDeliveryMethod(data);
     if (delivery) return M.toast({ html: delivery });
 
-    if (data.paymentMethodRadio === "card_payment") return setOpenQrModal(true);
+    if (data.paymentMethodRadio === "card_payment") return qrModalInstance.open();
 
     order.makeOrder(data);
-
-    //Clear cart
-    setProductsInCart(null);
-    localStorage.removeItem("products_in_cart");
   };
+
+  const onPaySuccess = () => {
+    order.makeOrder(data);
+  }
 
   return (
     <Fragment>
       <button
         className={`waves-effect waves-light btn-large black right ${
-          !policy && "disabled"
+          !policy && !order.loading && "disabled"
         }`}
         onClick={onSendOrder}
       >
         Заказать
       </button>
 
-      <QRModal openQRModal={openQrModal} setOpenQRModal={setOpenQrModal} />
+      <QRModal setQrModalInstance={setQrModalInstance} onPaySuccess={onPaySuccess}/>
     </Fragment>
   );
 };
