@@ -68,7 +68,7 @@ module.exports = {
 
     productsByAid: async (_, { aids }, { dataSources }) => {
       const res = await dataSources.productsAPI.getProductsByAid({ aids });
-      if (!res) return;
+      if (!res) return null;
       return res;
     },
 

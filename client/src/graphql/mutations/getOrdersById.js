@@ -14,7 +14,11 @@ const GET_ORDERS_BY_ID_MUTATION = gql`
         dsDelivery
         pickupDate
         status
-        postData
+        postData{
+          PostCode
+          PostStatusName
+          TrackingUrl 
+        }
         OrderItems{
           OrderItems_Item {
             aID
