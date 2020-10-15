@@ -15,7 +15,7 @@ const PaymentMethod = () => {
     <Fragment>
       <h5 className="first center">3. Способ оплаты</h5>
 
-      <div className="col s12">
+      {/* <div className="col s12">
         <p>
           <label>
             <input
@@ -29,7 +29,7 @@ const PaymentMethod = () => {
             </span>
           </label>
         </p>
-      </div>
+      </div> */}
 
       <div className="col s12">
         <p>
@@ -41,7 +41,7 @@ const PaymentMethod = () => {
               onChange={onRadioChange}
             />
             <span className="black-text">
-              <b>Наличными при получении</b>
+              <b>При получении</b>
             </span>
           </label>
         </p>

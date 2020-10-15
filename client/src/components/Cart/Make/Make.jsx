@@ -41,7 +41,7 @@ const Make = () => {
     addInfo: "",
   });
 
-  const [paymentMethodRadio, setPaymentMethodRadio] = useState("card_payment");
+  const [paymentMethodRadio, setPaymentMethodRadio] = useState("cash");
 
   const [comment, setComment] = useState("");
 
