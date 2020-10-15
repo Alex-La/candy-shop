@@ -6,6 +6,7 @@ import Main from "../components/Main/Main";
 
 import Search from "../components/Search/Search";
 import Cart from "../components/Cart/Cart";
+import Tracker from "../components/Cart/Tracker";
 import Make from "../components/Cart/Make/Make";
 import SuccessOrderRoute from "../components/Cart/Make/SuccessOrderRoute";
 
@@ -162,6 +163,7 @@ const renderPublicRoutes = () => {
       <Route path="/register" component={Register} />
       <Route path="/search" component={Search} />
       <Route exact path="/carts" component={Cart} />
+      <Route path="/carts/tracker" component={Tracker} />
       <Route path="/carts/make" exact component={Make} />
       <Route path="/carts/make/success" component={SuccessOrderRoute} />
       <Route path="/catalog" exact component={Catalog} />

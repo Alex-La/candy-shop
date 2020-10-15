@@ -66,6 +66,12 @@ module.exports = {
     products: async (_, data, { dataSources }) =>
       await products(data, dataSources),
 
+    productsByAid: async (_, { aids }, { dataSources }) => {
+      const res = await dataSources.productsAPI.getProductsByAid({ aids });
+      if (!res) return;
+      return res;
+    },
+
     manufacturers: async (_, __, { dataSources }) => {
       const data = await dataSources.productsAPI.getProducts();
       const manufacturers = [];
@@ -111,8 +117,8 @@ module.exports = {
     productsToOrder: async (_, { vendorCode, color = null, size = null }, { dataSources }) => {
       let data = [];
       for (let i in vendorCode) {
-         const res = await dataSources.productsAPI.getProductsToOrder({ vendorCode: vendorCode[i], color: color && color[i], size: size && size[i] });
-         data.push(res);
+        const res = await dataSources.productsAPI.getProductsToOrder({ vendorCode: vendorCode[i], color: color && color[i], size: size && size[i] });
+        data.push(res);
       }
       return data;
     }

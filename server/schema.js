@@ -19,6 +19,7 @@ const typeDefs = gql`
       manufacturers: [String]
     ): ProductsConnection!
     product(vendorCode: Int!): ProductConnection!
+    productsByAid(aids: [String]!): [Product]!
     manufacturers: [String]!
     mainNames: [String]!
     subsectionNames: [String]!
@@ -113,8 +114,14 @@ const typeDefs = gql`
     dsDelivery: [String]
     pickupDate: [String]
     status: [String]
-    postData: [String]
+    postData: [PostData]
     OrderItems: [OrderItemsItem] 
+  }
+
+  type PostData {
+    PostCode: [String]
+    PostStatusName: [String]
+    TrackingUrl: [String]
   }
 
   type OrderItemsItem {

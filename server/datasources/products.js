@@ -22,12 +22,18 @@ class ProductsAPI extends DataSource {
     });
   }
 
+  async getProductsByAid({ aids }) {
+    return await this.store.FullMode.findAll({
+      where: { aid: aids }
+    });
+  }
+
   async getProducts() {
     return await this.store.FullMode.findAll({ where: { can_buy: "1" } });
   }
 
   async getProductsToOrder({ vendorCode, color, size }) {
-    
+
     if (color && size) {
       return await this.store.FullMode.findOne({ where: { vendor_code: vendorCode, color, size } });
     }
