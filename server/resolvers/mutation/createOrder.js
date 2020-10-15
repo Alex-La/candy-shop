@@ -28,7 +28,7 @@ function xmlToJson(url, callback) {
 
 module.exports.createOrder = async ({ data, dataSources }) => {
   let url =
-    "http://api.ds-platforma.ru/ds_order.php?ApiKey=5f7b1f51d022d0.27256421&TestMode=1";
+    "http://api.ds-platforma.ru/ds_order.php?ApiKey=5f7b1f51d022d0.27256421&TestMode=0";
 
   url += "&order=" + data.order.join(",");
 

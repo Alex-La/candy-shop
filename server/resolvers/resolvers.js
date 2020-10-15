@@ -8,6 +8,7 @@ const { updateMe } = require("./mutation/updateMe");
 const { searchProducts } = require("./query/searchProducts");
 const { changePassword } = require("./mutation/changePassword");
 const { createOrder } = require("./mutation/createOrder");
+const { getOrdersById } = require("./mutation/getOrdersById");
 
 module.exports = {
   Query: {
@@ -220,5 +221,6 @@ module.exports = {
     },
 
     createOrder: async (_, { data }, { dataSources }) => await createOrder({ data, dataSources }),
+    getOrdersById: async (_, { id }, ___) => await getOrdersById({ id }),
   },
 };

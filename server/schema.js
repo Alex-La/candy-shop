@@ -31,6 +31,7 @@ const typeDefs = gql`
       priceRange: [String]
     ): ProductsConnection!
     productsToOrder(vendorCode: [String]!, color: [String], size: [String]): [ProductsToOrder]!
+    getOrdersByEmail(email: String!): Orders!
   }
 
   type Mutation {
@@ -44,6 +45,7 @@ const typeDefs = gql`
     removePromoCode(name: String!): String
     setProductPriority(value: Int, vendor_code: [String]): String
     createOrder(data: OrderData): CreateOrder!
+    getOrdersById(id: String): Orders!
   }
 
   input OrderData {
@@ -91,6 +93,36 @@ const typeDefs = gql`
     subsection: String
     orderBy: OrderBy
     priceRange: [String]
+  }
+
+  type Orders {
+    ResultStatus: [String]
+    Orders: [OrdersItem]
+  }
+
+  type OrdersItem {
+    Orders_Item: [OrdersConnection]
+  }
+
+  type OrdersConnection {
+    orderID: [String]
+    ExtDateOfAdded: [String]
+    ExtOrderPaid: [String]
+    ExtOrderTotal: [String]
+    ExtDeliveryCost: [String]
+    dsDelivery: [String]
+    pickupDate: [String]
+    status: [String]
+    postData: [String]
+    OrderItems: [OrderItemsItem] 
+  }
+
+  type OrderItemsItem {
+    OrderItems_Item: [OrderItemsConnection]
+  }
+
+  type OrderItemsConnection {
+    aID: [String]
   }
 
   type CreateOrder {
