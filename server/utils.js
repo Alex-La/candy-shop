@@ -1,5 +1,31 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 const config = require("config");
+const parseString = require("xml2js").parseString;
+const http = require("http");
+
+module.exports.xmlToJson = (url, callback) => {
+  http.get(url, (res) => {
+    var xml = "";
+
+    res.on("data", (chunk) => {
+      xml += chunk;
+    });
+
+    res.on("error", (e) => {
+      callback(e, null);
+    });
+
+    res.on("timeout", (e) => {
+      callback(e, null);
+    });
+
+    res.on("end", () => {
+      parseString(xml, (_, result) => {
+        callback(null, result);
+      });
+    });
+  });
+}
 
 module.exports.getManufacturers = (array) => {
   let a = [];
@@ -43,9 +69,9 @@ module.exports.paginateResults = ({
     ? cursorIndex === results.length - 1
       ? []
       : results.slice(
-          cursorIndex + 1,
-          Math.min(results.length, cursorIndex + 1 + pageSize)
-        )
+        cursorIndex + 1,
+        Math.min(results.length, cursorIndex + 1 + pageSize)
+      )
     : results.slice(0, pageSize);
 };
 
@@ -65,7 +91,7 @@ module.exports.createStore = () => {
     logging: false,
   });
 
-  class Review extends Model {}
+  class Review extends Model { }
   Review.init(
     {
       id: {
@@ -81,7 +107,7 @@ module.exports.createStore = () => {
     { sequelize, modelName: "review" }
   );
 
-  class ProductReview extends Model {}
+  class ProductReview extends Model { }
   ProductReview.init(
     {
       id: {
@@ -96,7 +122,7 @@ module.exports.createStore = () => {
     { sequelize, modelName: "product_review" }
   );
 
-  class User extends Model {}
+  class User extends Model { }
   User.init(
     {
       id: {
@@ -114,7 +140,7 @@ module.exports.createStore = () => {
     { sequelize, modelName: "user" }
   );
 
-  class PromoCode extends Model {}
+  class PromoCode extends Model { }
   PromoCode.init(
     {
       id: {
@@ -128,7 +154,7 @@ module.exports.createStore = () => {
     { sequelize, modelName: "promo_code" }
   );
 
-  class Order extends Model {}
+  class Order extends Model { }
   Order.init(
     {
       id: {
@@ -144,7 +170,7 @@ module.exports.createStore = () => {
     { sequelize, modelName: "order" }
   );
 
-  class FullMode extends Model {}
+  class FullMode extends Model { }
   FullMode.init(
     {
       priority: DataTypes.SMALLINT,

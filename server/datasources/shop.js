@@ -15,6 +15,10 @@ class ShopAPI extends DataSource {
     });
   }
 
+  async getOrders({ email }) {
+    return await this.store.Order.findAll({ where: { email } });
+  }
+
   async getOrders() {
     return await this.store.Order.findAll();
   }

@@ -22,6 +22,7 @@ import NewResponse from "../components/Responses/NewResponse";
 
 import PersonalArea from "../components/Auth/PersonalArea/PresonalArea";
 import PersonalData from "../components/Auth/PersonalArea/PersonalData";
+import Orders from "../components/Auth/PersonalArea/Orders";
 
 import Catalog from "../components/Catalog/Catalog/Catalog";
 
@@ -163,6 +164,7 @@ const renderPrivateRoutes = (me) => {
       <Route path="/responses/new" component={NewResponse} />
       <Route path="/auth" render={() => <Redirect to="/personal" />} />
       <Route path="/personal" exact component={PersonalArea} />
+      <Route path="/personal/orders" component={Orders} />
       <Route path="/personal/profile" component={PersonalData} />
       <Route path="/search" component={Search} />
       <Route exact path="/carts" component={Cart} />

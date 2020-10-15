@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 
 import { useQuery } from "@apollo/react-hooks";
 import PRODUCTS_BY_AID_QUERY from "../../../graphql/queries/productsByAid";
@@ -6,10 +6,6 @@ import PRODUCTS_BY_AID_QUERY from "../../../graphql/queries/productsByAid";
 const OrderCardProducts = ({ aids }) => {
 
     const { data, loading } = useQuery(PRODUCTS_BY_AID_QUERY, { variables: { aids } });
-
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
 
     const returnCard = () => {
         if (data && data.productsByAid) return data.productsByAid.map((item, index) => (<div key={index} className="section">

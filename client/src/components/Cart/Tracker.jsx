@@ -35,6 +35,11 @@ const Tracker = () => {
         getOrders({ variables: { id: inputVal } });
     }
 
+    const onEnter = (e) => {
+        if (e.key === "Enter")
+            getOrders({ variables: { id: inputVal } });
+    }
+
     return (
         <Fragment>
             <div className="section">
@@ -42,7 +47,7 @@ const Tracker = () => {
                     <h2>Введите номер заказа.</h2>
                     <div className="row">
                         <div className="input-field col s8">
-                            <input onChange={handleChangeInput} id="order_id" type="text" />
+                            <input onKeyDown={onEnter} onChange={handleChangeInput} id="order_id" type="text" />
                             <label htmlFor="order_id">Номер заказа</label>
                         </div>
                         <div className="col s4">

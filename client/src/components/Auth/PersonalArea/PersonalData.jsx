@@ -118,7 +118,7 @@ const PersonalData = () => {
                   </Link>
                 </li>
                 <li className="collection-item">
-                  <Link className="collection-item">Заказы</Link>
+                  <Link to="/personal/orders" className="collection-item">Заказы</Link>
                 </li>
                 <li className="collection-item">
                   <Link to="/carts" className="collection-item">
@@ -217,9 +217,8 @@ const PersonalData = () => {
               <div className="col s12">
                 <button
                   onClick={onSubmit}
-                  className={`waves-effect waves-light btn black right ${
-                    (!formHasChange || loading) && "disabled"
-                  }`}
+                  className={`waves-effect waves-light btn black right ${(!formHasChange || loading) && "disabled"
+                    }`}
                 >
                   Обновить информацию
                 </button>

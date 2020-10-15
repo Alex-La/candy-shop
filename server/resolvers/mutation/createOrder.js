@@ -1,30 +1,5 @@
-const parseString = require("xml2js").parseString;
-const http = require("http");
 const nodemailer = require("nodemailer");
-
-function xmlToJson(url, callback) {
-  http.get(url, (res) => {
-    var xml = "";
-
-    res.on("data", (chunk) => {
-      xml += chunk;
-    });
-
-    res.on("error", (e) => {
-      callback(e, null);
-    });
-
-    res.on("timeout", (e) => {
-      callback(e, null);
-    });
-
-    res.on("end", () => {
-      parseString(xml, (_, result) => {
-        callback(null, result);
-      });
-    });
-  });
-}
+const { xmlToJson } = require("../../utils");
 
 module.exports.createOrder = async ({ data, dataSources }) => {
   let url =

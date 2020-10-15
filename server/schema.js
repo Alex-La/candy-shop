@@ -32,7 +32,7 @@ const typeDefs = gql`
       priceRange: [String]
     ): ProductsConnection!
     productsToOrder(vendorCode: [String]!, color: [String], size: [String]): [ProductsToOrder]!
-    getOrdersByEmail(email: String!): Orders!
+    getOrdersByEmail: Orders
   }
 
   type Mutation {

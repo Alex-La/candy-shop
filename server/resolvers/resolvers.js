@@ -9,6 +9,7 @@ const { searchProducts } = require("./query/searchProducts");
 const { changePassword } = require("./mutation/changePassword");
 const { createOrder } = require("./mutation/createOrder");
 const { getOrdersById } = require("./mutation/getOrdersById");
+const { getOrdersByEmail } = require("./query/getOrdersByEmail");
 
 module.exports = {
   Query: {
@@ -121,7 +122,9 @@ module.exports = {
         data.push(res);
       }
       return data;
-    }
+    },
+
+    getOrdersByEmail: async (_, __, { user, dataSources }) => getOrdersByEmail({ user, dataSources })
   },
 
   Mutation: {

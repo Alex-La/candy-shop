@@ -1,11 +1,7 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import OrderCardProducts from "./OrderCardProducts";
 
 const OrderCard = ({ orders, loading }) => {
-
-  useEffect(() => {
-    console.log(orders);
-  }, [orders]);
 
   const returnPaidStatus = (code) => {
     if (code === "1") return "Заказ оплачен Мерчанту";
