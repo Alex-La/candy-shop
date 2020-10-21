@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -10,8 +10,33 @@ import HeaderNav from "./HeaderNav";
 import NavBar from "./NavBar";
 
 const Header = () => {
+  const [close, setClose] = useState(
+    sessionStorage.getItem("stock")
+      ? JSON.parse(sessionStorage.getItem("stock"))
+      : false
+  );
+
+  const handleClose = () => {
+    setClose(true);
+    sessionStorage.setItem("stock", "true");
+  };
+
   return (
     <Fragment>
+      {!close && (
+        <div className="row">
+          <div className="col s12 center">
+            Акция! Скидка 5% по промокоду HOT5
+            <i
+              onClick={handleClose}
+              style={{ cursor: "pointer" }}
+              className="material-icons right"
+            >
+              close
+            </i>
+          </div>
+        </div>
+      )}
       <nav className="nav-extended white" role="navigation">
         <div className="nav-content hide-on-med-and-down">
           <div
