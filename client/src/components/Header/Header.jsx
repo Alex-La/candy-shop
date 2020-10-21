@@ -23,21 +23,21 @@ const Header = () => {
 
   return (
     <Fragment>
-      {!close && (
-        <div className="row">
-          <div className="col s12 center">
-            Акция! Скидка 5% по промокоду HOT5
-            <i
-              onClick={handleClose}
-              style={{ cursor: "pointer" }}
-              className="material-icons right"
-            >
-              close
-            </i>
-          </div>
-        </div>
-      )}
       <nav className="nav-extended white" role="navigation">
+        {!close && (
+          <div className="row grey darken-3">
+            <div className="col s12 center">
+              Акция! Скидка 5% по промокоду HOT5
+              <i
+                onClick={handleClose}
+                style={{ cursor: "pointer" }}
+                className="material-icons right"
+              >
+                close
+              </i>
+            </div>
+          </div>
+        )}
         <div className="nav-content hide-on-med-and-down">
           <div
             className="container black-text"
