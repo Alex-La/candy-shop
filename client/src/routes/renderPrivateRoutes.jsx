@@ -15,6 +15,7 @@ import Dilvery from "../components/Info/Delivery/Delivery";
 import Refund from "../components/Info/Refund/Refund";
 import Privacy from "../components/Info/Privacy/Privacy";
 import Contacts from "../components/Info/Contacts/Contacts";
+import About from "../components/Info/About";
 import Info from "../components/Info/Info";
 
 import Responses from "../components/Responses/Responses";
@@ -155,6 +156,7 @@ const renderPrivateRoutes = (me) => {
       )}
       <Route path="/" exact component={Main} />
       <Route path="/info" exact component={Info} />
+      <Route path="/info/about" component={About} />
       <Route path="/info/pdp" component={ProcessingPolicy} />
       <Route path="/info/delivery" component={Dilvery} />
       <Route path="/info/refund" component={Refund} />
