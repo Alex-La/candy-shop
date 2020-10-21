@@ -31,12 +31,16 @@ class ProductsAPI extends DataSource {
   }
 
   async getProducts() {
-    return await this.store.FullMode.findAll({ where: { can_buy: "1" } });
+    return await this.store.FullMode.findAll({
+      where: { can_buy: "1" },
+      order: [["priority", "DESC"]],
+    });
   }
 
   async getSaleProducts() {
     return await this.store.FullMode.findAll({
       where: { sale: { [Op.not]: null }, can_buy: "1" },
+      order: [["priority", "DESC"]],
     });
   }
 
@@ -67,12 +71,14 @@ class ProductsAPI extends DataSource {
   async getProductsByMain({ main }) {
     return await this.store.FullMode.findAll({
       where: { main_product_category: main, can_buy: "1" },
+      order: [["priority", "DESC"]],
     });
   }
 
   async getProductsBySubsection({ subsection }) {
     return await this.store.FullMode.findAll({
       where: { subsection_product_category: subsection, can_buy: "1" },
+      order: [["priority", "DESC"]],
     });
   }
 
@@ -83,12 +89,14 @@ class ProductsAPI extends DataSource {
         subsection_product_category: subsection,
         can_buy: "1",
       },
+      order: [["priority", "DESC"]],
     });
   }
 
   async getProductsByManufacturer({ manufacturers }) {
     return await this.store.FullMode.findAll({
       where: { manufacturer: manufacturers, can_buy: "1" },
+      order: [["priority", "DESC"]],
     });
   }
 
@@ -99,6 +107,7 @@ class ProductsAPI extends DataSource {
         manufacturer: manufacturers,
         can_buy: "1",
       },
+      order: [["priority", "DESC"]],
     });
   }
 
@@ -108,24 +117,29 @@ class ProductsAPI extends DataSource {
         case "Категория":
           return await this.store.FullMode.findAll({
             where: { main_product_category: searchName, can_buy: "1" },
+            order: [["priority", "DESC"]],
           });
         case "Подкатегория":
           return await this.store.FullMode.findAll({
             where: { subsection_product_category: searchName, can_buy: "1" },
+            order: [["priority", "DESC"]],
           });
         case "Производитель":
           return await this.store.FullMode.findAll({
             where: { manufacturer: searchName, can_buy: "1" },
+            order: [["priority", "DESC"]],
           });
       }
     } else {
       if (searchName.length !== 0) {
         const result = await this.store.FullMode.findAll({
           where: { name: searchName, can_buy: "1" },
+          order: [["priority", "DESC"]],
         });
         if (result.length === 0) {
           const data = await this.store.FullMode.findAll({
             where: { can_buy: "1" },
+            order: [["priority", "DESC"]],
           });
 
           const filteredData = data.filter((el) =>
@@ -138,6 +152,7 @@ class ProductsAPI extends DataSource {
         return await this.store.FullMode.findAll({
           limit: 1000,
           where: { can_buy: "1" },
+          order: [["priority", "DESC"]],
         });
       }
     }
