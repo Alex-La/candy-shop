@@ -5,6 +5,7 @@ const PRODUCT_QUERY = gql`
     product(vendorCode: $vendorCode) {
       refetch_require
       product {
+        sale
         name
         vendor_code
         aid

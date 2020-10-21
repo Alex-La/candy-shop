@@ -1,4 +1,10 @@
-import React, { useRef, useEffect, useContext, useState } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useContext,
+  useState,
+  Fragment,
+} from "react";
 
 import M from "materialize-css";
 
@@ -67,6 +73,34 @@ const Overview = ({ product, size, setSize, color, setColor }) => {
 
   const onSwipeRight = () => {
     instance.prev();
+  };
+
+  const returnPrice = () => {
+    if (product.sale) {
+      let pr = parseInt(
+        product.price_retail.slice(0, product.price_retail.length - 3),
+        10
+      );
+      pr = (pr * (100 - product.sale)) / 100;
+
+      return (
+        <Fragment>
+          <span
+            style={{
+              textDecoration: "line-through",
+            }}
+            className="black-text"
+          >
+            {product.price_retail.slice(0, product.price_retail.length - 3) +
+              " р."}
+          </span>
+          / {pr + " р."}
+        </Fragment>
+      );
+    }
+    return (
+      product.price_retail.slice(0, product.price_retail.length - 3) + " р."
+    );
   };
 
   return (
@@ -163,10 +197,7 @@ const Overview = ({ product, size, setSize, color, setColor }) => {
             </div>
           )}
         <br />
-        <h4 className="orange-text ">
-          {product.price_retail.slice(0, product.price_retail.length - 3) +
-            " р."}
-        </h4>
+        <h4 className="orange-text ">{returnPrice()}</h4>
       </div>
     </div>
   );

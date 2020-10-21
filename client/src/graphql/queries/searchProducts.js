@@ -20,6 +20,7 @@ const SEARCH_PRODUCTS_QUERY = gql`
       price_range
       refetch_require
       products {
+        sale
         vendor_code
         photo_small
         photos

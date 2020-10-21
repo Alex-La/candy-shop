@@ -52,6 +52,7 @@ const ForMale = () => {
           data.products.products.map((product, index) => (
             <div key={index} className="col scrolling-item">
               <ProductCard
+                sale={product.sale}
                 vendor_code={product.vendor_code}
                 image_small={product.photo_small}
                 image={product.photos[0]}

@@ -4,6 +4,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Context from "../../../context/Context";
 
 const ProductCard = ({
+  sale,
   vendor_code,
   image_small,
   image,
@@ -45,6 +46,14 @@ const ProductCard = ({
   };
 
   const onAddToCard = () => {
+    let pr;
+    if (sale) {
+      pr = parseInt(price.slice(0, price.length - 3), 10);
+      pr = (pr * (100 - sale)) / 100;
+    } else {
+      pr = price.slice(0, price.length - 3);
+    }
+
     setInCart(true);
     const productToCard = {
       vendor_code,
@@ -52,7 +61,7 @@ const ProductCard = ({
       name,
       color,
       size,
-      price: price.slice(0, price.length - 3) + " р.",
+      price: pr + " р.",
     };
 
     if (productsInCart !== null && !inCart) {
@@ -74,6 +83,36 @@ const ProductCard = ({
       localStorage.setItem("products_in_cart", JSON.stringify(filtred));
       setProductsInCart(filtred);
     }
+  };
+
+  const returnPrice = () => {
+    if (sale) {
+      let pr = parseInt(price.slice(0, price.length - 3), 10);
+      pr = (pr * (100 - sale)) / 100;
+
+      return (
+        <a className="right red-text" style={{ fontSize: 18, marginTop: 4 }}>
+          <span
+            style={{
+              fontSize: 15,
+              textDecoration: "line-through",
+              position: "absolute",
+              top: 5,
+            }}
+            className="orange-text"
+          >
+            {price.slice(0, price.length - 3) + " р."}
+          </span>
+
+          {pr + " р."}
+        </a>
+      );
+    }
+    return (
+      <a className="right" style={{ fontSize: 18, marginTop: 4 }}>
+        {price.slice(0, price.length - 3) + " р."}
+      </a>
+    );
   };
 
   return (
@@ -121,9 +160,7 @@ const ProductCard = ({
               {inCart ? "remove_shopping_cart" : "add_shopping_cart"}
             </i>
           </a>
-          <a className="right" style={{ fontSize: 18, marginTop: 4 }}>
-            {price.slice(0, price.length - 3) + " р."}
-          </a>
+          {returnPrice()}
         </div>
       </div>
     </div>

@@ -23,6 +23,7 @@ const ProductCont = ({ data, refetch, loading, loadingOnButton, radio }) => {
                 className={`col s12 ${radio === "block" && "m4 xl3"}`}
               >
                 <ProductCard
+                  sale={dat.sale}
                   vendor_code={dat.vendor_code}
                   image_small={dat.photo_small}
                   image={dat.photos[0]}

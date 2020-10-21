@@ -63,17 +63,31 @@ const ProductModal = () => {
   }, []);
 
   const onAddToCard = () => {
+    let pr;
+    if (data.product.product.sale) {
+      pr = parseInt(
+        data.product.product.price_retail.slice(
+          0,
+          data.product.product.price_retail.length - 3
+        ),
+        10
+      );
+      pr = (pr * (100 - data.product.product.sale)) / 100;
+    } else {
+      pr = data.product.product.price_retail.slice(
+        0,
+        data.product.product.price_retail.length - 3
+      );
+    }
+
     const productToCard = {
+      sale: data.product.product.sale,
       vendor_code: data.product.product.vendor_code,
       image_small: data.product.product.photo_small,
       name: data.product.product.name,
       size,
       color,
-      price:
-        data.product.product.price_retail.slice(
-          0,
-          data.product.product.price_retail.length - 3
-        ) + " р.",
+      price: pr + " р.",
     };
 
     if (productsInCart === null && !inCart) {

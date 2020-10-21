@@ -27,6 +27,7 @@ import Orders from "../components/Auth/PersonalArea/Orders";
 
 import Catalog from "../components/Catalog/Catalog/Catalog";
 
+import Sale from "../components/Catalog/Sale/Sale";
 import AllForSex from "../components/Catalog/AllForSex/AllForSex";
 import CosmeticsWithPheromones from "../components/Catalog/AllForSex/CosmeticsWithPheromones/CosmeticsWithPheromones";
 import PerfumesAndLubricantsForFemale from "../components/Catalog/AllForSex/CosmeticsWithPheromones/PerfumesAndLubricantsForFemale";
@@ -174,6 +175,7 @@ const renderPrivateRoutes = (me) => {
       <Route path="/carts/make" exact component={Make} />
       <Route path="/carts/make/success" component={SuccessOrderRoute} />
       <Route path="/catalog" exact component={Catalog} />
+      <Route path="/catalog/sale" component={Sale} />
       <Route path="/catalog/all-for-sex" exact component={AllForSex} />
       <Route
         path="/catalog/all-for-sex/cosmetics-with-pheromones"

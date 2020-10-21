@@ -7,6 +7,7 @@ const {
 
 module.exports.products = async (queryData, dataSources) => {
   const {
+    sale,
     pageSize = 12,
     after,
     main,
@@ -45,6 +46,8 @@ module.exports.products = async (queryData, dataSources) => {
 
   if (!main && !subsection && !manufacturers)
     data = await dataSources.productsAPI.getProducts();
+
+  if (sale) data = await dataSources.productsAPI.getSaleProducts();
 
   if (!data) {
     return {

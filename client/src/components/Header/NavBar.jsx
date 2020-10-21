@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import AllForSex from "./navBarContent/component/AllForSex";
 import ForFemale from "./navBarContent/component/ForFemale";
 import ForMale from "./navBarContent/component/ForMale";
@@ -20,6 +22,12 @@ const NavContent = () => {
       <ForPairs />
       <Clothes />
       <Info />
+      <Link
+        to="/catalog/sale"
+        className="btn-large transparent under-line right"
+      >
+        <b>Sale(-50%)</b>
+      </Link>
     </div>
   );
 };

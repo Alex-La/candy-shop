@@ -10,6 +10,7 @@ const typeDefs = gql`
     getPromoCode(name: String!): Int
     getPromoCodes: [PromoCode]
     products(
+      sale: Boolean
       pageSize: Int
       after: String
       main: [String]
@@ -31,7 +32,11 @@ const typeDefs = gql`
       orderBy: OrderBy
       priceRange: [String]
     ): ProductsConnection!
-    productsToOrder(vendorCode: [String]!, color: [String], size: [String]): [ProductsToOrder]!
+    productsToOrder(
+      vendorCode: [String]!
+      color: [String]
+      size: [String]
+    ): [ProductsToOrder]!
     getOrdersByEmail: Orders
   }
 
@@ -115,7 +120,7 @@ const typeDefs = gql`
     pickupDate: [String]
     status: [String]
     postData: [PostData]
-    OrderItems: [OrderItemsItem] 
+    OrderItems: [OrderItemsItem]
   }
 
   type PostData {
@@ -209,6 +214,7 @@ const typeDefs = gql`
 
   type Product {
     priority: Int
+    sale: Int
     vendor_code: String
     main_product_category: String
     subsection_product_category: String

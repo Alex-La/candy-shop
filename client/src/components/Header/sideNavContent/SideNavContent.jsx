@@ -13,6 +13,8 @@ import Clothes from "./Clothes";
 import Information from "./Information";
 import IconNav from "./IconNav";
 
+import { Link } from "react-router-dom";
+
 const SideNav = () => {
   const sideNavRef = useRef(null);
 
@@ -45,6 +47,11 @@ const SideNav = () => {
       <ForPairs />
       <Clothes />
       <Information />
+      <li>
+        <Link to="/catalog/sale" className="white-text">
+          Sale(-50%)
+        </Link>
+      </li>
     </ul>
   );
 };

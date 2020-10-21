@@ -25,7 +25,7 @@ module.exports.xmlToJson = (url, callback) => {
       });
     });
   });
-}
+};
 
 module.exports.getManufacturers = (array) => {
   let a = [];
@@ -69,9 +69,9 @@ module.exports.paginateResults = ({
     ? cursorIndex === results.length - 1
       ? []
       : results.slice(
-        cursorIndex + 1,
-        Math.min(results.length, cursorIndex + 1 + pageSize)
-      )
+          cursorIndex + 1,
+          Math.min(results.length, cursorIndex + 1 + pageSize)
+        )
     : results.slice(0, pageSize);
 };
 
@@ -91,7 +91,7 @@ module.exports.createStore = () => {
     logging: false,
   });
 
-  class Review extends Model { }
+  class Review extends Model {}
   Review.init(
     {
       id: {
@@ -107,7 +107,7 @@ module.exports.createStore = () => {
     { sequelize, modelName: "review" }
   );
 
-  class ProductReview extends Model { }
+  class ProductReview extends Model {}
   ProductReview.init(
     {
       id: {
@@ -122,7 +122,7 @@ module.exports.createStore = () => {
     { sequelize, modelName: "product_review" }
   );
 
-  class User extends Model { }
+  class User extends Model {}
   User.init(
     {
       id: {
@@ -140,7 +140,7 @@ module.exports.createStore = () => {
     { sequelize, modelName: "user" }
   );
 
-  class PromoCode extends Model { }
+  class PromoCode extends Model {}
   PromoCode.init(
     {
       id: {
@@ -154,7 +154,7 @@ module.exports.createStore = () => {
     { sequelize, modelName: "promo_code" }
   );
 
-  class Order extends Model { }
+  class Order extends Model {}
   Order.init(
     {
       id: {
@@ -170,10 +170,11 @@ module.exports.createStore = () => {
     { sequelize, modelName: "order" }
   );
 
-  class FullMode extends Model { }
+  class FullMode extends Model {}
   FullMode.init(
     {
       priority: DataTypes.SMALLINT,
+      sale: DataTypes.SMALLINT,
       vendor_code: DataTypes.STRING,
       main_product_category: DataTypes.STRING,
       subsection_product_category: DataTypes.STRING,
