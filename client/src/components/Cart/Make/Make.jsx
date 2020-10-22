@@ -121,8 +121,8 @@ const Make = () => {
               <p style={{ marginBottom: 40 }}>
                 Если у вас возникли вопросы при оформлении заказа, свяжитесь с
                 нами по телефону:{" "}
-                <a href="tel:+79001259458" className="under-line">
-                  +79001259458
+                <a href="tel:+79185988291" className="under-line">
+                  +79185988291
                 </a>
               </p>
             </div>

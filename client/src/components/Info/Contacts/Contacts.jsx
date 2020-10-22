@@ -50,8 +50,8 @@ const Contacts = () => {
               </i>
               <p>
                 Телефон:{" "}
-                <a href="tel:+79001259458" className=" under-line">
-                  +79001259458
+                <a href="tel:+79185988291" className=" under-line">
+                  +79185988291
                 </a>
               </p>
               <p>

@@ -98,8 +98,8 @@ const Header = () => {
               Отзывы о магазине
             </Link>
 
-            <a href="tel:+79001259458" className="under-line black-text right">
-              <b>+79001259458</b>
+            <a href="tel:+79185988291" className="under-line black-text right">
+              <b>+79185988291</b>
             </a>
             <a
               className="right grey-text center"

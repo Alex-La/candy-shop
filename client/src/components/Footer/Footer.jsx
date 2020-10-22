@@ -115,10 +115,10 @@ const Footer = () => {
             <p>
               Телефон:{" "}
               <a
-                href="tel:+79001259458"
+                href="tel:+79185988291"
                 className="grey-text text-lighten-3 under-line"
               >
-                +79001259458
+                +79185988291
               </a>
             </p>
             <p>

@@ -100,8 +100,8 @@ const Info = () => {
               <h5 style={{ marginTop: 50 }}>Контактная иформация</h5>
               <p>
                 Телефон:{" "}
-                <a href="tel:+79001259458" className=" under-line">
-                  +79001259458
+                <a href="tel:+79185988291" className=" under-line">
+                  +79185988291
                 </a>
               </p>
               <p>
