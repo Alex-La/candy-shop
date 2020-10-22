@@ -5,6 +5,8 @@ import { Link, withRouter, useHistory } from "react-router-dom";
 
 import M from "materialize-css";
 
+import Filt from "./Filt";
+
 const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
   const [dropDownRefs, setDropDownRefs] = useState([]);
   const [sortMethod, setSortMethod] = useState("Сортировать по:");
@@ -50,31 +52,37 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
 
   return (
     <Fragment>
-      {history.location.pathname !== "/search" && (
-        <div className="col s12 m4">
-          <button
-            style={{ marginTop: 15 }}
-            id="category"
-            className="dropdown-trigger btn-flat"
-            data-target="dropdown1"
-            ref={dropDownRefs[0]}
-          >
-            <i className="material-icons right">expand_more</i>
-            {history.location.pathname === "/catalog/manufacturer"
-              ? "Производитель"
-              : "Категория товара"}
-          </button>
-          <ul id="dropdown1" className="dropdown-content">
-            {catalogData.map((dat, i) => (
-              <li key={i}>
-                <Link to={dat.path} onClick={() => onCategoryChange(dat.name)}>
-                  {dat.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <Filt />
+
+      {history.location.pathname !== "/search" &&
+        history.location.pathname !== "/catalog/sale" && (
+          <div className="col s12 m4">
+            <button
+              style={{ marginTop: 15 }}
+              id="category"
+              className="dropdown-trigger btn-flat"
+              data-target="dropdown1"
+              ref={dropDownRefs[0]}
+            >
+              <i className="material-icons right">expand_more</i>
+              {history.location.pathname === "/catalog/manufacturer"
+                ? "Производитель"
+                : "Категория товара"}
+            </button>
+            <ul id="dropdown1" className="dropdown-content">
+              {catalogData.map((dat, i) => (
+                <li key={i}>
+                  <Link
+                    to={dat.path}
+                    onClick={() => onCategoryChange(dat.name)}
+                  >
+                    {dat.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
       <div className="input-field col s12 m4">
         <button

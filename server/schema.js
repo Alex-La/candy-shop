@@ -38,6 +38,7 @@ const typeDefs = gql`
       size: [String]
     ): [ProductsToOrder]!
     getOrdersByEmail: Orders
+    dataToFilter: DataToFilter!
   }
 
   type Mutation {
@@ -108,6 +109,12 @@ const typeDefs = gql`
 
   type OrdersItem {
     Orders_Item: [OrdersConnection]
+  }
+
+  type DataToFilter {
+    manufacturers: [String]
+    colors: [String]
+    materials: [String]
   }
 
   type OrdersConnection {
@@ -194,7 +201,6 @@ const typeDefs = gql`
     hasMore: Boolean!
     price_range: [String]!
     refetch_require: Boolean!
-    manufacturers: [String]!
     products: [Product]!
   }
 

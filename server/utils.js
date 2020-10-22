@@ -39,6 +39,30 @@ module.exports.getManufacturers = (array) => {
   return a.sort();
 };
 
+module.exports.getColors = (array) => {
+  let a = [];
+  array.map(({ color }) => {
+    if (!a.includes(color)) {
+      if (color.indexOf("�") === -1) {
+        a.push(color);
+      }
+    }
+  });
+  return a.sort();
+};
+
+module.exports.getMaterials = (array) => {
+  let a = [];
+  array.map(({ material }) => {
+    if (!a.includes(material)) {
+      if (material.indexOf("�") === -1) {
+        a.push(material);
+      }
+    }
+  });
+  return a.sort();
+};
+
 module.exports.toUniqueArray = (data) => {
   const seen = new Set();
 

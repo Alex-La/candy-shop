@@ -8,9 +8,12 @@ import Filter from "../../assets/Filter/Filter";
 import ProductCont from "../../assets/Product/ProductCont";
 import LoadMoreButton from "../../assets/Filter/LoadMoreButton";
 import FixedToCartButton from "../../assets/FloatActionBtn/FixedToCartButton";
-import CategoryCard from "../../assets/CategoryCard/CategoryCard";
 
-const catalogData = [];
+const catalogData = [
+  {
+    name: "",
+  },
+];
 
 const Sale = () => {
   const [loadingOnButton, setLoadingOnButton] = useState(false);
@@ -46,16 +49,6 @@ const Sale = () => {
               </li>
               <li className="black-text">Распродажа</li>
             </ul>
-          </div>
-        </div>
-      </div>
-
-      <div className="section">
-        <div className="container">
-          <div className="row">
-            {catalogData.map((dat, index) => (
-              <CategoryCard dat={dat} key={index} />
-            ))}
           </div>
         </div>
       </div>

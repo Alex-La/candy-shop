@@ -2,7 +2,6 @@ const {
   paginateResults,
   resultsFilter,
   toUniqueArray,
-  getManufacturers,
 } = require("../../utils");
 
 module.exports.products = async (queryData, dataSources) => {
@@ -62,8 +61,6 @@ module.exports.products = async (queryData, dataSources) => {
   data.reverse();
   data = toUniqueArray(data);
 
-  const manufacturersArray = getManufacturers(data);
-
   const priceArray = [];
   for (let i in data) {
     priceArray.push(parseFloat(data[i].price_retail));
@@ -117,7 +114,6 @@ module.exports.products = async (queryData, dataSources) => {
       : false,
     price_range: priceRangeArray,
     refetch_require: false,
-    manufacturers: manufacturersArray,
     products: paginatedData,
   };
 };

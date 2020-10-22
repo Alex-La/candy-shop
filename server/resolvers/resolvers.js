@@ -11,6 +11,8 @@ const { createOrder } = require("./mutation/createOrder");
 const { getOrdersById } = require("./mutation/getOrdersById");
 const { getOrdersByEmail } = require("./query/getOrdersByEmail");
 
+const { getManufacturers, getColors, getMaterials } = require("../utils");
+
 module.exports = {
   Query: {
     me: async (_, __, { user }) => {
@@ -115,16 +117,35 @@ module.exports = {
     searchProducts: async (_, data, { dataSources }) =>
       await searchProducts(data, dataSources),
 
-    productsToOrder: async (_, { vendorCode, color = null, size = null }, { dataSources }) => {
+    productsToOrder: async (
+      _,
+      { vendorCode, color = null, size = null },
+      { dataSources }
+    ) => {
       let data = [];
       for (let i in vendorCode) {
-        const res = await dataSources.productsAPI.getProductsToOrder({ vendorCode: vendorCode[i], color: color && color[i], size: size && size[i] });
+        const res = await dataSources.productsAPI.getProductsToOrder({
+          vendorCode: vendorCode[i],
+          color: color && color[i],
+          size: size && size[i],
+        });
         data.push(res);
       }
       return data;
     },
 
-    getOrdersByEmail: async (_, __, { user, dataSources }) => getOrdersByEmail({ user, dataSources })
+    getOrdersByEmail: async (_, __, { user, dataSources }) =>
+      getOrdersByEmail({ user, dataSources }),
+
+    dataToFilter: async (_, __, { dataSources }) => {
+      const data = await dataSources.productsAPI.getProducts();
+
+      return {
+        manufacturers: getManufacturers(data),
+        colors: getColors(data),
+        materials: getMaterials(data),
+      };
+    },
   },
 
   Mutation: {
@@ -229,7 +250,8 @@ module.exports = {
       return "Success!";
     },
 
-    createOrder: async (_, { data }, { dataSources }) => await createOrder({ data, dataSources }),
+    createOrder: async (_, { data }, { dataSources }) =>
+      await createOrder({ data, dataSources }),
     getOrdersById: async (_, { id }, ___) => await getOrdersById({ id }),
   },
 };
