@@ -100,6 +100,14 @@ const Cart = () => {
       <div className="section">
         <div className="container">
           <div className="row">
+            <h5>Анонимная доставка</h5>
+            <p>
+              100% непрозрачная упаковка, курьеры и сотрудники почты не видят
+              содержимое заказа и название магазина
+            </p>
+          </div>
+
+          <div className="row">
             {productsInCart === null || productsInCart.length === 0 ? (
               <div className="col s12 center">
                 <div className="card-panel">

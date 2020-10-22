@@ -73,6 +73,12 @@ const Make = () => {
         <div className="container">
           <div className="row">
             <div className="col s12 m4 xl3 center">
+              <h5>Анонимная доставка</h5>
+              <div className="divider" />
+              <p className="grey-text" style={{ marginBottom: 10 }}>
+                100% непрозрачная упаковка, курьеры и сотрудники почты не видят
+                содержимое заказа и название магазина
+              </p>
               <h5>Покупали раньше?</h5>
               <div className="divider" />
 
