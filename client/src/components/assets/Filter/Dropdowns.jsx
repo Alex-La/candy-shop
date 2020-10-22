@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Fragment, useState, useEffect, createRef } from "react";
 
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, useHistory } from "react-router-dom";
 
 import M from "materialize-css";
 
 const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
   const [dropDownRefs, setDropDownRefs] = useState([]);
   const [sortMethod, setSortMethod] = useState("Сортировать по:");
+
+  const history = useHistory();
 
   useEffect(() => {
     setDropDownRefs((dropDownRef) =>
@@ -48,7 +50,7 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
 
   return (
     <Fragment>
-      {catalogData.length !== 0 && (
+      {history.location.pathname !== "/search" && (
         <div className="col s12 m4">
           <button
             style={{ marginTop: 15 }}
@@ -58,7 +60,9 @@ const Dropdowns = ({ catalogData, setOrderBy, setLoadingOnButton }) => {
             ref={dropDownRefs[0]}
           >
             <i className="material-icons right">expand_more</i>
-            Категория товара
+            {history.location.pathname === "/catalog/manufacturer"
+              ? "Производитель"
+              : "Категория товара"}
           </button>
           <ul id="dropdown1" className="dropdown-content">
             {catalogData.map((dat, i) => (

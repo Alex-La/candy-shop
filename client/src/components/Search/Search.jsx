@@ -113,6 +113,14 @@ const Search = () => {
     }
   };
 
+  const [inputValue, setInputValue] = useState("");
+
+  const handleSearch = () => {
+    setSearchInputValue(inputValue);
+    instance.close();
+    setInputValue("");
+  };
+
   return (
     <Fragment>
       <div className="section">
@@ -133,8 +141,9 @@ const Search = () => {
       <div className="section">
         <div className="container">
           <div className="row">
-            <div className="input-field col s12">
+            <div className="input-field col s10">
               <input
+                onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={onEnter}
                 placeholder="Поиск..."
                 type="text"
@@ -144,6 +153,15 @@ const Search = () => {
                 ref={autocompleteRef}
               />
               <label htmlFor="autocomplete-input">{searchInputValue}</label>
+            </div>
+            <div className="col s2">
+              <button
+                onClick={handleSearch}
+                className="btn orange waves-effect waves-light"
+                style={{ marginTop: 20 }}
+              >
+                <i className="material-icons">search</i>
+              </button>
             </div>
           </div>
         </div>
