@@ -6,6 +6,7 @@ const {
 
 module.exports.products = async (queryData, dataSources) => {
   const {
+    filter,
     sale,
     pageSize = 12,
     after,
@@ -19,34 +20,38 @@ module.exports.products = async (queryData, dataSources) => {
   let data = [];
 
   if (main && !subsection && !manufacturers)
-    data = await dataSources.productsAPI.getProductsByMain({ main });
+    data = await dataSources.productsAPI.getProductsByMain({ main, filter });
 
   if (main && subsection && !manufacturers)
     data = await dataSources.productsAPI.getProductsByMainAndSubsection({
       main,
       subsection,
+      filter,
     });
 
   if (!main && subsection && !manufacturers)
     data = await dataSources.productsAPI.getProductsBySubsection({
       subsection,
+      filter,
     });
 
   if (!main && !subsection && manufacturers)
     data = await dataSources.productsAPI.getProductsByManufacturer({
       manufacturers,
+      filter,
     });
 
   if (main && !subsection && manufacturers)
     data = await dataSources.productsAPI.getProductsByManufacturerAndMain({
       manufacturers,
       main,
+      filter,
     });
 
   if (!main && !subsection && !manufacturers)
-    data = await dataSources.productsAPI.getProducts();
+    if (!sale) data = await dataSources.productsAPI.getProducts(filter);
 
-  if (sale) data = await dataSources.productsAPI.getSaleProducts();
+  if (sale) data = await dataSources.productsAPI.getSaleProducts({ filter });
 
   if (!data) {
     return {

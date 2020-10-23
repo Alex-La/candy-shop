@@ -1,4 +1,6 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
+import Context from "../../../context/Context";
+
 import { Link } from "react-router-dom";
 
 import { useQuery } from "@apollo/react-hooks";
@@ -38,6 +40,8 @@ const ForFemale = () => {
   const [priceRange, setPriceRange] = useState([]);
   const [radio, setRadio] = useState("block");
   const [orderBy, setOrderBy] = useState("DEFAULT");
+
+  const { filter } = useContext(Context);
 
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,

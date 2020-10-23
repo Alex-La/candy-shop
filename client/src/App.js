@@ -27,6 +27,11 @@ const App = () => {
   const [totalPrice, setTotalPrice] = useState(
     JSON.parse(localStorage.getItem("total_price"))
   );
+  const [filter, setFilter] = useState({
+    manufacturers: [],
+    colors: [],
+    materials: [],
+  });
 
   return (
     <Fragment>
@@ -46,6 +51,8 @@ const App = () => {
             setCartModalInstance,
             totalPrice,
             setTotalPrice,
+            filter,
+            setFilter,
           }}
         >
           <ApolloProvider client={client}>

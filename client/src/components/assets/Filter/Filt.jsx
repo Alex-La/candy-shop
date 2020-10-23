@@ -33,10 +33,6 @@ const Filt = () => {
     }
   }, [dropDownRefs]);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <Fragment>
       {history.location.pathname !== "/catalog/manufacturer" && (
@@ -83,7 +79,7 @@ const Filt = () => {
                 <a>
                   <label>
                     <input type="checkbox" />
-                    <span>{color}</span>
+                    <span>{color === "" ? "нет" : color}</span>
                   </label>
                 </a>
               </li>
@@ -108,7 +104,7 @@ const Filt = () => {
                 <a>
                   <label>
                     <input type="checkbox" />
-                    <span>{mat}</span>
+                    <span>{mat === "" ? "нет" : mat}</span>
                   </label>
                 </a>
               </li>
