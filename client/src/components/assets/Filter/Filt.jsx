@@ -1,5 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Fragment, useEffect, useState, createRef } from "react";
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+  createRef,
+  useContext,
+} from "react";
+import Context from "../../../context/Context";
 
 import { useQuery } from "@apollo/react-hooks";
 import DATA_TO_FILTER_QUERY from "../../../graphql/queries/dataToFilter";
@@ -9,7 +16,13 @@ import M from "materialize-css";
 import { useHistory } from "react-router-dom";
 
 const Filt = () => {
+  const [colors, setColors] = useState([]);
+  const [materials, setMaterials] = useState([]);
+  const [manufacturers, setManufacturers] = useState([]);
+
   const [dropDownRefs, setDropDownRefs] = useState([]);
+
+  const { setFilter } = useContext(Context);
 
   const { data, loading } = useQuery(DATA_TO_FILTER_QUERY);
   const history = useHistory();
@@ -34,8 +47,30 @@ const Filt = () => {
   }, [dropDownRefs]);
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    setFilter({
+      manufacturers,
+      colors,
+      materials,
+    });
+  }, [colors, materials, manufacturers, setFilter]);
+
+  const onColorsChange = (e) => {
+    const val = e.target.value;
+    if (e.target.checked) setColors((col) => [...col, val]);
+    else setColors((col) => col.filter((item) => item !== val));
+  };
+
+  const onMaterialsChange = (e) => {
+    const val = e.target.value;
+    if (e.target.checked) setMaterials((mat) => [...mat, val]);
+    else setMaterials((mat) => mat.filter((item) => item !== val));
+  };
+
+  const onManufacturersChange = (e) => {
+    const val = e.target.value;
+    if (e.target.checked) setManufacturers((man) => [...man, val]);
+    else setManufacturers((man) => man.filter((item) => item !== val));
+  };
 
   return (
     <Fragment>
@@ -56,7 +91,11 @@ const Filt = () => {
                 <li key={i}>
                   <a>
                     <label>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        value={man}
+                        onChange={onManufacturersChange}
+                      />
                       <span>{man}</span>
                     </label>
                   </a>
@@ -78,11 +117,15 @@ const Filt = () => {
 
         <ul id="colors" className="dropdown-content">
           {data &&
-            data.dataToFilter.colors.map((color, i) => (
+            data.dataToFilter.colors.slice(1).map((color, i) => (
               <li key={i}>
                 <a>
                   <label>
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      value={color}
+                      onChange={onColorsChange}
+                    />
                     <span>{color}</span>
                   </label>
                 </a>
@@ -103,11 +146,15 @@ const Filt = () => {
 
         <ul id="materials" className="dropdown-content">
           {data &&
-            data.dataToFilter.materials.map((mat, i) => (
+            data.dataToFilter.materials.slice(1).map((mat, i) => (
               <li key={i}>
                 <a>
                   <label>
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      value={mat}
+                      onChange={onMaterialsChange}
+                    />
                     <span>{mat}</span>
                   </label>
                 </a>

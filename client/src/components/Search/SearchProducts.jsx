@@ -1,4 +1,4 @@
-import React, { useContext, useState, Fragment, useEffect } from "react";
+import React, { useContext, useState, Fragment } from "react";
 
 import Context from "../../context/Context";
 
@@ -36,10 +36,6 @@ const SearchProducts = () => {
       },
     }
   );
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return (
     <Fragment>
