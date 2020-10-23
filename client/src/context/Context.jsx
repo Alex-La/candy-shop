@@ -13,6 +13,8 @@ const Context = createContext({
   setCartModalInstance: () => {},
   totalPrice: null,
   setTotalPrice: () => {},
+  filter: null,
+  setFilter: () => {},
 });
 
 export default Context;
