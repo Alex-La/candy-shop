@@ -10,7 +10,6 @@ const typeDefs = gql`
     getPromoCode(name: String!): Int
     getPromoCodes: [PromoCode]
     products(
-      filter: Filter
       sale: Boolean
       pageSize: Int
       after: String
@@ -54,12 +53,6 @@ const typeDefs = gql`
     setProductPriority(value: Int, vendor_code: [String]): String
     createOrder(data: OrderData): CreateOrder!
     getOrdersById(id: String): Orders!
-  }
-
-  input Filter {
-    manufacturers: [String]
-    colors: [String]
-    materials: [String]
   }
 
   input OrderData {

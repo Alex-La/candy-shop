@@ -30,36 +30,16 @@ class ProductsAPI extends DataSource {
     });
   }
 
-  async getProducts(filter = {}) {
+  async getProducts() {
     return await this.store.FullMode.findAll({
-      where: {
-        can_buy: "1",
-        manufacturer:
-          filter.manufacturers.length !== 0
-            ? filter.manufacturers
-            : { [Op.not]: null },
-        color: filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-        material:
-          filter.materials.length !== 0 ? filter.materials : { [Op.not]: null },
-      },
+      where: { can_buy: "1" },
       order: [["priority", "DESC"]],
     });
   }
 
-  async getSaleProducts({ filter }) {
-    console.log(filter);
+  async getSaleProducts() {
     return await this.store.FullMode.findAll({
-      where: {
-        sale: { [Op.not]: null },
-        can_buy: "1",
-        manufacturer:
-          filter.manufacturers.length !== 0
-            ? filter.manufacturers
-            : { [Op.not]: null },
-        color: filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-        material:
-          filter.materials.length !== 0 ? filter.materials : { [Op.not]: null },
-      },
+      where: { sale: { [Op.not]: null }, can_buy: "1" },
       order: [["priority", "DESC"]],
     });
   }
@@ -88,88 +68,44 @@ class ProductsAPI extends DataSource {
     });
   }
 
-  async getProductsByMain({ main, filter }) {
+  async getProductsByMain({ main }) {
     return await this.store.FullMode.findAll({
-      where: {
-        main_product_category: main,
-        can_buy: "1",
-        manufacturer:
-          filter.manufacturers.length !== 0
-            ? filter.manufacturers
-            : { [Op.not]: null },
-        color: filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-        material:
-          filter.materials.length !== 0 ? filter.materials : { [Op.not]: null },
-      },
+      where: { main_product_category: main, can_buy: "1" },
       order: [["priority", "DESC"]],
     });
   }
 
-  async getProductsBySubsection({ subsection, filter }) {
+  async getProductsBySubsection({ subsection }) {
     return await this.store.FullMode.findAll({
-      where: {
-        subsection_product_category: subsection,
-        can_buy: "1",
-        manufacturer:
-          filter.manufacturers.length !== 0
-            ? filter.manufacturers
-            : { [Op.not]: null },
-        color: filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-        material:
-          filter.materials.length !== 0 ? filter.materials : { [Op.not]: null },
-      },
+      where: { subsection_product_category: subsection, can_buy: "1" },
       order: [["priority", "DESC"]],
     });
   }
 
-  async getProductsByMainAndSubsection({ main, subsection, filter }) {
+  async getProductsByMainAndSubsection({ main, subsection }) {
     return await this.store.FullMode.findAll({
       where: {
         main_product_category: main,
         subsection_product_category: subsection,
         can_buy: "1",
-        manufacturer:
-          filter.manufacturers.length !== 0
-            ? filter.manufacturers
-            : { [Op.not]: null },
-        color: filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-        material:
-          filter.materials.length !== 0 ? filter.materials : { [Op.not]: null },
       },
       order: [["priority", "DESC"]],
     });
   }
 
-  async getProductsByManufacturer({ manufacturers, filter }) {
+  async getProductsByManufacturer({ manufacturers }) {
     return await this.store.FullMode.findAll({
-      where: {
-        manufacturer: manufacturers,
-        can_buy: "1",
-        // manufacturer:
-        //   filter.manufacturers.length !== 0
-        //     ? filter.manufacturers
-        //     : { [Op.not]: null },
-        // color: filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-        // material:
-        //   filter.materials.length !== 0 ? filter.materials : { [Op.not]: null },
-      },
+      where: { manufacturer: manufacturers, can_buy: "1" },
       order: [["priority", "DESC"]],
     });
   }
 
-  async getProductsByManufacturerAndMain({ manufacturers, main, filter }) {
+  async getProductsByManufacturerAndMain({ manufacturers, main }) {
     return await this.store.FullMode.findAll({
       where: {
         main_product_category: main,
         manufacturer: manufacturers,
         can_buy: "1",
-        // manufacturer:
-        //   filter.manufacturers.length !== 0
-        //     ? filter.manufacturers
-        //     : { [Op.not]: null },
-        // color: filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-        // material:
-        //   filter.materials.length !== 0 ? filter.materials : { [Op.not]: null },
       },
       order: [["priority", "DESC"]],
     });
@@ -180,93 +116,29 @@ class ProductsAPI extends DataSource {
       switch (category) {
         case "Категория":
           return await this.store.FullMode.findAll({
-            where: {
-              main_product_category: searchName,
-              can_buy: "1",
-              manufacturer:
-                filter.manufacturers.length !== 0
-                  ? filter.manufacturers
-                  : { [Op.not]: null },
-              color:
-                filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-              material:
-                filter.materials.length !== 0
-                  ? filter.materials
-                  : { [Op.not]: null },
-            },
+            where: { main_product_category: searchName, can_buy: "1" },
             order: [["priority", "DESC"]],
           });
         case "Подкатегория":
           return await this.store.FullMode.findAll({
-            where: {
-              subsection_product_category: searchName,
-              can_buy: "1",
-              manufacturer:
-                filter.manufacturers.length !== 0
-                  ? filter.manufacturers
-                  : { [Op.not]: null },
-              color:
-                filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-              material:
-                filter.materials.length !== 0
-                  ? filter.materials
-                  : { [Op.not]: null },
-            },
+            where: { subsection_product_category: searchName, can_buy: "1" },
             order: [["priority", "DESC"]],
           });
         case "Производитель":
           return await this.store.FullMode.findAll({
-            where: {
-              manufacturer: searchName,
-              can_buy: "1",
-              manufacturer:
-                filter.manufacturers.length !== 0
-                  ? filter.manufacturers
-                  : { [Op.not]: null },
-              color:
-                filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-              material:
-                filter.materials.length !== 0
-                  ? filter.materials
-                  : { [Op.not]: null },
-            },
+            where: { manufacturer: searchName, can_buy: "1" },
             order: [["priority", "DESC"]],
           });
       }
     } else {
       if (searchName.length !== 0) {
         const result = await this.store.FullMode.findAll({
-          where: {
-            name: searchName,
-            can_buy: "1",
-            manufacturer:
-              filter.manufacturers.length !== 0
-                ? filter.manufacturers
-                : { [Op.not]: null },
-            color:
-              filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-            material:
-              filter.materials.length !== 0
-                ? filter.materials
-                : { [Op.not]: null },
-          },
+          where: { name: searchName, can_buy: "1" },
           order: [["priority", "DESC"]],
         });
         if (result.length === 0) {
           const data = await this.store.FullMode.findAll({
-            where: {
-              can_buy: "1",
-              manufacturer:
-                filter.manufacturers.length !== 0
-                  ? filter.manufacturers
-                  : { [Op.not]: null },
-              color:
-                filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-              material:
-                filter.materials.length !== 0
-                  ? filter.materials
-                  : { [Op.not]: null },
-            },
+            where: { can_buy: "1" },
             order: [["priority", "DESC"]],
           });
 
@@ -279,19 +151,7 @@ class ProductsAPI extends DataSource {
       } else {
         return await this.store.FullMode.findAll({
           limit: 1000,
-          where: {
-            can_buy: "1",
-            manufacturer:
-              filter.manufacturers.length !== 0
-                ? filter.manufacturers
-                : { [Op.not]: null },
-            color:
-              filter.colors.length !== 0 ? filter.colors : { [Op.not]: null },
-            material:
-              filter.materials.length !== 0
-                ? filter.materials
-                : { [Op.not]: null },
-          },
+          where: { can_buy: "1" },
           order: [["priority", "DESC"]],
         });
       }

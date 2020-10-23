@@ -2,7 +2,6 @@ import { gql } from "apollo-boost";
 
 const PRODUCTS_QUERY = gql`
   query products(
-    $filter: Filter
     $sale: Boolean
     $pageSize: Int
     $after: String
@@ -13,7 +12,6 @@ const PRODUCTS_QUERY = gql`
     $manufacturers: [String]
   ) {
     products(
-      filter: $filter
       sale: $sale
       pageSize: $pageSize
       after: $after
