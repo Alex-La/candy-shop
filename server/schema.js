@@ -27,6 +27,7 @@ const typeDefs = gql`
     subsectionNames: [String]!
     names: [String]!
     searchProducts(
+      filter: Filter
       pageSize: Int
       after: String
       name: String

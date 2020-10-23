@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext, useEffect } from "react";
+import React, { Fragment, useState, useContext } from "react";
 import Context from "../../../context/Context";
 
 import { Link } from "react-router-dom";
@@ -24,10 +24,6 @@ const Sale = () => {
   const [orderBy, setOrderBy] = useState("DEFAULT");
 
   const { filter } = useContext(Context);
-
-  useEffect(() => {
-    console.log(filter);
-  }, [filter]);
 
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,

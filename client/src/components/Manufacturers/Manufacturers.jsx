@@ -1,4 +1,6 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useContext } from "react";
+import Context from "../../context/Context";
+
 import { Link } from "react-router-dom";
 
 import { useQuery } from "@apollo/react-hooks";
@@ -33,9 +35,12 @@ const Manufacturers = () => {
     }
   }, [man.data]);
 
+  const { filter } = useContext(Context);
+
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
+      filter,
       manufacturers: new Array(sessionStorage.getItem("manufacturer")),
       orderBy,
       priceRange: priceRange.length !== 0 ? priceRange : [],

@@ -1,5 +1,7 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+
+import Context from "../../../../context/Context";
 
 import { useQuery } from "@apollo/react-hooks";
 import PRODUCTS_QUERY from "../../../../graphql/queries/products";
@@ -42,9 +44,12 @@ const Exciting = () => {
   const [radio, setRadio] = useState("block");
   const [orderBy, setOrderBy] = useState("DEFAULT");
 
+  const { filter } = useContext(Context);
+
   const { data, loading, fetchMore, refetch } = useQuery(PRODUCTS_QUERY, {
     notifyOnNetworkStatusChange: true,
     variables: {
+      filter,
       subsection: "Возбуждающие",
       orderBy,
       priceRange: priceRange.length !== 0 ? priceRange : [],
