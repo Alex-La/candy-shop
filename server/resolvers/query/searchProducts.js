@@ -5,7 +5,14 @@ const {
 } = require("../../utils");
 
 module.exports.searchProducts = async (dat, dataSources) => {
-  const { name, pageSize = 12, after, orderBy = "", priceRange = [] } = dat;
+  const {
+    filter,
+    name,
+    pageSize = 12,
+    after,
+    orderBy = "",
+    priceRange = [],
+  } = dat;
 
   let searchName = "";
   let category = null;
@@ -20,6 +27,7 @@ module.exports.searchProducts = async (dat, dataSources) => {
   let data = await dataSources.productsAPI.searchProducts({
     searchName,
     category,
+    filter,
   });
 
   if (!data) {

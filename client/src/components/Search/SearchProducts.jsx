@@ -1,4 +1,4 @@
-import React, { useContext, useState, Fragment, useEffect } from "react";
+import React, { useContext, useState, Fragment } from "react";
 
 import Context from "../../context/Context";
 
@@ -18,7 +18,7 @@ const catalogData = [
 ];
 
 const SearchProducts = () => {
-  const { searchInputValue } = useContext(Context);
+  const { searchInputValue, filter } = useContext(Context);
 
   const [loadingOnButton, setLoadingOnButton] = useState(false);
   const [priceRange, setPriceRange] = useState([]);
@@ -30,16 +30,13 @@ const SearchProducts = () => {
     {
       notifyOnNetworkStatusChange: true,
       variables: {
+        filter,
         name: searchInputValue,
         orderBy,
         priceRange: priceRange.length !== 0 ? priceRange : [],
       },
     }
   );
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return (
     <Fragment>

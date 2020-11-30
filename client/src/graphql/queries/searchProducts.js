@@ -2,6 +2,7 @@ import { gql } from "apollo-boost";
 
 const SEARCH_PRODUCTS_QUERY = gql`
   query searchProducts(
+    $filter: Filter
     $name: String
     $pageSize: Int
     $after: String
@@ -9,6 +10,7 @@ const SEARCH_PRODUCTS_QUERY = gql`
     $priceRange: [String]
   ) {
     searchProducts(
+      filter: $filter
       name: $name
       pageSize: $pageSize
       after: $after
