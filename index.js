@@ -33,6 +33,7 @@ const server = new ApolloServer({
     userAPI: new UserAPI({ store }),
     productsAPI: new ProductsAPI({ store }),
   }),
+  playground: true,
 });
 
 const app = express();
@@ -40,12 +41,12 @@ app.use(cors());
 
 app.use("/static", express.static(path.join(__dirname, "public")));
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use("/", express.static(path.join(__dirname, "client", "build")));
-//   app.get("*", (_, res) => {
-//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-//   });
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use("/", express.static(path.join(__dirname, "client", "build")));
+  app.get("/", (_, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 server.applyMiddleware({ app });
 
