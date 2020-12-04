@@ -50,7 +50,7 @@ if (process.env.NODE_ENV === "production") {
 server.applyMiddleware({ app });
 
 const PORT = config.get("port");
-app.listen({ port: PORT }, () => {
+app.listen({ port: process.env.PORT || PORT }, () => {
   console.log(
     "🚀 Server ready at",
     `https://localhost:${process.env.PORT || PORT}${server.graphqlPath}`
