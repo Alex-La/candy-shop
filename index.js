@@ -34,6 +34,7 @@ const server = new ApolloServer({
     productsAPI: new ProductsAPI({ store }),
   }),
   playground: true,
+  introspection: true,
 });
 
 const app = express();
