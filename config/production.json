@@ -1,5 +1,5 @@
 {
   "port": 4000,
   "jwtSecret": "alex very proud of candy-shop.su",
-  "pgString": "postgres://postgres:qwe123ewq321@localhost:5432/candy-shop"
+  "pgString": "postgres://hgpjvfkgivljvb:4914671b78b7fc00ae9c60428928ad399d04608336865f3ff16c8ff2b35f2081@ec2-54-205-248-255.compute-1.amazonaws.com:5432/d4r8prjmv881sc"
 }
